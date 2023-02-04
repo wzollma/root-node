@@ -12,7 +12,6 @@ namespace DefenceNodes
 	public class Tree : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
 	{
 		[SerializeField] private GameObject treePrefab;
-		[SerializeField] private GameObject treeRootPrefab;
 
 		private Node _node;
 		public Node Node => _node;
@@ -42,11 +41,7 @@ namespace DefenceNodes
 			GameObject newTreeGo = Instantiate(treePrefab, pointerPosWorld, quaternion.identity);
 			Tree newTree = newTreeGo.GetComponent<Tree>();
 
-			GameObject newTreeRootGo = Instantiate(treeRootPrefab, midpoint, quaternion.identity);
-			TreeRoot newTreeRoot = newTreeRootGo.GetComponent<TreeRoot>();
-
-			_node.AddChild(newTreeRoot.Node);
-			newTreeRoot.Node.AddChild(newTree._node);
+			_node.AddChild(newTree.Node);
 		}
 
 		public void OnPointerClick(PointerEventData eventData)
@@ -55,10 +50,7 @@ namespace DefenceNodes
 			
 			if (eventData.button == PointerEventData.InputButton.Right)
 			{
-				if(_node.HasParent)
-					_node.Parent.Kill();
-				else
-					_node.Kill();
+				_node.Kill();
 			}
 		}
 
