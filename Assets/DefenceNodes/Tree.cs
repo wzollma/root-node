@@ -11,18 +11,20 @@ namespace DefenceNodes
 	[RequireComponent(typeof(Node))]
 	public class Tree : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
 	{
+		public float ReachDistance = 8;
 		[SerializeField] private GameObject treePrefab;
 
 		private Node _node;
 		public Node Node => _node;
 
-		private PhysicsRaycaster _physicsRaycaster;
-		
 		private void Awake()
 		{
 			_node = GetComponent<Node>();
+		}
 
-			_physicsRaycaster = Camera.main.GetComponent<PhysicsRaycaster>();
+		private void Start()
+		{
+			gameObject.tag = "Tree";
 		}
 
 		public void OnBeginDrag(PointerEventData eventData)
@@ -33,12 +35,12 @@ namespace DefenceNodes
 		public void OnEndDrag(PointerEventData eventData)
 		{
 
-			Vector3 pointerPosWorld = eventData.pointerCurrentRaycast.worldPosition;
+			Vector3 pointerPos = eventData.pointerCurrentRaycast.worldPosition;
 
-			Vector3 midpoint = (transform.position + pointerPosWorld) / 2;
-			
+			if (!CheckIfCloseEnough(pointerPos))
+				return;
 
-			GameObject newTreeGo = Instantiate(treePrefab, pointerPosWorld, quaternion.identity);
+			GameObject newTreeGo = Instantiate(treePrefab, pointerPos, quaternion.identity);
 			Tree newTree = newTreeGo.GetComponent<Tree>();
 
 			_node.AddChild(newTree.Node);
@@ -46,8 +48,6 @@ namespace DefenceNodes
 
 		public void OnPointerClick(PointerEventData eventData)
 		{
-			
-			
 			if (eventData.button == PointerEventData.InputButton.Right)
 			{
 				_node.Kill();
@@ -56,7 +56,18 @@ namespace DefenceNodes
 
 		public void OnDrag(PointerEventData eventData)
 		{
-			Debug.DrawLine(eventData.pointerCurrentRaycast.worldPosition, transform.position, Color.green);
+
+			Color c = CheckIfCloseEnough(eventData.pointerCurrentRaycast.worldPosition) ? Color.green : Color.red;
+				
+			Debug.DrawLine(eventData.pointerCurrentRaycast.worldPosition, transform.position, c);
+		}
+
+		private bool CheckIfCloseEnough(Vector3 desiredPoint)
+		{
+			Vector2 transPosXZ = new Vector2(transform.position.x, transform.position.z);
+			Vector2 pointXZ = new Vector2(desiredPoint.x, desiredPoint.z);
+
+			return Vector2.Distance(transPosXZ, pointXZ) < ReachDistance;
 		}
 	}
 }
