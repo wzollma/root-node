@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
             signedAngle = (signedAngle + Mathf.PI) % twoPI;
             overHalfApart = signedAngle > Mathf.PI;
 
-            info = new NavInfo(transform, maxDist, nextNavLine.getStartPos(), shortestDistRadians(prevAngle, nextAngle) < 0);
+            info = new NavInfo(transform, maxDist, nextNavLine.getStartPos(), NavRing.shortestDistRadians(prevAngle, nextAngle) < 0);
         }
         else
         {
@@ -72,7 +72,6 @@ public class Enemy : MonoBehaviour
         
         if (traversedCurNavElement)
         {
-            Debug.Log("traversed");
             curPathIndex++;
 
             if (curPathIndex >= path.Count)
@@ -81,13 +80,6 @@ public class Enemy : MonoBehaviour
                 return;
             }                
         }
-    }
-    float shortestDistRadians(float start, float stop)
-    {
-        float twoPI = Mathf.PI * 2;
-        float modDiff = (stop - start) % twoPI;
-        float shortestDistance = Mathf.PI - Mathf.Abs(Mathf.Abs(modDiff) - Mathf.PI);
-        return (modDiff + twoPI) % twoPI < Mathf.PI ? shortestDistance *= 1 : shortestDistance *= -1;
     }
 
     void AttackTreeNode()

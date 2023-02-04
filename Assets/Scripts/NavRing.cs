@@ -41,9 +41,7 @@ public class NavRing : MonoBehaviour, NavElement
             angleToRotate *= -1;
 
         float newAngle = posModAngle(preAngle + angleToRotate);
-        Debug.Log($"pre: {preAngle}   target: {targetAngle}   new: {newAngle}");
-        Debug.Log(navInfo.movingClockwise);
-        bool reachedDestination = Mathf.Abs(targetAngle - newAngle) > Mathf.Abs(targetAngle - preAngle);
+        bool reachedDestination = Mathf.Abs(shortestDistRadians(newAngle, targetAngle)) > Mathf.Abs(shortestDistRadians(preAngle, targetAngle));
         if (reachedDestination)
         {
             newAngle = targetAngle;//navInfo.enemyTrans.position = navInfo.endPos;
@@ -72,6 +70,14 @@ public class NavRing : MonoBehaviour, NavElement
     public static float posModAngle(float angle)
     {
         return (angle + Mathf.PI * 2) % (Mathf.PI * 2);
+    }
+
+    public static float shortestDistRadians(float start, float stop)
+    {
+        float twoPI = Mathf.PI * 2;
+        float modDiff = (stop - start) % twoPI;
+        float shortestDistance = Mathf.PI - Mathf.Abs(Mathf.Abs(modDiff) - Mathf.PI);
+        return (modDiff + twoPI) % twoPI < Mathf.PI ? shortestDistance *= 1 : shortestDistance *= -1;
     }
 
     public float getPathLength()

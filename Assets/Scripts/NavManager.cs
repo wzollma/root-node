@@ -101,8 +101,6 @@ public class NavManager : MonoBehaviour
 
             NavLine p = path[i - 1] as NavLine;
             NavLine n = path[i + 1] as NavLine;
-
-            Debug.Log($"p: {NavRing.posModAngle(p.getAngle())}    n: {NavRing.posModAngle(n.getAngle())}     c: {Mathf.Abs(NavRing.posModAngle(n.getAngle()) - NavRing.posModAngle(p.getAngle())) > Mathf.PI}");
         }
         lastEnemy = enemyTrans.GetComponent<Enemy>();
 
