@@ -2,28 +2,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NavRing : MonoBehaviour
+public class NavRing : MonoBehaviour, NavElement
 {
     [SerializeField] int numPathsInward;
+    [SerializeField] float pathOffset; // input as degrees, then internally used as radians
     [SerializeField] float radius;
 
-    void Start()
+    NavRing ringInside;
+
+    List<NavLine> navLines;
+
+    void Awake()
     {
-        
+        pathOffset = pathOffset * Mathf.Deg2Rad;
+
+        float radiansPerPath = 2 * Mathf.PI / numPathsInward;
+
+        if (navLines == null || navLines.Count != numPathsInward)
+        {
+            navLines = new List<NavLine>();
+            for (int i = 0; i < numPathsInward; i++)
+            {
+                float curAngle = i * radiansPerPath + pathOffset;                
+                navLines.Add(new NavLine(angleToPos(curAngle, radius), angleToPos(curAngle, radius - getPathLength()), curAngle));
+            }
+        }
     }
 
-    void Update()
+    // returns true if reached the start of the desired path (finished traveling on ring)
+    public bool setNextPos(NavInfo navInfo)
     {
-        
-    }
+        Vector3 prePos = navInfo.enemyTrans.position;
 
-    public Vector3 getNewPosOnRing(Vector3 curPos, float distanceToTravel)
-    {
-        float curAngle = posToAngle(curPos);
+        float preAngle = posModAngle(posToAngle(prePos));
+        float targetAngle = posModAngle(posToAngle(navInfo.endPos));
+        float angleToRotate = navInfo.maxDist / radius;        
+        if (navInfo.movingClockwise)
+            angleToRotate *= -1;
 
-        float angleToRotate = distanceToTravel / radius;
+        float newAngle = posModAngle(preAngle + angleToRotate);
+        Debug.Log($"pre: {preAngle}   target: {targetAngle}   new: {newAngle}");
+        Debug.Log(navInfo.movingClockwise);
+        bool reachedDestination = Mathf.Abs(targetAngle - newAngle) > Mathf.Abs(targetAngle - preAngle);
+        if (reachedDestination)
+        {
+            newAngle = targetAngle;//navInfo.enemyTrans.position = navInfo.endPos;
+        }            
 
-        return angleToPos(curAngle + angleToRotate);
+        Vector3 newPosNoY = angleToPos(newAngle, radius);
+        navInfo.enemyTrans.position = newPosNoY + Vector3.up * prePos.y;        
+
+
+        return reachedDestination;
     }
 
     float posToAngle(Vector3 pos)
@@ -31,7 +61,7 @@ public class NavRing : MonoBehaviour
         return Mathf.Atan2(pos.z - transform.position.z, pos.x - transform.position.x);
     }
 
-    Vector3 angleToPos(float angle)
+    Vector3 angleToPos(float angle, float radius)
     {
         float x = transform.position.x + radius * Mathf.Cos(angle);
         float z = transform.position.z + radius * Mathf.Sin(angle);
@@ -39,10 +69,45 @@ public class NavRing : MonoBehaviour
         return new Vector3(x, 0, z);
     }
 
+    public static float posModAngle(float angle)
+    {
+        return (angle + Mathf.PI * 2) % (Mathf.PI * 2);
+    }
+
+    public float getPathLength()
+    {
+        if (ringInside == null)
+            return 0;
+
+        return radius - ringInside.radius;
+    }
+
+    public int getRandNavLineIndex()
+    {
+        return Random.Range(0, navLines.Count);
+    }
+
+    public NavLine getNavLineByIndex(int index)
+    {
+        if (index < 0 || index >= navLines.Count)
+            return null;
+
+        return navLines[index];
+    }
+
+    public void setInnerRing(NavRing innerRing)
+    {
+        ringInside = innerRing;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, radius);
 
-        
+        if (navLines != null)
+        {
+            foreach (NavLine p in navLines)
+                Gizmos.DrawLine(p.getStartPos(), p.getEndPos());
+        }
     }
 }
