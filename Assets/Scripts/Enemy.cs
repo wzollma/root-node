@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         // sets enemy at beginning of path
-        path = NavManager.instance.getPath(transform);
+        //path = NavManager.instance.getPath(transform);
 
         curSpeed = startSpeed;
         curDamage = startDamage;
@@ -95,12 +95,17 @@ public class Enemy : MonoBehaviour
 
     void AttackBase()
     {
-        enabled = false;//Destroy(gameObject);
+        Destroy(gameObject);
     }
 
     public float getDifficulty()
     {
         return difficultyScore;
+    }
+
+    public void setPath(List<int> pathIndeces)
+    {
+        path = NavManager.instance.getPath(transform, pathIndeces);
     }
 
     private void OnDrawGizmos()

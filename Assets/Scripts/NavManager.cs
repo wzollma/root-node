@@ -9,7 +9,7 @@ public class NavManager : MonoBehaviour
     [SerializeField] float spawnCooldown;
 
     List<NavRing> allNavRings;
-    Enemy enemy;
+    [SerializeField] Enemy enemy;
     float lastTimeSpawned;
 
     Enemy lastEnemy;
@@ -36,26 +36,29 @@ public class NavManager : MonoBehaviour
 
     void Update()
     {
-        if (!lastEnemy.enabled)
-        {
-            Instantiate(enemy, transform.position, Quaternion.identity).enabled = true;
-            lastTimeSpawned = Time.time;
-        }
+        //if (lastEnemy == null)
+        //{
+        //    Instantiate(enemy, transform.position, Quaternion.identity);
+        //    lastTimeSpawned = Time.time;
+        //}
     }
 
     /// <summary>
     /// Creates a random path.  Sets enemyTrans at the start of that path.
     /// </summary>
     /// <returns></returns>
-    public List<NavElement> getPath(Transform enemyTrans)
+    public List</*NavElement*/int> getPathIndeces()
     {
         List<int> indeces = new List<int>();
 
         // gets a random navLine index from each of the navRings
         foreach (NavRing r in allNavRings)
+        {
             indeces.Add(r.getRandNavLineIndex());
+            //Debug.Log("new index: " + indeces[indeces.Count - 1]);
+        }
 
-        return getPath(enemyTrans, indeces);
+        return /*getPath(enemyTrans, */indeces/*)*/;
     }
 
     /// <summary>
