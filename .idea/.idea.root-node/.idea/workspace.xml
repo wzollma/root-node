@@ -10,11 +10,13 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/88d854ea2c91426ebc464f01cd71aa85157a00/2d/42a61218/Camera.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8cb8bce468c64351ae8c390df9a4c1175c00/5f/94e7e78b/FreeFunctionAttribute.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/DefenceNodes/CameraRef.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/DefenceNodes/Node.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/Node.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/Tree.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/node test.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/node test.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/node test.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventData/PointerEventData.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/jtriveri/repos/root-node/ProjectSettings/TagManager.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
