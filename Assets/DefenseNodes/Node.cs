@@ -5,7 +5,7 @@ using UnityEditor.MemoryProfiler;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace DefenceNodes
+namespace DefenseNodes
 {
 	public class Node : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler,
 		IUpdateSelectedHandler
