@@ -108,7 +108,9 @@ public class NavRing : MonoBehaviour, NavElement
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, radius);
+        //Gizmos.DrawWireSphere(transform.position, radius);
+        
+        UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.up, radius);
 
         if (navLines != null)
         {

@@ -86,7 +86,7 @@ namespace DefenseNodes
 
 		private Vector3 _dragPosWorld = Vector3.zero;
 		private bool _placementValid;
-		
+
 		private void Start()
 		{
 			gameObject.tag = "Node";
@@ -94,14 +94,16 @@ namespace DefenseNodes
 
 		public void OnBeginDrag(PointerEventData eventData)
 		{
+			CameraRef.Raycaster.eventMask &= ~(1 << LayerMask.NameToLayer("tree"));
 			eventData.selectedObject = gameObject;
 			_placementValid = false;
 		}
 
 		public void OnEndDrag(PointerEventData eventData)
 		{
+			CameraRef.Raycaster.eventMask |= 1 << LayerMask.NameToLayer("tree");
 			eventData.selectedObject = null;
-			
+
 			if (!_placementValid)
 				return;
 
@@ -126,7 +128,7 @@ namespace DefenseNodes
 
 		private bool CheckIfValidPlacement(PointerEventData eventData)
 		{
-			if (!eventData.hovered[0].CompareTag("Ground"))
+			if (eventData.hovered.Count == 0 || !eventData.hovered[0].CompareTag("Ground"))
 				return false;
 
 			Vector2 transformXZ = new Vector2(transform.position.x, transform.position.z);
