@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float startSpeed;
     [SerializeField] float startDamage;
     [SerializeField] float startBaseDamage;
+    [SerializeField] float difficultyScore;
 
     List<NavElement> path;
     int curPathIndex;
@@ -95,6 +96,11 @@ public class Enemy : MonoBehaviour
     void AttackBase()
     {
         enabled = false;//Destroy(gameObject);
+    }
+
+    public float getDifficulty()
+    {
+        return difficultyScore;
     }
 
     private void OnDrawGizmos()
