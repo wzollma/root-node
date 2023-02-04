@@ -37,7 +37,7 @@ namespace DefenceNodes
 
 			Vector3 pointerPos = eventData.pointerCurrentRaycast.worldPosition;
 
-			if (!CheckIfCloseEnough(pointerPos))
+			if (!CheckIfValidPlacement(eventData))
 				return;
 
 			GameObject newTreeGo = Instantiate(treePrefab, pointerPos, quaternion.identity);
@@ -57,17 +57,21 @@ namespace DefenceNodes
 		public void OnDrag(PointerEventData eventData)
 		{
 
-			Color c = CheckIfCloseEnough(eventData.pointerCurrentRaycast.worldPosition) ? Color.green : Color.red;
+			Color c = CheckIfValidPlacement(eventData) ? Color.green : Color.red;
 				
 			Debug.DrawLine(eventData.pointerCurrentRaycast.worldPosition, transform.position, c);
 		}
 
-		private bool CheckIfCloseEnough(Vector3 desiredPoint)
+		private bool CheckIfValidPlacement(PointerEventData eventData)
 		{
-			Vector2 transPosXZ = new Vector2(transform.position.x, transform.position.z);
-			Vector2 pointXZ = new Vector2(desiredPoint.x, desiredPoint.z);
+			if (!eventData.hovered[0].CompareTag("Ground"))
+				return false;
+			
+			Vector2 transformXZ = new Vector2(transform.position.x, transform.position.z);
+			Vector3 wp = eventData.pointerCurrentRaycast.worldPosition;
+			Vector2 pointXZ = new Vector2(wp.x, wp.z);
 
-			return Vector2.Distance(transPosXZ, pointXZ) < ReachDistance;
+			return Vector2.Distance(transformXZ, pointXZ) < ReachDistance;
 		}
 	}
 }

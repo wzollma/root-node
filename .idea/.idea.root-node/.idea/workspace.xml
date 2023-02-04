@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6ed9c409-ccee-4db1-be5c-727fb6557b4b" name="Changes" comment="add tree nodes and tree root nodes" />
+    <list default="true" id="6ed9c409-ccee-4db1-be5c-727fb6557b4b" name="Changes" comment="add distance limiter" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,8 +12,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8cb8bce468c64351ae8c390df9a4c1175c00/5f/94e7e78b/FreeFunctionAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DefenceNodes/CameraRef.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DefenceNodes/Node.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/DefenceNodes/TreeRoot.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/jtriveri/repos/root-node/Assets/TreeNode.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/Tree.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/node test.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventData/PointerEventData.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -75,6 +75,7 @@
       <updated>1675480812208</updated>
       <workItem from="1675480818477" duration="269000" />
       <workItem from="1675481267624" duration="5299000" />
+      <workItem from="1675533658579" duration="2820000" />
     </task>
     <task id="LOCAL-00001" summary="add tree nodes and tree root nodes">
       <created>1675486549685</created>
@@ -83,7 +84,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675486549685</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="remove connection nodes">
+      <created>1675533849785</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1675533849785</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add distance limiter">
+      <created>1675537314139</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1675537314139</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,6 +121,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="add tree nodes and tree root nodes" />
-    <option name="LAST_COMMIT_MESSAGE" value="add tree nodes and tree root nodes" />
+    <MESSAGE value="remove connection nodes" />
+    <MESSAGE value="add distance limiter" />
+    <option name="LAST_COMMIT_MESSAGE" value="add distance limiter" />
   </component>
 </project>
