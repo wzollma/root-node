@@ -168,13 +168,17 @@ namespace DefenseNodes
 			if (!NodeSpawner.Singleton.CheckIfEnoughMoneyForSelected())
 				return false;
 			
+			if (Vector3.Distance(transform.position, pointerWorld) > ReachDistance)
+				return false;
+			
 			if (eventData.hovered.Count < 1 || eventData.hovered[0].layer != LayerRefs.Ground)
+				return false;
+
+			float distFromCenter = Vector3.Distance(pointerWorld, Vector3.zero);
+			if (distFromCenter < 7 || distFromCenter > 22)
 				return false;
 			
 			if (Physics.CheckSphere(pointerWorld, 1, LayerRefs.TowerBodyMask))
-				return false;
-			
-			if (Vector3.Distance(transform.position, pointerWorld) > ReachDistance)
 				return false;
 
 
