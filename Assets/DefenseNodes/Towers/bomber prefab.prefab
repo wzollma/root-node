@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 5
-  towerName: Bomber
+  towerName: Pine Bomber
   initialHealth: 10
   meshFilter: {fileID: 6718247671802669564}
   healthyMesh: {fileID: -672524771554707766, guid: 6b48dcb5be406394981406436044c409,

@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
-using Random = Unity.Mathematics.Random;
+using Random = UnityEngine.Random;
 
 namespace DefenseNodes.Towers
 {
@@ -14,12 +13,6 @@ namespace DefenseNodes.Towers
 	
 	public abstract class TowerBase : MonoBehaviour
 	{
-		protected Random _random;
-
-		private void Awake()
-		{
-			_random = Random.CreateFromIndex(0);
-		}
 
 		[SerializeField] protected int cost = 1;
 		public int Cost => cost;
@@ -41,7 +34,7 @@ namespace DefenseNodes.Towers
 		[SerializeField] internal Vector2 attackSoundFrequencyRange = new Vector2(.6f, 2.5f);
 		internal float attackCooldown; // random value within above range (provides auditory variation)
 		internal float lastTimeAttackSound = -100; // arbitrarily low number so sound could play on start
-
+		
 		public void OnNodeTakesDamage(float health)
 		{
 			if (health > 5)
@@ -54,7 +47,7 @@ namespace DefenseNodes.Towers
 			}
 
 
-			Vector3 randLook = new Vector3(_random.NextFloat() - 0.5f, 1, _random.NextFloat() - 0.5f).normalized;
+			Vector3 randLook = new Vector3(Random.value - 0.5f, 1, Random.value - 0.5f);
 			meshPivot.rotation = Quaternion.LookRotation(Vector3.forward, randLook);
 		}
 		
