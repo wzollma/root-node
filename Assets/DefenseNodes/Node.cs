@@ -129,12 +129,7 @@ namespace DefenseNodes
 				return false;
 
 
-			// float pathDist = NavManager.instance.getShortestDistanceToPath(pointerWorld);
-			// Debug.Log(pathDist);
-			// if (pathDist < 0.5f)
-			// 	return false;
-
-			return true;
+			return NavManager.instance.isPositionValid(pointerWorld, .5f, 100);
 		}
 
 		public void OnPointerClick(PointerEventData eventData)
