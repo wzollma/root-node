@@ -12,9 +12,18 @@ namespace DefenseNodes
 		IUpdateSelectedHandler
 	{
 		public event Action OnDestroyed = delegate {  };
-
 		public event Action<float> OnHealthChange = delegate {  };
-		
+
+		private CapsuleCollider _capsuleCollider;
+
+		private static LayerMask _treeLayer;
+		private static LayerMask _groundLayer;
+
+		private void Awake()
+		{
+			_capsuleCollider = GetComponent<CapsuleCollider>();
+		}
+
 		public List<Node> Children { get; private set; } = new List<Node>();
 		public bool HasParent { get; private set; } = false;
 		public Node Parent { get; private set; }
@@ -87,7 +96,7 @@ namespace DefenseNodes
 
 		public void OnBeginDrag(PointerEventData eventData)
 		{
-			CameraRef.Raycaster.eventMask &= ~(1 << LayerMask.NameToLayer("tree"));
+			CameraRef.Raycaster.eventMask &= ~(1 << gameObject.layer);
 			eventData.selectedObject = gameObject;
 			_placementValid = false;
 		}
@@ -107,7 +116,7 @@ namespace DefenseNodes
 
 		public void OnEndDrag(PointerEventData eventData)
 		{
-			CameraRef.Raycaster.eventMask |= 1 << LayerMask.NameToLayer("tree");
+			CameraRef.Raycaster.eventMask |= 1 << gameObject.layer;
 			
 			eventData.selectedObject = null;
 
@@ -133,7 +142,6 @@ namespace DefenseNodes
 				new Vector3(1, 1, Vector3.Distance(transform.position, Parent.transform.position));
 			rootTransform.rotation =
 				Quaternion.LookRotation(Parent.transform.position - transform.position, Vector3.up);
-
 		}
 
 		private bool CheckIfValidPlacement(PointerEventData eventData)
@@ -144,7 +152,10 @@ namespace DefenseNodes
 			if (!NodeSpawner.Singleton.CheckIfEnoughMoneyForSelected())
 				return false;
 			
-			if (eventData.hovered.Count < 1 || eventData.hovered[0].layer != LayerMask.NameToLayer("ground"))
+			if (eventData.hovered.Count < 1 || eventData.hovered[0].layer != LayerRefs.Ground)
+				return false;
+
+			if (Physics.CheckSphere(pointerWorld, 1, LayerRefs.TowerBodyMask))
 				return false;
 
 			if (Vector3.Distance(transform.position, pointerWorld) > ReachDistance)

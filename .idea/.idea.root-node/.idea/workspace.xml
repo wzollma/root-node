@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6ed9c409-ccee-4db1-be5c-727fb6557b4b" name="Changes" comment="mapler gooper functional">
+    <list default="true" id="6ed9c409-ccee-4db1-be5c-727fb6557b4b" name="Changes" comment="visual roots between nodes">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.root-node/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.root-node/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefenseNodes/Node.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/node prefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefenseNodes/node prefab.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/NodePlacer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/NodePlacer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Playfield/Playfield_test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Playfield/Playfield_test.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +24,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/88d854ea2c91426ebc464f01cd71aa85157a00/b1/15d60e6e/YieldInstruction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/88d854ea2c91426ebc464f01cd71aa85157a00/c4/22b4db60/Coroutine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DefenseNodes/CameraRef.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/DefenseNodes/LayerRefs.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/jt/source/root-node/Assets/DefenseNodes/Node.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DefenseNodes/NodeSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DefenseNodes/Towers/Shooter.cs" root0="FORCE_HIGHLIGHTING" />
@@ -43,6 +46,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@12.1.7/Editor/Drawing/Controllers/BlackboardController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventData/PointerEventData.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/Raycasters/PhysicsRaycaster.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/jt/source/root-node/ProjectSettings/DynamicsManager.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/jt/source/root-node/ProjectSettings/DynamicsManager.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -162,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675585606800</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="visual roots between nodes">
+      <created>1675587108888</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1675587108888</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,6 +205,7 @@
     <MESSAGE value="fix collision detection and add attack rate to shooter tower" />
     <MESSAGE value="add tree damage appearance" />
     <MESSAGE value="mapler gooper functional" />
-    <option name="LAST_COMMIT_MESSAGE" value="mapler gooper functional" />
+    <MESSAGE value="visual roots between nodes" />
+    <option name="LAST_COMMIT_MESSAGE" value="visual roots between nodes" />
   </component>
 </project>
