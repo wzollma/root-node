@@ -27,6 +27,10 @@ namespace DefenseNodes.Towers
 		[SerializeField] private Mesh healthyMesh;
 		[SerializeField] private Mesh damagedMesh;
 
+		// for audio
+		[SerializeField] internal string attackSoundName;
+		[SerializeField] internal string hitSoundName;
+
 		public void SetDamageAppearance(float health)
 		{
 			if (health > 5)

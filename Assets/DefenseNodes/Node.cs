@@ -44,6 +44,8 @@ namespace DefenseNodes
 			Children.Add(node);
 			node.Parent = this;
 			node.HasParent = true;
+
+			AudioManager.PlayNoOverlap("plant");
 		}
 
 
@@ -53,6 +55,8 @@ namespace DefenseNodes
 		public void Damage(float amount)
 		{
 			SetHealth(health - amount);
+
+			AudioManager.PlayNoOverlap("tree_hurt");
 		}
 
 		public void SetHealth(float value)
@@ -69,6 +73,8 @@ namespace DefenseNodes
 
 		public void Die()
 		{
+			AudioManager.PlayNoOverlap("tree_hurt");
+
 			Destroy(gameObject);
 		}
 

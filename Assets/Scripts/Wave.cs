@@ -59,6 +59,7 @@ public class Wave
     void spawnNextEnemy()
     {
         Enemy newEnemy = Object.Instantiate(enemiesToSpawn[0].enemy, Vector3.zero, Quaternion.identity);
+        newEnemy.OnDestroyed += playEnemyDeathSound;
 
         List<int> indecesList = new List<int>();
         for (int i = 0; i < enemiesToSpawn[0].pathIndeces.Length; i++)
@@ -72,6 +73,10 @@ public class Wave
         lastSpawnTime = Time.time;
     }
 
+    void playEnemyDeathSound() {
+        AudioManager.PlayNoOverlap("enemy_die");
+    }
+
     bool isComplete()
     {
         return noMoreEnemiesToSpawn() && aliveEnemies.Count <= 0;
@@ -80,6 +85,10 @@ public class Wave
     bool noMoreEnemiesToSpawn()
     {
         return enemiesToSpawn.Count <= 0;
+    }
+
+    public int getNumEnemiesAlive() {
+        return aliveEnemies.Count;
     }
 
     void removeNullAliveEnemies()

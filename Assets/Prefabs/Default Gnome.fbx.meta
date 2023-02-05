@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
 guid: 4bb5ce1d6aae22d4f9f8fec65ee9e12d
-=======
-guid: 32a5380573c9e0c49916f102085eb96e
->>>>>>> Stashed changes
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
@@ -11,13 +7,6 @@ ModelImporter:
       74: 4933456408761939133
     second: 003_Chop
   - first:
-<<<<<<< Updated upstream
-      74: 1718654987406900819
-    second: rig|001_Idle
-  - first:
-      74: -9105912886135733722
-    second: rig|002_Walk
-=======
       74: -1666613890199668516
     second: 002_Walk_Light
   - first:
@@ -29,15 +18,10 @@ ModelImporter:
   - first:
       74: -9154476999184435936
     second: rig|001_Idle_Light
->>>>>>> Stashed changes
   - first:
       74: -1959465718706793146
     second: rig|003_Chop
   - first:
-<<<<<<< Updated upstream
-      74: -1299823300558600010
-    second: rig|axe.001Action
-=======
       74: 7240026270005807234
     second: rig|004_Riding_Light
   - first:
@@ -52,19 +36,18 @@ ModelImporter:
   - first:
       74: 8835815126653742743
     second: rig|rig_bigAction
->>>>>>> Stashed changes
   externalObjects: {}
   materials:
-    materialImportMode: 2
-    materialName: 0
+    materialImportMode: 1
+    materialName: 3
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    removeConstantScaleCurves: 1
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -81,197 +64,8 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: 003_Chop
-      takeName: 003_Chop
-      internalID: 0
-<<<<<<< Updated upstream
-      firstFrame: 0
-=======
-      firstFrame: 1
->>>>>>> Stashed changes
-      lastFrame: 23
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-<<<<<<< Updated upstream
-      name: rig|001_Idle
-      takeName: rig|001_Idle
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 4
-=======
-      name: 002_Walk_Light
-      takeName: 002_Walk_Light
-      internalID: 0
-      firstFrame: 1
-      lastFrame: 24
->>>>>>> Stashed changes
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-<<<<<<< Updated upstream
-      loopTime: 0
-=======
-      loopTime: 1
->>>>>>> Stashed changes
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-<<<<<<< Updated upstream
-      name: rig|002_Walk
-      takeName: rig|002_Walk
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 23
-=======
-      name: 004_Riding_Light
-      takeName: 004_Riding_Light
-      internalID: 0
-      firstFrame: 1
-      lastFrame: 25
->>>>>>> Stashed changes
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-<<<<<<< Updated upstream
-      name: rig|003_Chop
-      takeName: rig|003_Chop
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 23
-=======
-      name: 001_Idle.001
-      takeName: 001_Idle.001
-      internalID: 0
-      firstFrame: 1
-      lastFrame: 4
->>>>>>> Stashed changes
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-<<<<<<< Updated upstream
-      name: rig|axe.001Action
-      takeName: rig|axe.001Action
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 1
-=======
-      name: rig|004_Riding_Light
-      takeName: rig|004_Riding_Light
-      internalID: 0
-      firstFrame: 1
-      lastFrame: 25
->>>>>>> Stashed changes
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-<<<<<<< Updated upstream
-      loopTime: 0
-=======
-      loopTime: 1
->>>>>>> Stashed changes
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    isReadable: 0
+    clipAnimations: []
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -279,12 +73,12 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importVisibility: 1
+    importVisibility: 0
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
-    nodeNameCollisionStrategy: 1
-    fileIdsGeneration: 2
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -297,21 +91,21 @@ ModelImporter:
     minBoneWeight: 0.001
     optimizeBones: 1
     meshOptimizationFlags: -1
-    indexFormat: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVMarginMethod: 1
+    secondaryUVMarginMethod: 0
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 3
-    normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
@@ -334,11 +128,11 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 1
   humanoidOversampling: 1
   avatarSetup: 0
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  remapMaterialsIfMaterialImportModeIsNone: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

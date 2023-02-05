@@ -199,6 +199,13 @@ public class WaveManager : MonoBehaviour
         return new Vector2Int(waveNum, waveNum * 2);
     }
 
+    public int getNumEnemies() {
+        if (curWave == null)
+            return 0;
+
+        return curWave.getNumEnemiesAlive();
+    }
+
     IEnumerator showPaths(Wave waveToShow) {
         List<List<NavElement>> paths = new List<List<NavElement>>();
         List<LineRenderer> lineRends = new List<LineRenderer>();
