@@ -43,6 +43,13 @@ public class Enemy : MonoBehaviour
         Move();
 
         AttackTreeNode();
+
+        curSpeed = startSpeed;
+    }
+
+    public void MultiplySpeedNextMove(float multiply)
+    {
+        curSpeed *= multiply;
     }
 
     void Move()
@@ -57,7 +64,7 @@ public class Enemy : MonoBehaviour
         NavElement curNavElement = path[curPathIndex];
 
         NavInfo info;
-        float maxDist = /*curSpeed*/startSpeed * Time.deltaTime;
+        float maxDist = curSpeed * Time.deltaTime;
         if (curNavElement is NavRing)
         {
             //Debug.Log("is ring");
