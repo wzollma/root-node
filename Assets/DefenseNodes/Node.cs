@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using DefenseNodes.Cursor;
 using DefenseNodes.Towers;
 using Unity.Mathematics;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
@@ -91,6 +90,9 @@ namespace DefenseNodes
 				node.HasParent = false;
 				node.Die();
 			}
+
+			if(health > 0)
+				NodeSpawner.Singleton.addMoney((int)(thisTree.Cost * .5f));
 
 			SetBeingDragged(false, _draggingEventData);
 			
@@ -211,7 +213,6 @@ namespace DefenseNodes
 		{
 			if (eventData.button == PointerEventData.InputButton.Right)
 			{
-				NodeSpawner.Singleton.addMoney((int)(thisTree.Cost * .5f));
 
 				Die();
 			}
