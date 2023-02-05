@@ -43,7 +43,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 17.2
+  m_Radius: 22.933332
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1724190164968375980
 PrefabInstance:
@@ -60,17 +60,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9977edcd081ce8945a3b99cbd8a19270,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.31
+      value: 0.2325
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9977edcd081ce8945a3b99cbd8a19270,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.31
+      value: 0.2325
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9977edcd081ce8945a3b99cbd8a19270,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.31
+      value: 0.2325
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9977edcd081ce8945a3b99cbd8a19270,
         type: 3}
@@ -188,7 +188,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.9
+  m_Radius: 3.8666666
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &2111819754
 Animator:
