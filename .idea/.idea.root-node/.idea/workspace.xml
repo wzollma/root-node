@@ -3,27 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="6ed9c409-ccee-4db1-be5c-727fb6557b4b" name="Changes" comment="fix trees blocking new tree placement">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.root-node/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.root-node/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/CameraRef.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefenseNodes/CameraRef.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefenseNodes/Node.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/RandomYRot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/RandomYRot.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Tree.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Tree/TreeBase.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Tree/TreeBase.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/Center Tree.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/Center Tree.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/Maple Thrower.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/Maple Thrower.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/Pine Bomber.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/Pine Bomber.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/model origin.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/model origin.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/plant.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/plant.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/tree prefab.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/tree prefab.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Towers/shooter prefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefenseNodes/Towers/shooter prefab.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Towers/slower prefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefenseNodes/Towers/slower prefab.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Playfield/Playfield_test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Playfield/Playfield_test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NavRing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NavRing.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,21 +15,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/88d854ea2c91426ebc464f01cd71aa85157a00/2d/42a61218/Camera.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8cb8bce468c64351ae8c390df9a4c1175c00/5f/94e7e78b/FreeFunctionAttribute.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/Node.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/Tree.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/node test.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/node test.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/node test.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DefenseNodes/CameraRef.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenseNodes/Node.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DefenseNodes/NodeSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DefenseNodes/Towers/Shooter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/jtriveri/repos/root-node/Assets/Scripts/NavRing.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventData/PointerEventData.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/Raycasters/PhysicsRaycaster.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/jtriveri/repos/root-node/ProjectSettings/TagManager.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -55,17 +29,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;rider.run.widget.enabled.cache&quot;: &quot;false&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Discover.Launch.Via.Unity": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.10f1\Editor\Unity.exe" />
@@ -107,6 +80,7 @@
       <workItem from="1675480818477" duration="269000" />
       <workItem from="1675481267624" duration="5299000" />
       <workItem from="1675533658579" duration="2820000" />
+      <workItem from="1675576778200" duration="175000" />
     </task>
     <task id="LOCAL-00001" summary="add tree nodes and tree root nodes">
       <created>1675486549685</created>
