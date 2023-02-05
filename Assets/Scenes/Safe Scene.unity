@@ -834,7 +834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d285d4d4a5e1864faef0d00868bc359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 100
+  money: 70
   nodePrefab: {fileID: 1226555515633158782, guid: 1d75be51dbaae944f95ac6232c6bf163,
     type: 3}
   towerPrefabs:
@@ -3226,6 +3226,7 @@ GameObject:
   - component: {fileID: 8305935960970848968}
   - component: {fileID: 9032173084173337740}
   - component: {fileID: 9032173084173337741}
+  - component: {fileID: 9032173084173337742}
   m_Layer: 0
   m_Name: Center Tree
   m_TagString: Untagged
@@ -3379,6 +3380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc35895e25b26e4419f4aa2676e425f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisTree: {fileID: 0}
   health: 0
   ReachDistance: 10
   rootPrefab: {fileID: 0}
@@ -3394,3 +3396,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73971f7449cbfbe41ae52a74c10ebc8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9032173084173337742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767851508571700898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57efe047963e558469f2f5b241d7590d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHealth: 5

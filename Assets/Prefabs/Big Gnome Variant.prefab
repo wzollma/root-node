@@ -240,5 +240,5 @@ MonoBehaviour:
   attackCooldown: 0.75
   timeToRotate: 0
   yRotToFaceForward: 180
-  moneyToGive: 12
+  moneyToGive: 5
   isMachine: 0

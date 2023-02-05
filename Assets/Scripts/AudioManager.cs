@@ -86,11 +86,12 @@ public class AudioManager : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.M))
         //    mainMenuTrack.volume = mainMenuTrack.volume == 0 ? musicStartVol : 0;
 
-        int numEnemies = WaveManager.instance.getNumEnemies();
+        //int numEnemies = WaveManager.instance.getNumEnemies();
+        float diff = WaveManager.instance.getDiff();
         Tracks trackToUse;
         /*if (numEnemies < bigThemeEnemyThreshold / 8)
             trackToUse = Tracks.BETWEEN;
-        else*/ if (numEnemies < bigThemeEnemyThreshold)
+        else*/ if (/*numEnemies*/diff < .5f * (WaveManager.instance.waveDiff()))
             trackToUse = Tracks.BASE;
         else
             trackToUse = Tracks.MANY;
