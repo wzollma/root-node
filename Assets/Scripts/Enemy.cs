@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using DefenseNodes;
 
 public class Enemy : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float startBaseDamage;
     [SerializeField] float difficultyScore;
     [SerializeField] float startHealth;
+    [SerializeField] float attackCooldown;
 
     List<NavElement> path;
     int curPathIndex;
@@ -20,11 +22,16 @@ public class Enemy : MonoBehaviour
     float curDamage;
     float curBaseDamage;
     float health;
+    float lastAttackTime;
+
+    List<Node> treesInRange;
 
     void Start()
     {
         // sets enemy at beginning of path
         //path = NavManager.instance.getPath(transform);
+
+        treesInRange = new List<Node>();
 
         curSpeed = startSpeed;
         curDamage = startDamage;
@@ -34,6 +41,8 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         Move();
+
+        AttackTreeNode();
     }
 
     void Move()
@@ -90,7 +99,19 @@ public class Enemy : MonoBehaviour
 
     void AttackTreeNode()
     {
+        if (Time.time - lastAttackTime >= attackCooldown)
+        {
+            Node nodeToAttack = getClosestTree();
 
+            if (nodeToAttack != null)
+            {
+                nodeToAttack.Damage(curDamage);
+
+                lastAttackTime = Time.time;
+
+                Debug.Log($"enemy ({name}) attacked tree ({nodeToAttack.name})");
+            }            
+        }        
     }
 
     void AttackRoot()
@@ -126,6 +147,43 @@ public class Enemy : MonoBehaviour
     public void setPath(List<int> pathIndeces)
     {
         path = NavManager.instance.getPath(transform, pathIndeces);
+    }
+
+    Node getClosestTree()
+    {
+        float minDist = float.MaxValue;
+        Node curClosestTree = null;
+
+        foreach (Node n in treesInRange)
+        {
+            if (n == null)
+                continue;
+
+            Vector3 curTreePos = n.transform.position;
+            Vector3 thisPos = transform.position;
+            
+            curTreePos.y = thisPos.y = 0;
+
+            float curDist = Vector3.Distance(curTreePos, thisPos);
+
+            if (curDist < minDist)
+            {
+                minDist = curDist;
+                curClosestTree = n;
+            }
+        }
+
+        return curClosestTree;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        treesInRange.Add(other.GetComponent<Node>());
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        treesInRange.Remove(other.GetComponent<Node>());
     }
 
     private void OnDrawGizmos()

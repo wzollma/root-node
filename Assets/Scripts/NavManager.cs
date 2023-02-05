@@ -172,7 +172,7 @@ public class NavManager : MonoBehaviour
 
                 if (Mathf.Abs(angle - lineAngle) < angleWindow && isOutsideInnerRing && isInsideOuterRing)
                 {
-                    Debug.Log($"angle: {angle}   lineAngle: {lineAngle}   window: {angleWindow}   outside: {isOutsideInnerRing}  inside: {isInsideOuterRing}");
+                    //Debug.Log($"angle: {angle}   lineAngle: {lineAngle}   window: {angleWindow}   outside: {isOutsideInnerRing}  inside: {isInsideOuterRing}");
                     return false;
                 }                    
             }

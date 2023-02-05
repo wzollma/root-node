@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 2313503469801368368}
   - component: {fileID: 3630810132636837815}
   - component: {fileID: 2792348527546590379}
-  m_Layer: 0
+  - component: {fileID: -5045225087428229128}
+  - component: {fileID: 7810078852057263307}
+  m_Layer: 7
   m_Name: FastEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,10 +49,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startSpeed: 24
-  startDamage: 1
+  startDamage: 0.05
   startBaseDamage: 1
   difficultyScore: 0.1
   startHealth: 1
+  attackCooldown: 0.75
 --- !u!33 &3630810132636837815
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -101,3 +104,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &-5045225087428229128
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2313503469801368369}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &7810078852057263307
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2313503469801368369}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
