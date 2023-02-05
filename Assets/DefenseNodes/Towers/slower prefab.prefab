@@ -68,6 +68,8 @@ MonoBehaviour:
     type: 3}
   damagedMesh: {fileID: -4852981196389531375, guid: fc60011836243bb4aae869ed6d0c0f8e,
     type: 3}
+  attackSoundName: tree_sticky_attack
+  attackSoundFrequencyRange: {x: 0.5, y: 1.25}
 --- !u!114 &5338039733542369744
 MonoBehaviour:
   m_ObjectHideFlags: 0
