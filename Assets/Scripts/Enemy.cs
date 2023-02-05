@@ -209,6 +209,8 @@ public class Enemy : MonoBehaviour
 
         transform.LookAt(prevPos);
 
+        transform.Rotate(new Vector3(0, 180, 0), Space.Self);
+
         Quaternion newRot = transform.rotation;
 
         transform.rotation = prevRot;

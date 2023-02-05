@@ -399,7 +399,7 @@ PrefabInstance:
     - target: {fileID: 8531077924966013818, guid: 1d75be51dbaae944f95ac6232c6bf163,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8531077924966013818, guid: 1d75be51dbaae944f95ac6232c6bf163,
         type: 3}
@@ -872,7 +872,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenEnemySpawns: 0.25
   allEnemies:
-  - {fileID: 4541458049629613911, guid: 44889b43c2244cb418ffc03ee60cbbae, type: 3}
+  - {fileID: 3963305213462867412, guid: 44889b43c2244cb418ffc03ee60cbbae, type: 3}
   - {fileID: 2313503469801368368, guid: 2368350c09ee0b14aa87a644451c8896, type: 3}
   TIME_BETWEEN_WAVES: 1
   wavesUntilBossWave: 10
@@ -1139,7 +1139,7 @@ Transform:
   m_Children:
   - {fileID: 543450653133403893}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8305935960970848968
 Animator:
