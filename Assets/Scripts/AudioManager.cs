@@ -86,14 +86,20 @@ public class AudioManager : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.M))
         //    mainMenuTrack.volume = mainMenuTrack.volume == 0 ? musicStartVol : 0;
 
-        Tracks trackToUse = Time.time % 45 > 22.5f/*WaveManager.instance.getNumEnemies() > bigThemeEnemyThreshold*/ ? Tracks.MANY : Tracks.BASE;
-        bool playIndustrial = Time.time % 30 < 15;
+        int numEnemies = WaveManager.instance.getNumEnemies();
+        Tracks trackToUse;
+        /*if (numEnemies < bigThemeEnemyThreshold / 8)
+            trackToUse = Tracks.BETWEEN;
+        else*/ if (numEnemies < bigThemeEnemyThreshold)
+            trackToUse = Tracks.BASE;
+        else
+            trackToUse = Tracks.MANY;
+
+        bool playIndustrial = WaveManager.instance.hasMachineEnemies();//Time.time % 30 < 15;
 
         playTheme((int) trackToUse, false);
 
-        if (playIndustrial != isPlayingIndustrial && Time.time - lastTimeFadeIndustrial > FADE_TIME * 3) {
-            fadeTheme((int) Tracks.MACHINE, playIndustrial);
-        }
+        fadeTheme((int)Tracks.MACHINE, playIndustrial);
     }
 
     public void stopMenuTrack()
@@ -189,7 +195,7 @@ public class AudioManager : MonoBehaviour
 
     public static void playTheme(int themeNum, bool force)
     {
-        if (Time.time - instance.lastTimeThemeFadeStart < instance.FADE_TIME)
+        if (Time.time - instance.lastTimeThemeFadeStart < instance.FADE_TIME / 2)
         {
             return;
         }
@@ -223,7 +229,10 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    void fadeTheme(int themeNum, bool on) {
+    public void fadeTheme(int themeNum, bool on) {
+        if (!(on != isPlayingIndustrial && Time.time - lastTimeFadeIndustrial > FADE_TIME * 2))
+            return;
+
         lastTimeFadeIndustrial = Time.time;
         isPlayingIndustrial = on;
         StartCoroutine(fadeTrackSingle(themeNum, on));

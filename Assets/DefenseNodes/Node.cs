@@ -16,6 +16,8 @@ namespace DefenseNodes
 		public event Action OnDestroyed = delegate {  };
 		public event Action<float> OnHealthChange = delegate {  };
 
+		public TowerBase thisTree;
+
 		private CapsuleCollider _capsuleCollider;
 
 		private static LayerMask _treeLayer;
@@ -209,6 +211,8 @@ namespace DefenseNodes
 		{
 			if (eventData.button == PointerEventData.InputButton.Right)
 			{
+				NodeSpawner.Singleton.addMoney((int)(thisTree.Cost * .5f));
+
 				Die();
 			}
 		}

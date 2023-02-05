@@ -317,7 +317,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: plant
     clip: {fileID: 8300000, guid: 11d0e42fdc712f2438228834be15be53, type: 3}
-    volume: 0.45
+    volume: 0.55
     pitch: 1
     source: {fileID: 0}
   themeClips:
@@ -343,7 +343,7 @@ MonoBehaviour:
     source: {fileID: 0}
   FADE_TIME: 4
   mainMenuTrack: {fileID: 0}
-  bigThemeEnemyThreshold: 10
+  bigThemeEnemyThreshold: 20
   musicStartVolume: 0.8
 --- !u!4 &89251161
 Transform:
@@ -834,7 +834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d285d4d4a5e1864faef0d00868bc359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 70
+  money: 100
   nodePrefab: {fileID: 1226555515633158782, guid: 1d75be51dbaae944f95ac6232c6bf163,
     type: 3}
   towerPrefabs:
@@ -2882,7 +2882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6536b40e435c4364bad87b06005fb66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenEnemySpawns: 1
+  timeBetweenEnemySpawns: 0.25
   allEnemies:
   - {fileID: 5335863245746275230, guid: 8e087c2354f717d47b56b47e6f0c8ea2, type: 3}
   - {fileID: 2111819751, guid: 6cc12804ce88ce2468e3390f09c9c8ed, type: 3}
@@ -2890,7 +2890,7 @@ MonoBehaviour:
   - {fileID: 192559724, guid: 9a39e4957dd7582478051f5ffce76ce5, type: 3}
   lineRendPrefab: {fileID: 4284867697786076175, guid: cf9ea8fb120d1df4296fa38e3465a9da,
     type: 3}
-  TIME_BETWEEN_WAVES: 3
+  TIME_BETWEEN_WAVES: 1
   TIME_UNTIL_WAVE_ANIM: 0
   waveAnimSpeed: 100
   timeAnimOnScreen: 5
@@ -3226,7 +3226,6 @@ GameObject:
   - component: {fileID: 8305935960970848968}
   - component: {fileID: 9032173084173337740}
   - component: {fileID: 9032173084173337741}
-  - component: {fileID: 9032173084173337742}
   m_Layer: 0
   m_Name: Center Tree
   m_TagString: Untagged
@@ -3364,7 +3363,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 2.7018313
+  m_Radius: 3.92902
   m_Height: 29.880695
   m_Direction: 1
   m_Center: {x: 0, y: 7.788601, z: 0}
@@ -3380,7 +3379,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc35895e25b26e4419f4aa2676e425f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisTree: {fileID: 0}
   health: 0
   ReachDistance: 10
   rootPrefab: {fileID: 0}
@@ -3396,18 +3394,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73971f7449cbfbe41ae52a74c10ebc8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &9032173084173337742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 767851508571700898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 176ffaf82dcac5c43bb42eec0f9ed46f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MeshRenderer: {fileID: 1711813856141479322}
-  normal: {fileID: 2100000, guid: 5d082961416d61743944d9052fddb442, type: 2}
-  highlight: {fileID: 2100000, guid: 406bf5b12618a83478ba388a929ca927, type: 2}
