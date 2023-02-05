@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5a117808a6f594494546fb522829ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numPathsInward: 8
+  numPathsInward: 4
   pathOffset: 0
   radius: 17
 --- !u!1 &146859564
@@ -574,8 +574,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5a117808a6f594494546fb522829ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numPathsInward: 8
-  pathOffset: 22.5
+  numPathsInward: 4
+  pathOffset: 45
   radius: 12
 --- !u!1 &1261140659 stripped
 GameObject:
@@ -1037,8 +1037,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5a117808a6f594494546fb522829ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numPathsInward: 8
-  pathOffset: 22.5
+  numPathsInward: 4
+  pathOffset: 45
   radius: 22
 --- !u!1 &767851508571700898
 GameObject:
