@@ -1,3 +1,4 @@
+using System;
 using DefenseNodes.Towers;
 using UnityEngine;
 
@@ -6,10 +7,18 @@ namespace DefenseNodes
 
 	public class NodeSpawner : MonoBehaviour
 	{
+		public int money = 10;
+		
+		public int SelectedTowerIndex { get; private set; }
 
+		public int SetSelectedTowerIndex(int index)
+		{
+			return SelectedTowerIndex = Math.Clamp(index, 0, towerPrefabs.Length);
+		}
+		
 		[SerializeField] private GameObject nodePrefab;
 
-		[SerializeField] private GameObject[] treePrefabs;
+		[SerializeField] private TowerBase[] towerPrefabs;
 		
 		public static NodeSpawner Singleton { get; private set; }
 		
@@ -19,14 +28,44 @@ namespace DefenseNodes
 			Singleton = this;
 		}
 
-		public Node SpawnNode(Vector3 position, Quaternion rotation)
+		public bool CheckIfEnoughMoneyForSelected()
 		{
-			return Instantiate(nodePrefab, position, rotation).GetComponent<Node>();
+			return towerPrefabs[SelectedTowerIndex].Cost <= money;
 		}
 
-		public TowerBase SpawnTower(Transform parent, int treeIndex)
+		public bool TrySpawnNode(Vector3 position, Quaternion rotation, out Node node)
 		{
-			return Instantiate(treePrefabs[treeIndex], parent).GetComponent<Towers.TowerBase>();
+			node = null;
+			if (!CheckIfEnoughMoneyForSelected())
+				return false;
+
+			money -= towerPrefabs[SelectedTowerIndex].Cost;
+			
+			node = Instantiate(nodePrefab, position, rotation).GetComponent<Node>();
+			SpawnTower(node.transform);
+
+			return true;
+		}
+
+		private TowerBase SpawnTower(Transform parent)
+		{
+			return Instantiate(towerPrefabs[SelectedTowerIndex].gameObject, parent).GetComponent<TowerBase>();
+		}
+
+		private void OnGUI()
+		{
+			GUI.Box(new Rect(0, 0, 100, Screen.height), "");
+			GUILayout.BeginArea(new Rect (0, 0, 100, Screen.height));
+			GUILayout.Label(money.ToString());
+			for(int i = 0; i < towerPrefabs.Length; i++)
+			{
+				TowerBase tower = towerPrefabs[i];
+				if (GUILayout.Button(tower.TowerName + "\n" + tower.Cost))
+				{
+					SetSelectedTowerIndex(i);
+				}
+			}
+			GUILayout.EndArea();
 		}
 	}
 }

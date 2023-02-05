@@ -7,6 +7,13 @@ namespace DefenseNodes.Towers
 {
 	public abstract class TowerBase : MonoBehaviour
 	{
+
+		[SerializeField] protected int cost = 1;
+		public int Cost => cost;
+
+		[SerializeField] protected String towerName;
+		public String TowerName => towerName;
+
 		public float MaxHealth { get; protected set; }
 		public float Health { get; protected set; }
 
@@ -50,6 +57,11 @@ namespace DefenseNodes.Towers
 				return;
 			
 			EnemiesInRange.Remove(other.GetComponent<Enemy>());
+		}
+
+		private void OnValidate()
+		{
+			meshFilter.mesh = healthyMesh;
 		}
 	}
 }

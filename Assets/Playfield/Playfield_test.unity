@@ -461,10 +461,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d285d4d4a5e1864faef0d00868bc359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: 5
   nodePrefab: {fileID: 1226555515633158782, guid: 1d75be51dbaae944f95ac6232c6bf163,
     type: 3}
-  treePrefabs:
-  - {fileID: 585821014428609517, guid: 6afd680643865fb4a8ddd02f3be2c375, type: 3}
+  towerPrefabs:
+  - {fileID: 8723785760555835864, guid: 77dfa29328e24e4428573025c2ad5e44, type: 3}
+  - {fileID: 5636467641001727636, guid: 6afd680643865fb4a8ddd02f3be2c375, type: 3}
 --- !u!4 &327598516
 Transform:
   m_ObjectHideFlags: 0
@@ -1153,4 +1155,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc35895e25b26e4419f4aa2676e425f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReachDistance: 15
+  ReachDistance: 10

@@ -9,7 +9,7 @@ namespace DefenseNodes.Towers
 		{
 			foreach (Enemy enemy in EnemiesInRange)
 			{
-				// hurt
+				
 			}
 		}
 	}
