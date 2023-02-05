@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: 4bb5ce1d6aae22d4f9f8fec65ee9e12d
+=======
+guid: 32a5380573c9e0c49916f102085eb96e
+>>>>>>> Stashed changes
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
@@ -7,17 +11,48 @@ ModelImporter:
       74: 4933456408761939133
     second: 003_Chop
   - first:
+<<<<<<< Updated upstream
       74: 1718654987406900819
     second: rig|001_Idle
   - first:
       74: -9105912886135733722
     second: rig|002_Walk
+=======
+      74: -1666613890199668516
+    second: 002_Walk_Light
+  - first:
+      74: 6537421522886704746
+    second: 004_Riding_Light
+  - first:
+      74: 8501350741105416188
+    second: 001_Idle.001
+  - first:
+      74: -9154476999184435936
+    second: rig|001_Idle_Light
+>>>>>>> Stashed changes
   - first:
       74: -1959465718706793146
     second: rig|003_Chop
   - first:
+<<<<<<< Updated upstream
       74: -1299823300558600010
     second: rig|axe.001Action
+=======
+      74: 7240026270005807234
+    second: rig|004_Riding_Light
+  - first:
+      74: 7620115605951104286
+    second: rig|ArmatureAction
+  - first:
+      74: -1299823300558600010
+    second: rig|axe.001Action
+  - first:
+      74: -9183816575915885784
+    second: rig|rig.001Action
+  - first:
+      74: 8835815126653742743
+    second: rig|rig_bigAction
+>>>>>>> Stashed changes
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -51,7 +86,11 @@ ModelImporter:
       name: 003_Chop
       takeName: 003_Chop
       internalID: 0
+<<<<<<< Updated upstream
       firstFrame: 0
+=======
+      firstFrame: 1
+>>>>>>> Stashed changes
       lastFrame: 23
       wrapMode: 0
       orientationOffsetY: 0
@@ -77,18 +116,30 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
+<<<<<<< Updated upstream
       name: rig|001_Idle
       takeName: rig|001_Idle
       internalID: 0
       firstFrame: 0
       lastFrame: 4
+=======
+      name: 002_Walk_Light
+      takeName: 002_Walk_Light
+      internalID: 0
+      firstFrame: 1
+      lastFrame: 24
+>>>>>>> Stashed changes
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
+<<<<<<< Updated upstream
       loopTime: 0
+=======
+      loopTime: 1
+>>>>>>> Stashed changes
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -106,11 +157,19 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
+<<<<<<< Updated upstream
       name: rig|002_Walk
       takeName: rig|002_Walk
       internalID: 0
       firstFrame: 0
       lastFrame: 23
+=======
+      name: 004_Riding_Light
+      takeName: 004_Riding_Light
+      internalID: 0
+      firstFrame: 1
+      lastFrame: 25
+>>>>>>> Stashed changes
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -135,11 +194,19 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
+<<<<<<< Updated upstream
       name: rig|003_Chop
       takeName: rig|003_Chop
       internalID: 0
       firstFrame: 0
       lastFrame: 23
+=======
+      name: 001_Idle.001
+      takeName: 001_Idle.001
+      internalID: 0
+      firstFrame: 1
+      lastFrame: 4
+>>>>>>> Stashed changes
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -164,18 +231,30 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
+<<<<<<< Updated upstream
       name: rig|axe.001Action
       takeName: rig|axe.001Action
       internalID: 0
       firstFrame: 0
       lastFrame: 1
+=======
+      name: rig|004_Riding_Light
+      takeName: rig|004_Riding_Light
+      internalID: 0
+      firstFrame: 1
+      lastFrame: 25
+>>>>>>> Stashed changes
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
+<<<<<<< Updated upstream
       loopTime: 0
+=======
+      loopTime: 1
+>>>>>>> Stashed changes
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
