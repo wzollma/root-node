@@ -19,7 +19,6 @@ namespace DefenseNodes.Towers
 
 		private void Start()
 		{
-			attackCooldown = UnityEngine.Random.Range(attackSoundFrequencyRange.x, attackSoundFrequencyRange.y);
 			_attackCoroutine = StartCoroutine(Attack());
 			
 			_lineRenderer.SetPosition(0, transform.position + Vector3.up);
@@ -34,7 +33,7 @@ namespace DefenseNodes.Towers
 			{			
 				if (EnemiesInRange.Count > 0)
 				{
-					if (attackSoundName != null && attackSoundName.Length > 0 && Time.time - lastTimeAttackSound > attackCooldown)
+					if (attackSoundName != null && attackSoundName.Length > 0)
 					{
 						AudioManager.PlayNoOverlap(attackSoundName);
 						lastTimeAttackSound = Time.time;

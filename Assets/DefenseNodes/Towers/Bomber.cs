@@ -7,12 +7,14 @@ namespace DefenseNodes.Towers
 	{
 		public float attackFrequency = 0.1f;
 		public float attackDamage = 0.5f;
-		
+
+		[SerializeField] private ParticleSystem _particles1;
+		[SerializeField] private ParticleSystem _particles2;
+
 		private Coroutine _attackCoroutine;
 
 		private void Start()
 		{
-			attackCooldown = UnityEngine.Random.Range(attackSoundFrequencyRange.x, attackSoundFrequencyRange.y);
 			_attackCoroutine = StartCoroutine(Attack());
 		}
 
@@ -22,7 +24,10 @@ namespace DefenseNodes.Towers
 			{			
 				if (EnemiesInRange.Count > 0)
 				{
-					if (attackSoundName != null && attackSoundName.Length > 0 && Time.time - lastTimeAttackSound > attackCooldown)
+					_particles1.enableEmission = true;
+					_particles2.enableEmission = true;
+
+					if (attackSoundName != null && attackSoundName.Length > 0)
 					{
 						AudioManager.PlayNoOverlap(attackSoundName);
 						lastTimeAttackSound = Time.time;
@@ -31,10 +36,15 @@ namespace DefenseNodes.Towers
 					for (int i = EnemiesInRange.Count - 1; i > 0; i--)
 					{
 						EnemiesInRange[i].takeDamage(attackDamage);
+
 					}
 
 					if (hitSoundName != null && hitSoundName.Length > 0)
 						AudioManager.PlayNoOverlap(hitSoundName);
+				} else
+                {
+					_particles1.enableEmission = false;
+					_particles2.enableEmission = false;
 				}
 
 				yield return new WaitForSeconds(attackFrequency);

@@ -6,16 +6,12 @@ namespace DefenseNodes.Towers
 {
 	public class Slower : TowerBase
 	{
-        private void Start()
-        {
-			attackCooldown = UnityEngine.Random.Range(attackSoundFrequencyRange.x, attackSoundFrequencyRange.y);
-		}
 
         protected override void Update()
 		{
 			base.Update();
 			
-			if (EnemiesInRange.Count > 0 && Time.time - lastTimeAttackSound > attackCooldown)
+			if (EnemiesInRange.Count > 0)
 			{
 				AudioManager.PlayNoOverlap(attackSoundName);
 				lastTimeAttackSound = Time.time;
