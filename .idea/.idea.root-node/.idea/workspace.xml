@@ -1,51 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6ed9c409-ccee-4db1-be5c-727fb6557b4b" name="Changes" comment="fix trees blocking new tree placement">
+    <list default="true" id="6ed9c409-ccee-4db1-be5c-727fb6557b4b" name="Changes" comment="add tree damage appearance">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.root-node/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.root-node/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/CameraRef.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefenseNodes/CameraRef.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefenseNodes/Node.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/RandomYRot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/RandomYRot.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Tree.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Tree/TreeBase.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Tree/TreeBase.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/Center Tree.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/Center Tree.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/Maple Thrower.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/Maple Thrower.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/Pine Bomber.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/Pine Bomber.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/model origin.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/model origin.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/plant.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/plant.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/tree prefab.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/tree prefab.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Playfield/Playfield_test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Playfield/Playfield_test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Towers/Slower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefenseNodes/Towers/Slower.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="julians" />
+      </map>
+    </option>
+  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/88d854ea2c91426ebc464f01cd71aa85157a00/2d/42a61218/Camera.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8cb8bce468c64351ae8c390df9a4c1175c00/5f/94e7e78b/FreeFunctionAttribute.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/Node.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/Tree.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/node test.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/node test.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/node test.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/88d854ea2c91426ebc464f01cd71aa85157a00/b1/15d60e6e/YieldInstruction.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/88d854ea2c91426ebc464f01cd71aa85157a00/c4/22b4db60/Coroutine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DefenseNodes/CameraRef.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenseNodes/Node.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/jt/source/root-node/Assets/DefenseNodes/Node.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DefenseNodes/NodeSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DefenseNodes/Towers/Shooter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/jtriveri/repos/root-node/Assets/Scripts/NavRing.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/jt/source/root-node/Assets/Playfield/Playfield_test.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/jt/source/root-node/Assets/Prefabs/FastEnemy.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/jt/source/root-node/Assets/Prefabs/FastEnemy.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/jt/source/root-node/Assets/Prefabs/FastEnemy.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/jt/source/root-node/Assets/Scripts/NavRing.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.2/Editor/Collaborate/Components/BetterTextField.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.2/Editor/Collaborate/Presenters/ChangesPresenter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.2/Editor/PlasticSCM/Configuration/CloudEdition/Welcome/CloudEditionWelcomeWindow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.2/Editor/PlasticSCM/Configuration/TeamEdition/TeamEditionConfigurationWindow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.2/Editor/PlasticSCM/Configuration/TurnOffPlastic/TurnOffPlasticWindow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.2/Editor/PlasticSCM/Help/TestingHelpData.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.2/Editor/PlasticSCM/UI/PlasticDialog.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.2/Editor/PlasticSCM/Views/DownloadPlasticExeWindow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.2/Editor/PlasticSCM/Views/PendingChanges/PendingChangesViewPendingChangeMenu.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@12.1.7/Editor/Drawing/Controllers/BlackboardController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventData/PointerEventData.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/Raycasters/PhysicsRaycaster.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/jtriveri/repos/root-node/ProjectSettings/TagManager.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/jt/source/root-node/ProjectSettings/DynamicsManager.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -62,7 +59,6 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;rider.run.widget.enabled.cache&quot;: &quot;false&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -107,6 +103,7 @@
       <workItem from="1675480818477" duration="269000" />
       <workItem from="1675481267624" duration="5299000" />
       <workItem from="1675533658579" duration="2820000" />
+      <workItem from="1675576778200" duration="175000" />
     </task>
     <task id="LOCAL-00001" summary="add tree nodes and tree root nodes">
       <created>1675486549685</created>
@@ -136,7 +133,28 @@
       <option name="project" value="LOCAL" />
       <updated>1675551139568</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="misc meta file changes">
+      <created>1675577362896</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1675577362896</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix collision detection and add attack rate to shooter tower">
+      <created>1675583515826</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1675583515826</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add tree damage appearance">
+      <created>1675584512747</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1675584512747</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,6 +180,11 @@
     <MESSAGE value="remove connection nodes" />
     <MESSAGE value="add distance limiter" />
     <MESSAGE value="fix trees blocking new tree placement" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix trees blocking new tree placement" />
+    <MESSAGE value="change paths to four each" />
+    <MESSAGE value="four paths per ring" />
+    <MESSAGE value="misc meta file changes" />
+    <MESSAGE value="fix collision detection and add attack rate to shooter tower" />
+    <MESSAGE value="add tree damage appearance" />
+    <option name="LAST_COMMIT_MESSAGE" value="add tree damage appearance" />
   </component>
 </project>

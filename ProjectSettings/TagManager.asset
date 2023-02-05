@@ -4,9 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ground
-  - Tree
-  - Node
   - Enemy
   layers:
   - Default
@@ -15,13 +12,13 @@ TagManager:
   - 
   - Water
   - UI
-  - tree
+  - tower attack
   - 
+  - tower body
+  - ground
   - 
-  - 
-  - 
-  - 
-  - 
+  - enemy body
+  - enemy attack
   - 
   - 
   - 

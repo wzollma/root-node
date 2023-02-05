@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,7 @@ using DefenseNodes;
 
 public class Enemy : MonoBehaviour
 {
-    public delegate void OnDieDelegate(float damageToBase);
-    public event OnDieDelegate OnDie;
+    public event Action OnDestroyed = delegate {  };
     [SerializeField] float startSpeed;
     [SerializeField] float startDamage;
     [SerializeField] float startBaseDamage;
@@ -24,14 +24,14 @@ public class Enemy : MonoBehaviour
     float health;
     float lastAttackTime;
 
-    List<Node> treesInRange;
+    List<Node> nodesInRange;
 
     void Start()
     {
         // sets enemy at beginning of path
         //path = NavManager.instance.getPath(transform);
 
-        treesInRange = new List<Node>();
+        nodesInRange = new List<Node>();
 
         curSpeed = startSpeed;
         curDamage = startDamage;
@@ -43,6 +43,13 @@ public class Enemy : MonoBehaviour
         Move();
 
         AttackTreeNode();
+
+        curSpeed = startSpeed;
+    }
+
+    public void MultiplySpeedNextMove(float multiply)
+    {
+        curSpeed *= multiply;
     }
 
     void Move()
@@ -57,7 +64,7 @@ public class Enemy : MonoBehaviour
         NavElement curNavElement = path[curPathIndex];
 
         NavInfo info;
-        float maxDist = /*curSpeed*/startSpeed * Time.deltaTime;
+        float maxDist = curSpeed * Time.deltaTime;
         if (curNavElement is NavRing)
         {
             //Debug.Log("is ring");
@@ -131,6 +138,11 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private void OnDestroy()
+    {
+        OnDestroyed.Invoke();
+    }
+
     public float getDifficulty()
     {
         return difficultyScore;
@@ -154,7 +166,7 @@ public class Enemy : MonoBehaviour
         float minDist = float.MaxValue;
         Node curClosestTree = null;
 
-        foreach (Node n in treesInRange)
+        foreach (Node n in nodesInRange)
         {
             if (n == null)
                 continue;
@@ -178,12 +190,13 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        treesInRange.Add(other.GetComponent<Node>());
+        Node node = other.GetComponent<Node>();
+        nodesInRange.Add(node);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        treesInRange.Remove(other.GetComponent<Node>());
+        nodesInRange.Remove(other.GetComponent<Node>());
     }
 
     private void OnDrawGizmos()

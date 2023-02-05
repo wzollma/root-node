@@ -11,8 +11,10 @@ namespace DefenseNodes
 	public class Node : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler,
 		IUpdateSelectedHandler
 	{
-		public float ReachDistance = 5;
-
+		public event Action OnDestroyed = delegate {  };
+		
+		public event Action<float> OnHealthChange = delegate {  };
+		
 		public List<Node> Children { get; private set; } = new List<Node>();
 		public bool HasParent { get; private set; } = false;
 		public Node Parent { get; private set; }
@@ -34,46 +36,54 @@ namespace DefenseNodes
 			node.HasParent = true;
 		}
 
-		public float Health { get; private set; }
+
+		[SerializeField] private float health;
+		public float Health => health;
 
 		public void Damage(float amount)
 		{
-			SetHealth(Health - amount);
+			SetHealth(health - amount);
 		}
 
 		public void SetHealth(float value)
 		{
-			Health = value;
+			health = value;
+			
+			OnHealthChange.Invoke(health);
 
-			if (Health < 0)
+			if (health < 0)
 			{
-				Kill();
+				Die();
 			}
 		}
 
-		public event Action OnKilled = delegate { };
+		public void Die()
+		{
+			Destroy(gameObject);
+		}
 
-		public void Kill()
+
+		private void OnDestroy()
 		{
 			foreach (Node node in Children)
 			{
-				node.Kill();
+				node.HasParent = false;
+				node.Die();
 			}
+			
+			if (HasParent)
+				Parent.Children.Remove(this);
 
-			OnKilled.Invoke(); 
-
-			Destroy(gameObject);
+			OnDestroyed.Invoke();
 		}
 
 		// Interaction
 
-		private Vector3 _dragPosWorld = Vector3.zero;
-		private bool _placementValid;
+		public float ReachDistance = 8;
 
-		private void Start()
-		{
-			gameObject.tag = "Node";
-		}
+		private Vector3 _dragPosWorld = Vector3.zero;
+
+		private bool _placementValid;
 
 		public void OnBeginDrag(PointerEventData eventData)
 		{
@@ -122,45 +132,33 @@ namespace DefenseNodes
 			if (!NodeSpawner.Singleton.CheckIfEnoughMoneyForSelected())
 				return false;
 			
-			if (eventData.hovered.Count < 1 || !eventData.hovered[0].CompareTag("Ground"))
+			if (eventData.hovered.Count < 1 || eventData.hovered[0].layer != LayerMask.NameToLayer("ground"))
 				return false;
 
 			if (Vector3.Distance(transform.position, pointerWorld) > ReachDistance)
 				return false;
 
 
-			return NavManager.instance.isPositionValid(pointerWorld, .5f, 100);
+			return NavManager.instance.isPositionValid(pointerWorld, 1f, 100);
 		}
 
 		public void OnPointerClick(PointerEventData eventData)
 		{
 			if (eventData.button == PointerEventData.InputButton.Right)
 			{
-				Kill();
+				Die();
 			}
 		}
-		
-		public Transform GetTowerContainer()
-		{
-			return transform.GetChild(0);
-		}
-		
+
 		// debug
-		
+
+
 		private void OnDrawGizmos()
 		{
 			if (!HasParent)
 				return;
 
 			Debug.DrawLine(transform.position, Parent.transform.position, Color.cyan);
-		}
-
-		private void OnDestroy()
-		{
-			if (!HasParent)
-				return;
-
-			Parent.Children.Remove(this);
 		}
 	}
 }

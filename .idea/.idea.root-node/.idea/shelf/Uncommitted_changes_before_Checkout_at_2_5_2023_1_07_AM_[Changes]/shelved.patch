@@ -1,0 +1,30 @@
+Index: Assets/Scripts/NavRing.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using System.Collections;\r\nusing System.Collections.Generic;\r\nusing UnityEngine;\r\n\r\npublic class NavRing : MonoBehaviour, NavElement\r\n{\r\n    [SerializeField] int numPathsInward;\r\n    [SerializeField] float pathOffset; // input as degrees, then internally used as radians\r\n    [SerializeField] float radius;\r\n\r\n    NavRing ringInside;\r\n\r\n    List<NavLine> navLines;\r\n\r\n    void Awake()\r\n    {\r\n        pathOffset = pathOffset * Mathf.Deg2Rad;\r\n\r\n        float radiansPerPath = 2 * Mathf.PI / numPathsInward;\r\n\r\n        if (navLines == null || navLines.Count != numPathsInward)\r\n        {\r\n            navLines = new List<NavLine>();\r\n            for (int i = 0; i < numPathsInward; i++)\r\n            {\r\n                float curAngle = i * radiansPerPath + pathOffset;                \r\n                navLines.Add(new NavLine(angleToPos(curAngle, radius), angleToPos(curAngle, radius - getPathLength()), curAngle));\r\n            }\r\n        }\r\n    }\r\n\r\n    // returns true if reached the start of the desired path (finished traveling on ring)\r\n    public bool setNextPos(NavInfo navInfo)\r\n    {\r\n        Vector3 prePos = navInfo.enemyTrans.position;\r\n\r\n        float preAngle = posModAngle(posToAngle(prePos));\r\n        float targetAngle = posModAngle(posToAngle(navInfo.endPos));\r\n        float angleToRotate = navInfo.maxDist / radius;        \r\n        if (navInfo.movingClockwise)\r\n            angleToRotate *= -1;\r\n\r\n        float newAngle = posModAngle(preAngle + angleToRotate);\r\n        bool reachedDestination = Mathf.Abs(shortestDistRadians(newAngle, targetAngle)) > Mathf.Abs(shortestDistRadians(preAngle, targetAngle));\r\n        if (reachedDestination)\r\n        {\r\n            newAngle = targetAngle;//navInfo.enemyTrans.position = navInfo.endPos;\r\n        }            \r\n\r\n        Vector3 newPosNoY = angleToPos(newAngle, radius);\r\n        navInfo.enemyTrans.position = newPosNoY + Vector3.up * prePos.y;        \r\n\r\n\r\n        return reachedDestination;\r\n    }\r\n\r\n    public float posToAngle(Vector3 pos)\r\n    {\r\n        return Mathf.Atan2(pos.z - transform.position.z, pos.x - transform.position.x);\r\n    }\r\n\r\n    public Vector3 angleToPos(float angle, float radius)\r\n    {\r\n        float x = transform.position.x + radius * Mathf.Cos(angle);\r\n        float z = transform.position.z + radius * Mathf.Sin(angle);\r\n\r\n        return new Vector3(x, 0, z);\r\n    }\r\n\r\n    public static float posModAngle(float angle)\r\n    {\r\n        return (angle + Mathf.PI * 2) % (Mathf.PI * 2);\r\n    }\r\n\r\n    public float positiveModAngle(float angle)\r\n    {\r\n        return NavRing.posModAngle(angle);\r\n    }\r\n\r\n    public static float shortestDistRadians(float start, float stop)\r\n    {\r\n        float twoPI = Mathf.PI * 2;\r\n        float modDiff = (stop - start) % twoPI;\r\n        float shortestDistance = Mathf.PI - Mathf.Abs(Mathf.Abs(modDiff) - Mathf.PI);\r\n        return (modDiff + twoPI) % twoPI < Mathf.PI ? shortestDistance *= 1 : shortestDistance *= -1;\r\n    }    \r\n\r\n    public float getPathLength()\r\n    {\r\n        if (ringInside == null)\r\n            return 0;\r\n\r\n        return radius - ringInside.radius;\r\n    }\r\n\r\n    public int getRandNavLineIndex()\r\n    {\r\n        return Random.Range(0, navLines.Count);\r\n    }\r\n\r\n    public NavLine getNavLineByIndex(int index)\r\n    {\r\n        if (index < 0 || index >= navLines.Count)\r\n            return null;\r\n\r\n        return navLines[index];\r\n    }\r\n\r\n    public void setInnerRing(NavRing innerRing)\r\n    {\r\n        ringInside = innerRing;\r\n    }\r\n\r\n    public float getRadius()\r\n    {\r\n        return radius;\r\n    }\r\n\r\n    private void OnDrawGizmos()\r\n    {\r\n        //Gizmos.DrawWireSphere(transform.position, radius);\r\n        \r\n        UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.up, radius);\r\n\r\n        if (navLines != null)\r\n        {\r\n            foreach (NavLine p in navLines)\r\n                Gizmos.DrawLine(p.getStartPos(), p.getEndPos());\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Assets/Scripts/NavRing.cs b/Assets/Scripts/NavRing.cs
+--- a/Assets/Scripts/NavRing.cs	(revision dfeaebc326d4a97a20787078da8f56672040c01e)
++++ b/Assets/Scripts/NavRing.cs	(date 1675577193826)
+@@ -116,8 +116,13 @@
+         return radius;
+     }
+ 
++    #if UNITY_EDITOR
++    private const bool debug = false;
+     private void OnDrawGizmos()
+     {
++        if (!debug)
++            return;
++        
+         //Gizmos.DrawWireSphere(transform.position, radius);
+         
+         UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.up, radius);
+@@ -128,4 +133,5 @@
+                 Gizmos.DrawLine(p.getStartPos(), p.getEndPos());
+         }
+     }
++    #endif
+ }
