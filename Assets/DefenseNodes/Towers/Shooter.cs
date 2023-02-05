@@ -7,10 +7,8 @@ namespace DefenseNodes.Towers
 	{
 		private void FixedUpdate()
 		{
-			foreach (Enemy enemy in EnemiesInRange)
-			{
-				
-			}
+			if(EnemiesInRange.Count > 0)
+				EnemiesInRange[0].takeDamage(0.5f);
 		}
 	}
 }

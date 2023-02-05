@@ -111,8 +111,13 @@ public class NavRing : MonoBehaviour, NavElement
         return radius;
     }
 
+    #if UNITY_EDITOR
+    private const bool debug = false;
     private void OnDrawGizmos()
     {
+        if (!debug)
+            return;
+        
         //Gizmos.DrawWireSphere(transform.position, radius);
         
         UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.up, radius);
@@ -123,4 +128,5 @@ public class NavRing : MonoBehaviour, NavElement
                 Gizmos.DrawLine(p.getStartPos(), p.getEndPos());
         }
     }
+    #endif
 }

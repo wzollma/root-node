@@ -47,8 +47,14 @@ namespace DefenseNodes.Towers
 		{
 			if (!other.CompareTag("Enemy"))
 				return;
+
+			Enemy enemy = other.GetComponent<Enemy>();
+			enemy.OnDie += delegate
+			{
+				EnemiesInRange.Remove(enemy);
+			};
 			
-			EnemiesInRange.Add(other.GetComponent<Enemy>());
+			EnemiesInRange.Add(enemy);
 		}
 
 		private void OnTriggerExit(Collider other)
@@ -56,7 +62,9 @@ namespace DefenseNodes.Towers
 			if (!other.CompareTag("Enemy"))
 				return;
 			
-			EnemiesInRange.Remove(other.GetComponent<Enemy>());
+			Enemy enemy = other.GetComponent<Enemy>();
+			
+			EnemiesInRange.Remove(enemy);
 		}
 
 		private void OnValidate()

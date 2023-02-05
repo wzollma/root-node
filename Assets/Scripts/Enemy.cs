@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class Enemy : MonoBehaviour
 {
     public delegate void OnDieDelegate(float damageToBase);
-    public event OnDieDelegate OnDie;
+    public event OnDieDelegate OnDie = delegate {  };
     [SerializeField] float startSpeed;
     [SerializeField] float startDamage;
     [SerializeField] float startBaseDamage;
