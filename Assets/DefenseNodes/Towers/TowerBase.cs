@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using Random = Unity.Mathematics.Random;
 
 namespace DefenseNodes.Towers
 {
@@ -14,6 +14,12 @@ namespace DefenseNodes.Towers
 	
 	public abstract class TowerBase : MonoBehaviour
 	{
+		protected Random _random;
+
+		private void Awake()
+		{
+			_random = Random.CreateFromIndex(0);
+		}
 
 		[SerializeField] protected int cost = 1;
 		public int Cost => cost;
@@ -46,9 +52,10 @@ namespace DefenseNodes.Towers
 			{
 				meshFilter.mesh = damagedMesh;
 			}
-			
-			Vector3 randLook = new Vector3(Random.value - 0.5f, 1, Random.value - 0.5f).normalized;
-			meshPivot.rotation = Quaternion.LookRotation(transform.forward, randLook);
+
+
+			Vector3 randLook = new Vector3(_random.NextFloat() - 0.5f, 1, _random.NextFloat() - 0.5f).normalized;
+			meshPivot.rotation = Quaternion.LookRotation(Vector3.forward, randLook);
 		}
 		
 		protected readonly List<Enemy> EnemiesInRange = new List<Enemy>(10);
