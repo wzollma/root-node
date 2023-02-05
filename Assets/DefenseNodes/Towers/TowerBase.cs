@@ -29,7 +29,10 @@ namespace DefenseNodes.Towers
 
 		// for audio
 		[SerializeField] internal string attackSoundName;
-		[SerializeField] internal string hitSoundName;
+		internal string hitSoundName;
+		[SerializeField] internal Vector2 attackSoundFrequencyRange = new Vector2(.6f, 2.5f);
+		internal float attackCooldown; // random value within above range (provides auditory variation)
+		internal float lastTimeAttackSound = -100; // arbitrarily low number so sound could play on start
 
 		public void SetDamageAppearance(float health)
 		{
