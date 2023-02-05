@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1811122139422756345}
   - component: {fileID: 8723785760555835864}
   - component: {fileID: 873827734687144750}
+  - component: {fileID: 8638595385259167090}
   m_Layer: 6
   m_Name: shooter prefab
   m_TagString: Tree
@@ -181,6 +182,21 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &8638595385259167090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585821014428609517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 176ffaf82dcac5c43bb42eec0f9ed46f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MeshRenderer: {fileID: 0}
+  normal: {fileID: 2100000, guid: 5d082961416d61743944d9052fddb442, type: 2}
+  highlight: {fileID: 2100000, guid: 406bf5b12618a83478ba388a929ca927, type: 2}
 --- !u!1 &1554403458890730738
 GameObject:
   m_ObjectHideFlags: 0

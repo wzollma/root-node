@@ -234,7 +234,7 @@ MonoBehaviour:
   attackCooldown: 0.75
   timeToRotate: 0
   yRotToFaceForward: 180
-  moneyToGive: 2
+  moneyToGive: 1
   isMachine: 0
 --- !u!4 &3741132248226964947 stripped
 Transform:

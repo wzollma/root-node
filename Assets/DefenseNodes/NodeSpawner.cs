@@ -47,6 +47,8 @@ namespace DefenseNodes
 			node.OnHealthChange += tower.OnNodeTakesDamage;
 			node.thisTree = tower;
 
+			node.GetComponent<HoverHighlight>().MeshRenderer = tower.meshFilter.GetComponent<MeshRenderer>();
+
 			return true;
 		}
 
@@ -64,7 +66,7 @@ namespace DefenseNodes
 		{
 			GUI.Box(new Rect(0, 0, 100, Screen.height), "");
 			GUILayout.BeginArea(new Rect (0, 0, 100, Screen.height));
-			GUILayout.Label(money.ToString());
+			GUILayout.Label("Seeds: " + money);
 			for(int i = 0; i < towerPrefabs.Length; i++)
 			{
 				TowerBase tower = towerPrefabs[i];

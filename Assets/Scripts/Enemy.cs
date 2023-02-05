@@ -124,6 +124,8 @@ public class Enemy : MonoBehaviour
 
     void AttackBase()
     {
+        TreeBase.instance.TakeDamage(curBaseDamage);
+
         Die(false);
     }
 

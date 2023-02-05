@@ -23,7 +23,7 @@ namespace DefenseNodes.Towers
 		[SerializeField] protected float initialHealth = 10;
 		public float InitialHealth => initialHealth;
 
-		[SerializeField] private MeshFilter meshFilter;
+		public MeshFilter meshFilter;
 		[SerializeField] private Mesh healthyMesh;
 		[SerializeField] private Mesh damagedMesh;
 		[SerializeField] private Transform meshPivot;

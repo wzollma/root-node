@@ -206,6 +206,25 @@ public class WaveManager : MonoBehaviour
         return curWave.getNumEnemiesAlive();
     }
 
+    public float getDiff()
+    {
+        List<Enemy> en = curWave.getEnemiesAlive();
+
+        float sum = 0;
+
+        foreach (Enemy e in en) {
+            if (e != null)
+                sum += e.getDifficulty();
+        }
+
+        return sum;
+    }
+
+    public float waveDiff()
+    {
+        return calculateNewDifficultyScore(waveNum);
+    }
+
     public bool hasMachineEnemies()
     {
         if (curWave == null)
