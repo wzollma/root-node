@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float startHealth;
     [SerializeField] float attackCooldown;
     [SerializeField] float timeToRotate;
+    [SerializeField] float yRotToFaceForward;
 
     List<NavElement> path;
     int curPathIndex;
@@ -51,12 +52,13 @@ public class Enemy : MonoBehaviour
         Quaternion newDesiredRot = getDesiredRotation(prevPos);
 
         if (!newDesiredRot.Equals(lastDesiredRot)) {
-            timeStartRotLerp = Time.time;  
+            if (!isRotateOnCooldown())
+                timeStartRotLerp = Time.time;  
             
             lastDesiredRot = newDesiredRot;
         }
 
-        transform.rotation = newDesiredRot;//Quaternion.Slerp(transform.rotation, lastDesiredRot, Mathf.Clamp01((Time.time - timeStartRotLerp) / timeToRotate));
+        transform.rotation = lastDesiredRot;//Quaternion.Lerp(transform.rotation, lastDesiredRot, Mathf.Clamp01((Time.time - timeStartRotLerp) / timeToRotate));
 
         AttackTreeNode();
 
@@ -209,13 +211,17 @@ public class Enemy : MonoBehaviour
 
         transform.LookAt(prevPos);
 
-        transform.Rotate(new Vector3(0, 180, 0), Space.Self);
+        transform.Rotate(new Vector3(0, yRotToFaceForward, 0), Space.Self);
 
         Quaternion newRot = transform.rotation;
 
         transform.rotation = prevRot;
 
         return newRot;
+    }
+
+    bool isRotateOnCooldown() {
+        return Time.time - timeStartRotLerp < timeToRotate;
     }
 
     void OnTriggerEnter(Collider other)

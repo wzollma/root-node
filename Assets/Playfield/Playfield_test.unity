@@ -783,6 +783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenEnemySpawns: 0.25
   allEnemies:
+  - {fileID: 4558585507297730638, guid: f5f3b2e50b4ab8e4ab51f2d273d913d9, type: 3}
   - {fileID: 2313503469801368368, guid: 2368350c09ee0b14aa87a644451c8896, type: 3}
   TIME_BETWEEN_WAVES: 1
   wavesUntilBossWave: 10
