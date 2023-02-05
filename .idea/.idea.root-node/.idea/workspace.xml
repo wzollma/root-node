@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6ed9c409-ccee-4db1-be5c-727fb6557b4b" name="Changes" comment="temp brighter roots">
+    <list default="true" id="6ed9c409-ccee-4db1-be5c-727fb6557b4b" name="Changes" comment="prevent placing trees on trees">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.root-node/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.root-node/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefenseNodes/Node.cs" afterDir="false" />
     </list>
@@ -195,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675591398978</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="prevent placing trees on trees">
+      <created>1675591613334</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1675591613334</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,6 +238,7 @@
     <MESSAGE value="enforce min tree distance from each other" />
     <MESSAGE value="visual tree place cursor" />
     <MESSAGE value="temp brighter roots" />
-    <option name="LAST_COMMIT_MESSAGE" value="temp brighter roots" />
+    <MESSAGE value="prevent placing trees on trees" />
+    <option name="LAST_COMMIT_MESSAGE" value="prevent placing trees on trees" />
   </component>
 </project>

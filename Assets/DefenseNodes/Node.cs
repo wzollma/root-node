@@ -84,6 +84,9 @@ namespace DefenseNodes
 			if (HasParent)
 				Parent.Children.Remove(this);
 
+			if (_beingDragged)
+				NodeCursor.Singleton.gameObject.SetActive(false);
+
 			OnDestroyed.Invoke();
 		}
 
@@ -95,11 +98,14 @@ namespace DefenseNodes
 
 		private bool _placementValid;
 
+		private bool _beingDragged;
+
 		public void OnBeginDrag(PointerEventData eventData)
 		{
 			CameraRef.Raycaster.eventMask &= ~(1 << LayerRefs.TowerBody);
 			eventData.selectedObject = gameObject;
 			_placementValid = false;
+			_beingDragged = true;
 			NodeCursor.Singleton.gameObject.SetActive(true);
 		}
 
@@ -122,12 +128,11 @@ namespace DefenseNodes
 			CameraRef.Raycaster.eventMask |= 1 << LayerRefs.TowerBody;
 			
 			eventData.selectedObject = null;
-			
+			_beingDragged = false;
 			NodeCursor.Singleton.gameObject.SetActive(false);
 
 			if (!_placementValid)
 				return;
-
 
 			if (!NodeSpawner.Singleton.TrySpawnNode(eventData.pointerCurrentRaycast.worldPosition,
 				    quaternion.identity, out Node newNode))
