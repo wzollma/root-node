@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 3
-  towerName: Slower
+  towerName: Maple Gooper
   initialHealth: 10
   meshFilter: {fileID: 6718247671802669564}
   healthyMesh: {fileID: 5375746789883880038, guid: fc60011836243bb4aae869ed6d0c0f8e,

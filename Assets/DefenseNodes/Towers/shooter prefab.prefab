@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 1
-  towerName: Shooter
+  towerName: Thorn Shooter
   initialHealth: 15
   meshFilter: {fileID: 6718247671802669564}
   healthyMesh: {fileID: 7712646750770534020, guid: b29df2e30c6d16749a918de333b8b748,

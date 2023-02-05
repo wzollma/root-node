@@ -27,17 +27,15 @@ namespace DefenseNodes.Towers
 		[SerializeField] private Mesh healthyMesh;
 		[SerializeField] private Mesh damagedMesh;
 
-		public void SetAppearance(Appearance appearance)
+		public void SetDamageAppearance(float health)
 		{
-			switch (appearance)
+			if (health > 5)
 			{
-				case Appearance.Healthy:
-					meshFilter.mesh = healthyMesh;
-					break;
-				
-				case Appearance.Damaged :
-					meshFilter.mesh = damagedMesh;
-					break;
+				meshFilter.mesh = healthyMesh;
+			}
+			else
+			{
+				meshFilter.mesh = damagedMesh;
 			}
 		}
 		

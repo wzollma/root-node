@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6ed9c409-ccee-4db1-be5c-727fb6557b4b" name="Changes" comment="misc meta file changes">
+    <list default="true" id="6ed9c409-ccee-4db1-be5c-727fb6557b4b" name="Changes" comment="fix collision detection and add attack rate to shooter tower">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.root-node/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.root-node/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefenseNodes/Node.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/NodeSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefenseNodes/NodeSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Towers/Shooter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefenseNodes/Towers/Shooter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Towers/Slower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefenseNodes/Towers/Slower.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Towers/TowerBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefenseNodes/Towers/TowerBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Towers/shooter prefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefenseNodes/Towers/shooter prefab.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Towers/slower prefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefenseNodes/Towers/slower prefab.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/node prefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefenseNodes/node prefab.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Playfield/Playfield_test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Playfield/Playfield_test.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FastEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FastEnemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TreeBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TreeBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +45,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@12.1.7/Editor/Drawing/Controllers/BlackboardController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventData/PointerEventData.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/Raycasters/PhysicsRaycaster.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/jt/source/root-node/ProjectSettings/DynamicsManager.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -150,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675577362896</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fix collision detection and add attack rate to shooter tower">
+      <created>1675583515826</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1675583515826</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +179,7 @@
     <MESSAGE value="change paths to four each" />
     <MESSAGE value="four paths per ring" />
     <MESSAGE value="misc meta file changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="misc meta file changes" />
+    <MESSAGE value="fix collision detection and add attack rate to shooter tower" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix collision detection and add attack rate to shooter tower" />
   </component>
 </project>

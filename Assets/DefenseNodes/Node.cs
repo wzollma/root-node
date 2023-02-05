@@ -13,6 +13,8 @@ namespace DefenseNodes
 	{
 		public event Action OnDestroyed = delegate {  };
 		
+		public event Action<float> OnHealthChange = delegate {  };
+		
 		public List<Node> Children { get; private set; } = new List<Node>();
 		public bool HasParent { get; private set; } = false;
 		public Node Parent { get; private set; }
@@ -46,6 +48,8 @@ namespace DefenseNodes
 		public void SetHealth(float value)
 		{
 			health = value;
+			
+			OnHealthChange.Invoke(health);
 
 			if (health < 0)
 			{
@@ -75,7 +79,7 @@ namespace DefenseNodes
 
 		// Interaction
 
-		public float ReachDistance = 5;
+		public float ReachDistance = 8;
 
 		private Vector3 _dragPosWorld = Vector3.zero;
 
