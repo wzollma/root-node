@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DefenseNodes.Cursor;
 using DefenseNodes.Towers;
 using Unity.Mathematics;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
@@ -88,6 +89,8 @@ namespace DefenseNodes
 				node.HasParent = false;
 				node.Die();
 			}
+
+			SetBeingDragged(false, _draggingEventData);
 			
 			if (HasParent)
 				Parent.Children.Remove(this);
@@ -107,14 +110,33 @@ namespace DefenseNodes
 		private bool _placementValid;
 
 		private bool _beingDragged;
+		private PointerEventData _draggingEventData;
+
+		private void SetBeingDragged(bool beingDragged, PointerEventData eventData)
+		{
+			_draggingEventData = eventData;
+			eventData.dragging = beingDragged;
+			NodeCursor.Singleton.gameObject.SetActive(beingDragged);
+
+			if (!_beingDragged && beingDragged)
+			{
+				CameraRef.Raycaster.eventMask &= ~(1 << LayerRefs.TowerBody);
+				eventData.pointerDrag = gameObject;
+				eventData.selectedObject = gameObject;
+			}
+			else if(_beingDragged && !beingDragged)
+			{
+				CameraRef.Raycaster.eventMask |= 1 << LayerRefs.TowerBody;
+				eventData.pointerDrag = null;
+				eventData.selectedObject = null;
+			}
+			
+			_beingDragged = beingDragged;
+		}
 
 		public void OnBeginDrag(PointerEventData eventData)
 		{
-			CameraRef.Raycaster.eventMask &= ~(1 << LayerRefs.TowerBody);
-			eventData.selectedObject = gameObject;
-			_placementValid = false;
-			_beingDragged = true;
-			NodeCursor.Singleton.gameObject.SetActive(true);
+			SetBeingDragged(true, eventData);
 		}
 
 		public void OnDrag(PointerEventData eventData)
@@ -133,11 +155,7 @@ namespace DefenseNodes
 
 		public void OnEndDrag(PointerEventData eventData)
 		{
-			CameraRef.Raycaster.eventMask |= 1 << LayerRefs.TowerBody;
-			
-			eventData.selectedObject = null;
-			_beingDragged = false;
-			NodeCursor.Singleton.gameObject.SetActive(false);
+			SetBeingDragged(false, eventData);
 
 			if (!_placementValid)
 				return;
