@@ -29,9 +29,4 @@ public class TreeBase : MonoBehaviour
             enabled = false;
         }            
     }
-
-    public void addEnemyToEvent(Enemy enemy)
-    {
-        enemy.OnDie += TakeDamage;
-    }
 }

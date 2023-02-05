@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1811122139422756345}
   - component: {fileID: 5636467641001727636}
   - component: {fileID: 5338039733542369744}
-  m_Layer: 2
+  m_Layer: 6
   m_Name: slower prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,6 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   towerName: Slower
+  initialHealth: 10
   meshFilter: {fileID: 6718247671802669564}
   healthyMesh: {fileID: 5375746789883880038, guid: fc60011836243bb4aae869ed6d0c0f8e,
     type: 3}
@@ -90,7 +91,7 @@ GameObject:
   - component: {fileID: 584661389195875463}
   - component: {fileID: 1148544299603909581}
   - component: {fileID: 6718247671802669564}
-  m_Layer: 2
+  m_Layer: 6
   m_Name: mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

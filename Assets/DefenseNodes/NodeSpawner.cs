@@ -42,7 +42,8 @@ namespace DefenseNodes
 			money -= towerPrefabs[SelectedTowerIndex].Cost;
 			
 			node = Instantiate(nodePrefab, position, rotation).GetComponent<Node>();
-			SpawnTower(node.transform);
+			TowerBase tower = SpawnTower(node.transform);
+			node.SetHealth(tower.InitialHealth);
 
 			return true;
 		}

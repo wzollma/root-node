@@ -5,6 +5,12 @@ using UnityEngine;
 
 namespace DefenseNodes.Towers
 {
+	public enum Appearance
+	{
+		Healthy = 0,
+		Damaged,
+	}
+	
 	public abstract class TowerBase : MonoBehaviour
 	{
 
@@ -14,48 +20,38 @@ namespace DefenseNodes.Towers
 		[SerializeField] protected String towerName;
 		public String TowerName => towerName;
 
-		public float MaxHealth { get; protected set; }
-		public float Health { get; protected set; }
-
-		public float Damage(float amount)
-		{
-			Health -= amount;
-
-			return Health;
-		}
-
-		public void SetHealth(float health)
-		{
-			Health = Mathf.Clamp(health, 0, MaxHealth);
-			if (Health < MaxHealth / 2f)
-			{
-				meshFilter.mesh = damagedMesh;
-			}
-			else
-			{
-				meshFilter.mesh = healthyMesh;
-			}
-		}
+		[SerializeField] protected float initialHealth = 10;
+		public float InitialHealth => initialHealth;
 
 		[SerializeField] private MeshFilter meshFilter;
 		[SerializeField] private Mesh healthyMesh;
 		[SerializeField] private Mesh damagedMesh;
+
+		public void SetAppearance(Appearance appearance)
+		{
+			switch (appearance)
+			{
+				case Appearance.Healthy:
+					meshFilter.mesh = healthyMesh;
+					break;
+				
+				case Appearance.Damaged :
+					meshFilter.mesh = damagedMesh;
+					break;
+			}
+		}
 		
 		protected readonly List<Enemy> EnemiesInRange = new List<Enemy>(10);
 		
 		private void OnTriggerEnter(Collider other)
 		{
-			if (!other.CompareTag("Enemy"))
-				return;
-			
-			EnemiesInRange.Add(other.GetComponent<Enemy>());
+			Enemy enemy = other.GetComponent<Enemy>();
+			EnemiesInRange.Add(enemy);
+			enemy.OnDestroyed += delegate { EnemiesInRange.Remove(enemy); };
 		}
 
 		private void OnTriggerExit(Collider other)
 		{
-			if (!other.CompareTag("Enemy"))
-				return;
-			
 			EnemiesInRange.Remove(other.GetComponent<Enemy>());
 		}
 
