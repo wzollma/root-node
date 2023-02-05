@@ -97,7 +97,7 @@ namespace DefenseNodes
 
 		public void OnBeginDrag(PointerEventData eventData)
 		{
-			CameraRef.Raycaster.eventMask &= ~(1 << gameObject.layer);
+			CameraRef.Raycaster.eventMask &= ~(1 << LayerRefs.TowerBody);
 			eventData.selectedObject = gameObject;
 			_placementValid = false;
 			NodeCursor.Singleton.gameObject.SetActive(true);
@@ -119,7 +119,7 @@ namespace DefenseNodes
 
 		public void OnEndDrag(PointerEventData eventData)
 		{
-			CameraRef.Raycaster.eventMask |= 1 << gameObject.layer;
+			CameraRef.Raycaster.eventMask |= 1 << LayerRefs.TowerBody;
 			
 			eventData.selectedObject = null;
 			
@@ -159,10 +159,10 @@ namespace DefenseNodes
 			
 			if (eventData.hovered.Count < 1 || eventData.hovered[0].layer != LayerRefs.Ground)
 				return false;
-
+			
 			if (Physics.CheckSphere(pointerWorld, 1, LayerRefs.TowerBodyMask))
 				return false;
-
+			
 			if (Vector3.Distance(transform.position, pointerWorld) > ReachDistance)
 				return false;
 

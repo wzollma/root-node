@@ -1,22 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6ed9c409-ccee-4db1-be5c-727fb6557b4b" name="Changes" comment="enforce min tree distance from each other">
+    <list default="true" id="6ed9c409-ccee-4db1-be5c-727fb6557b4b" name="Changes" comment="temp brighter roots">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.root-node/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.root-node/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefenseNodes/Node.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Playfield/Playfield_test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Playfield/Playfield_test.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Balanced-Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-Balanced-Renderer.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity-Renderer.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity-Renderer.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Performant-Renderer.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Performant-Renderer.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Performant.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Performant.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +27,7 @@
     <setting file="mock://C:/Users/jt/source/root-node/Assets/DefenseNodes/Node.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DefenseNodes/NodeSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DefenseNodes/Towers/Shooter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/jt/source/root-node/Assets/DefenseNodes/root.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/jt/source/root-node/Assets/Playfield/Playfield_test.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/jt/source/root-node/Assets/Prefabs/FastEnemy.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/jt/source/root-node/Assets/Prefabs/FastEnemy.prefab" root0="SKIP_HIGHLIGHTING" />
@@ -60,6 +48,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/Raycasters/PhysicsRaycaster.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/jt/source/root-node/ProjectSettings/DynamicsManager.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/jt/source/root-node/ProjectSettings/DynamicsManager.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/jt/source/root-node/ProjectSettings/GraphicsSettings.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -192,7 +181,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675590044707</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="visual tree place cursor">
+      <created>1675591357240</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1675591357240</updated>
+    </task>
+    <task id="LOCAL-00012" summary="temp brighter roots">
+      <created>1675591398978</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1675591398978</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,6 +229,8 @@
     <MESSAGE value="mapler gooper functional" />
     <MESSAGE value="visual roots between nodes" />
     <MESSAGE value="enforce min tree distance from each other" />
-    <option name="LAST_COMMIT_MESSAGE" value="enforce min tree distance from each other" />
+    <MESSAGE value="visual tree place cursor" />
+    <MESSAGE value="temp brighter roots" />
+    <option name="LAST_COMMIT_MESSAGE" value="temp brighter roots" />
   </component>
 </project>
