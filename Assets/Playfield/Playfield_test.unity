@@ -840,6 +840,7 @@ MonoBehaviour:
   towerPrefabs:
   - {fileID: 8723785760555835864, guid: 77dfa29328e24e4428573025c2ad5e44, type: 3}
   - {fileID: 5636467641001727636, guid: 6afd680643865fb4a8ddd02f3be2c375, type: 3}
+  - {fileID: 720259318378834513, guid: 1e9e4c3c728244d4481d46796a58cb39, type: 3}
 --- !u!4 &327598516
 Transform:
   m_ObjectHideFlags: 0

@@ -1,32 +1,20 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
 namespace DefenseNodes.Towers
 {
-	public class Shooter : TowerBase
+	public class Bomber : TowerBase
 	{
 		public float attackFrequency = 0.1f;
 		public float attackDamage = 0.5f;
-
-		private LineRenderer _lineRenderer;
+		
 		private Coroutine _attackCoroutine;
-
-		private void Awake()
-		{
-			_lineRenderer = GetComponent<LineRenderer>();
-		}
 
 		private void Start()
 		{
 			attackCooldown = UnityEngine.Random.Range(attackSoundFrequencyRange.x, attackSoundFrequencyRange.y);
 			_attackCoroutine = StartCoroutine(Attack());
-			
-			_lineRenderer.SetPosition(0, transform.position + Vector3.up);
-			_lineRenderer.SetPosition(1, transform.position + Vector3.up);
 		}
-
-		private float _lineAlpha;
 
 		private IEnumerator Attack()
 		{
@@ -40,19 +28,16 @@ namespace DefenseNodes.Towers
 						lastTimeAttackSound = Time.time;
 					}
 
-					EnemiesInRange[0].takeDamage(attackDamage);
-					
-					_lineRenderer.SetPosition(1, EnemiesInRange[0].transform.position);
+					for (int i = EnemiesInRange.Count - 1; i > 0; i--)
+					{
+						EnemiesInRange[i].takeDamage(attackDamage);
+					}
 
 					if (hitSoundName != null && hitSoundName.Length > 0)
 						AudioManager.PlayNoOverlap(hitSoundName);
 				}
-				
-				yield return new WaitForSeconds(0.1f);
-				
-				_lineRenderer.SetPosition(1, transform.position);
 
-				yield return new WaitForSeconds(attackFrequency - 0.1f);
+				yield return new WaitForSeconds(attackFrequency);
 			}
 		}
 
