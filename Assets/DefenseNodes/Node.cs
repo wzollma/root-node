@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using DefenseNodes.Towers;
 using Unity.Mathematics;
-using UnityEditor.MemoryProfiler;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Random = UnityEngine.Random;
 
 namespace DefenseNodes
 {
@@ -11,11 +12,11 @@ namespace DefenseNodes
 		IUpdateSelectedHandler
 	{
 		public float ReachDistance = 5;
-		[SerializeField] private GameObject nodePrefab;
 
 		public List<Node> Children { get; private set; } = new List<Node>();
 		public bool HasParent { get; private set; } = false;
 		public Node Parent { get; private set; }
+		public Towers.TowerBase TowerBase { get; private set; }
 
 		public void AddChild(Node node)
 		{
@@ -60,26 +61,19 @@ namespace DefenseNodes
 				node.Kill();
 			}
 
-			OnKilled.Invoke();
-
+			OnKilled.Invoke(); 
 
 			Destroy(gameObject);
 		}
 
-		private void OnDrawGizmos()
+		public void SetTree(int treeIndex)
 		{
-			if (!HasParent)
-				return;
+			if (TowerBase != null)
+			{
+				Destroy(TowerBase.gameObject);
+			}
 
-			Debug.DrawLine(transform.position, Parent.transform.position, Color.cyan);
-		}
-
-		private void OnDestroy()
-		{
-			if (!HasParent)
-				return;
-
-			Parent.Children.Remove(this);
+			NodeSpawner.Singleton.SpawnTower(transform.GetChild(0), treeIndex);
 		}
 
 		// Interaction
@@ -102,14 +96,18 @@ namespace DefenseNodes
 		public void OnEndDrag(PointerEventData eventData)
 		{
 			CameraRef.Raycaster.eventMask |= 1 << LayerMask.NameToLayer("tree");
+			
 			eventData.selectedObject = null;
 
 			if (!_placementValid)
 				return;
 
-			Node newNode = Instantiate(nodePrefab, eventData.pointerCurrentRaycast.worldPosition, Quaternion.identity)
-				.GetComponent<Node>();
-
+			Node newNode =
+				NodeSpawner.Singleton.SpawnNode(eventData.pointerCurrentRaycast.worldPosition,
+					quaternion.identity);
+			
+			// TODO: tree selection
+			newNode.SetTree(0);
 			AddChild(newNode);
 		}
 
@@ -128,7 +126,7 @@ namespace DefenseNodes
 
 		private bool CheckIfValidPlacement(PointerEventData eventData)
 		{
-			if (eventData.hovered.Count == 0 || !eventData.hovered[0].CompareTag("Ground"))
+			if (eventData.hovered.Count < 1 || !eventData.hovered[0].CompareTag("Ground"))
 				return false;
 
 			Vector2 transformXZ = new Vector2(transform.position.x, transform.position.z);
@@ -144,6 +142,24 @@ namespace DefenseNodes
 			{
 				Kill();
 			}
+		}
+		
+		// debug
+		
+		private void OnDrawGizmos()
+		{
+			if (!HasParent)
+				return;
+
+			Debug.DrawLine(transform.position, Parent.transform.position, Color.cyan);
+		}
+
+		private void OnDestroy()
+		{
+			if (!HasParent)
+				return;
+
+			Parent.Children.Remove(this);
 		}
 	}
 }

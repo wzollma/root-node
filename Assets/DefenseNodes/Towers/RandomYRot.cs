@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DefenseNodes
+namespace DefenseNodes.Towers
 {
 	public class RandomYRot : MonoBehaviour
 	{
