@@ -54,12 +54,12 @@ public class NavRing : MonoBehaviour, NavElement
         return reachedDestination;
     }
 
-    float posToAngle(Vector3 pos)
+    public float posToAngle(Vector3 pos)
     {
         return Mathf.Atan2(pos.z - transform.position.z, pos.x - transform.position.x);
     }
 
-    Vector3 angleToPos(float angle, float radius)
+    public Vector3 angleToPos(float angle, float radius)
     {
         float x = transform.position.x + radius * Mathf.Cos(angle);
         float z = transform.position.z + radius * Mathf.Sin(angle);
@@ -104,6 +104,11 @@ public class NavRing : MonoBehaviour, NavElement
     public void setInnerRing(NavRing innerRing)
     {
         ringInside = innerRing;
+    }
+
+    public float getRadius()
+    {
+        return radius;
     }
 
     private void OnDrawGizmos()

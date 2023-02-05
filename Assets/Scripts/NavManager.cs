@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class NavManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class NavManager : MonoBehaviour
     float lastTimeSpawned;
 
     Enemy lastEnemy;
+    Camera mainCam;
 
     private void Awake()
     {
@@ -29,18 +31,24 @@ public class NavManager : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
-
+        mainCam = Camera.main;
     }
 
-    void Update()
+    private void Update()
     {
-        //if (lastEnemy == null)
-        //{
-        //    Instantiate(enemy, transform.position, Quaternion.identity);
-        //    lastTimeSpawned = Time.time;
-        //}
+        //Vector3 mouseInput = Input.mousePosition;
+        //Vector3 mousePos = mainCam.ScreenToWorldPoint(new Vector3(mouseInput.x, mouseInput.y, 1));
+        //mainCam.GetComponent<PhysicsRaycaster>().Raycast(PointerEventData.
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = mainCam.nearClipPlane;
+        Vector3 Worldpos = mainCam.ScreenToWorldPoint(mousePos);
+
+        RaycastHit hit;
+        Physics.Raycast(mainCam.ScreenPointToRay(mousePos), out hit);
+        //Debug.Log(hit.point);
+        //Debug.Log(getShortestDistanceToPath(hit.point));
     }
 
     /// <summary>
@@ -55,10 +63,9 @@ public class NavManager : MonoBehaviour
         foreach (NavRing r in allNavRings)
         {
             indeces.Add(r.getRandNavLineIndex());
-            //Debug.Log("new index: " + indeces[indeces.Count - 1]);
         }
 
-        return /*getPath(enemyTrans, */indeces/*)*/;
+        return indeces;
     }
 
     /// <summary>
@@ -114,5 +121,72 @@ public class NavManager : MonoBehaviour
             enemy = enemyTrans.GetComponent<Enemy>();
 
         return path;
+    }
+
+    public float getShortestDistanceToPath(Vector3 position)
+    {
+        Vector2 flatPos = flattenVector3(position);
+
+        float curMinDist = float.MaxValue;
+
+        // checks all rings & their navlines
+        foreach (NavRing r in allNavRings)
+        {
+            // check this ring
+            float angle = r.posToAngle(position);
+            Vector3 projectedPosCircle = r.angleToPos(angle, r.getRadius());
+            float curDistCircle = Vector2.Distance(flattenVector3(projectedPosCircle), flatPos);
+            //Debug.Log($"angle: {angle}    projected: {projectedPosCircle}    curDistCircle: {curDistCircle}");
+
+            if (curDistCircle < curMinDist)
+                curMinDist = curDistCircle;
+
+            // check all NavLines from this ring
+            for (int i = 0; i < 20; i++)
+            {
+                NavLine curNavLine = r.getNavLineByIndex(i);
+
+                if (curNavLine == null)
+                    break;
+
+                Vector2 startPos = flattenVector3(curNavLine.getStartPos());
+                Vector2 endPos = flattenVector3(curNavLine.getEndPos());
+
+                Vector2 projectedPosLine = getProjectedPointOnLine(startPos, endPos, flatPos);
+                float curDistLine = Vector2.Distance(projectedPosLine, position);
+
+                if (curDistLine < curMinDist)
+                    curMinDist = curDistLine;
+            }
+        }
+
+        return curMinDist;
+    }
+
+    Vector2 flattenVector3(Vector3 vec)
+    {
+        return new Vector2(vec.x, vec.z);
+    }
+
+
+    /**
+    * Get projected point P' of P on line e1.
+    * @return projected point p.
+*/
+    public Vector2 getProjectedPointOnLine(Vector2 v1, Vector2 v2, Vector2 pos)
+    {
+        // get dot product of e1, e2
+        Vector2 e1 = new Vector2(v2.x - v1.x, v2.y - v1.y);
+        Vector2 e2 = new Vector2(pos.x - v1.x, pos.y - v1.y);
+        double valDp = Vector2.Dot(e1, e2);
+        // get length of vectors
+        double lenLineE1 = Mathf.Sqrt(e1.x * e1.x + e1.y * e1.y);
+        double lenLineE2 = Mathf.Sqrt(e2.x * e2.x + e2.y * e2.y);
+        double cos = valDp / (lenLineE1 * lenLineE2);
+        // length of v1P'
+        double projLenOfLine = cos * lenLineE2;
+        Vector2 p = new Vector2((int)(v1.x + (projLenOfLine * e1.x) / lenLineE1),
+                            (int)(v1.y + (projLenOfLine * e1.y) / lenLineE1));
+        return p;
     }
 }
