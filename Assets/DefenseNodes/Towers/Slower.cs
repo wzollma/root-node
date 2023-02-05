@@ -11,8 +11,10 @@ namespace DefenseNodes.Towers
 			attackCooldown = UnityEngine.Random.Range(attackSoundFrequencyRange.x, attackSoundFrequencyRange.y);
 		}
 
-        private void Update()
+        protected override void Update()
 		{
+			base.Update();
+			
 			if (EnemiesInRange.Count > 0 && Time.time - lastTimeAttackSound > attackCooldown)
 			{
 				AudioManager.PlayNoOverlap(attackSoundName);

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace DefenseNodes.Towers
 {
@@ -26,6 +27,7 @@ namespace DefenseNodes.Towers
 		[SerializeField] private MeshFilter meshFilter;
 		[SerializeField] private Mesh healthyMesh;
 		[SerializeField] private Mesh damagedMesh;
+		[SerializeField] private Transform meshPivot;
 
 		// for audio
 		[SerializeField] internal string attackSoundName;
@@ -34,7 +36,7 @@ namespace DefenseNodes.Towers
 		internal float attackCooldown; // random value within above range (provides auditory variation)
 		internal float lastTimeAttackSound = -100; // arbitrarily low number so sound could play on start
 
-		public void SetDamageAppearance(float health)
+		public void OnNodeTakesDamage(float health)
 		{
 			if (health > 5)
 			{
@@ -44,6 +46,9 @@ namespace DefenseNodes.Towers
 			{
 				meshFilter.mesh = damagedMesh;
 			}
+			
+			Vector3 randLook = new Vector3(Random.value - 0.5f, 1, Random.value - 0.5f).normalized;
+			meshPivot.rotation = Quaternion.LookRotation(transform.forward, randLook);
 		}
 		
 		protected readonly List<Enemy> EnemiesInRange = new List<Enemy>(10);
@@ -53,6 +58,11 @@ namespace DefenseNodes.Towers
 			Enemy enemy = other.GetComponent<Enemy>();
 			EnemiesInRange.Add(enemy);
 			enemy.OnDestroyed += delegate { EnemiesInRange.Remove(enemy); };
+		}
+
+		protected virtual void Update()
+		{
+			meshPivot.rotation = Quaternion.Lerp(meshPivot.rotation, Quaternion.identity, Time.deltaTime * 30);
 		}
 
 		private void OnTriggerExit(Collider other)
