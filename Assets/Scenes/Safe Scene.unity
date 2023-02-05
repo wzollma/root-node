@@ -262,7 +262,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: chainsaw
     clip: {fileID: 8300000, guid: d05e74956b8d7094dacf81dae2654612, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     source: {fileID: 0}
   - name: chop
@@ -343,7 +343,7 @@ MonoBehaviour:
     source: {fileID: 0}
   FADE_TIME: 4
   mainMenuTrack: {fileID: 0}
-  bigThemeEnemyThreshold: 20
+  bigThemeEnemyThreshold: 10
   musicStartVolume: 0.8
 --- !u!4 &89251161
 Transform:
@@ -3450,6 +3450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc35895e25b26e4419f4aa2676e425f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  removable: 0
   thisTree: {fileID: 0}
   health: 0
   ReachDistance: 10

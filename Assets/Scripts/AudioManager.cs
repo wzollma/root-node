@@ -78,7 +78,7 @@ public class AudioManager : MonoBehaviour
         musicStartVol = musicStartVolume;//themeClips[0].volume;//mainMenuTrack.volume;
         //themes[0].volume = 0;
 
-        playTheme((int) Tracks.BASE, true);
+        playTheme((int) Tracks.BETWEEN, true);
     }
 
     void Update()
@@ -89,9 +89,9 @@ public class AudioManager : MonoBehaviour
         //int numEnemies = WaveManager.instance.getNumEnemies();
         float diff = WaveManager.instance.getDiff();
         Tracks trackToUse;
-        /*if (numEnemies < bigThemeEnemyThreshold / 8)
+        if (WaveManager.instance.getWaveNum() <= 2/*numEnemies < bigThemeEnemyThreshold / 8*/)
             trackToUse = Tracks.BETWEEN;
-        else*/ if (/*numEnemies*/diff < .5f * (WaveManager.instance.waveDiff()))
+        else if (WaveManager.instance.getNumEnemies() < bigThemeEnemyThreshold/*diff < .5f * (WaveManager.instance.waveDiff())*/)
             trackToUse = Tracks.BASE;
         else
             trackToUse = Tracks.MANY;
@@ -101,6 +101,17 @@ public class AudioManager : MonoBehaviour
         playTheme((int) trackToUse, false);
 
         fadeTheme((int)Tracks.MACHINE, playIndustrial);
+
+        const string chainsawName = "chainsaw";
+
+        if (WaveManager.instance.hasChainsaw())
+        {
+            if (!AudioManager.isPlaying(chainsawName))
+                AudioManager.instance.Play(chainsawName);
+        }
+        else
+            if (AudioManager.isPlaying(chainsawName))
+                AudioManager.instance.Stop(chainsawName);
     }
 
     public void stopMenuTrack()
@@ -139,6 +150,9 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound: " + name + " not found!");
             return;
         }
+
+        if (s.source == null)
+            return;
 
         s.source.Play();
     }

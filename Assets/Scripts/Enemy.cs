@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float timeToRotate;
     [SerializeField] float yRotToFaceForward;
     [SerializeField] int moneyToGive;
+    public bool isChainsaw;
     public bool isMachine;
 
     List<NavElement> path;

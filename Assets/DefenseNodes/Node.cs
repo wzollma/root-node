@@ -12,6 +12,8 @@ namespace DefenseNodes
 	public class Node : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler,
 		IUpdateSelectedHandler
 	{
+		[SerializeField] private bool removable = true;
+
 		public event Action OnDestroyed = delegate {  };
 		public event Action<float> OnHealthChange = delegate {  };
 
@@ -94,13 +96,10 @@ namespace DefenseNodes
 			if(health > 0)
 				NodeSpawner.Singleton.addMoney((int)(thisTree.Cost * .5f));
 
-			SetBeingDragged(false, _draggingEventData);
+			SetBeingDragged(false);
 			
 			if (HasParent)
 				Parent.Children.Remove(this);
-
-			if (_beingDragged)
-				NodeCursor.Singleton.gameObject.SetActive(false);
 
 			OnDestroyed.Invoke();
 		}
@@ -113,34 +112,26 @@ namespace DefenseNodes
 
 		private bool _placementValid;
 
-		private bool _beingDragged;
-		private PointerEventData _draggingEventData;
-
-		private void SetBeingDragged(bool beingDragged, PointerEventData eventData)
-		{
-			_draggingEventData = eventData;
-			eventData.dragging = beingDragged;
+		private void SetBeingDragged(bool beingDragged)
+        {
 			NodeCursor.Singleton.gameObject.SetActive(beingDragged);
 
-			if (!_beingDragged && beingDragged)
+			if (beingDragged)
 			{
 				CameraRef.Raycaster.eventMask &= ~(1 << LayerRefs.TowerBody);
-				eventData.pointerDrag = gameObject;
-				eventData.selectedObject = gameObject;
 			}
-			else if(_beingDragged && !beingDragged)
+			else
 			{
 				CameraRef.Raycaster.eventMask |= 1 << LayerRefs.TowerBody;
-				eventData.pointerDrag = null;
-				eventData.selectedObject = null;
 			}
-			
-			_beingDragged = beingDragged;
 		}
 
 		public void OnBeginDrag(PointerEventData eventData)
 		{
-			SetBeingDragged(true, eventData);
+			SetBeingDragged(true);
+
+			eventData.pointerDrag = gameObject;
+			eventData.selectedObject = gameObject;
 		}
 
 		public void OnDrag(PointerEventData eventData)
@@ -159,7 +150,10 @@ namespace DefenseNodes
 
 		public void OnEndDrag(PointerEventData eventData)
 		{
-			SetBeingDragged(false, eventData);
+			SetBeingDragged(false);
+
+			eventData.pointerDrag = null;
+			eventData.selectedObject = null;
 
 			if (!_placementValid)
 				return;
@@ -199,7 +193,7 @@ namespace DefenseNodes
 				return false;
 
 			float distFromCenter = Vector3.Distance(pointerWorld, Vector3.zero);
-			if (distFromCenter < 7 || distFromCenter > 22)
+			if (distFromCenter < 8 || distFromCenter > 22)
 				return false;
 			
 			if (Physics.CheckSphere(pointerWorld, 1, LayerRefs.TowerBodyMask))
@@ -213,8 +207,8 @@ namespace DefenseNodes
 		{
 			if (eventData.button == PointerEventData.InputButton.Right)
 			{
-
-				Die();
+				if(removable)
+					Die();
 			}
 		}
 

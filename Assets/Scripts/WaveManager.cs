@@ -194,6 +194,25 @@ public class WaveManager : MonoBehaviour
         return (Mathf.Pow(difficultyMultiplier, waveNum - 2) * (difficultyMultiplier + extraMultiplier));        
     }
 
+    public bool hasChainsaw()
+    {
+        if (curWave == null)
+            return false;
+
+        List<Enemy> en = curWave.getEnemiesAlive();
+
+        if (en == null)
+            return false;
+
+        foreach (Enemy e in en)
+        {
+            if (e != null && e.isChainsaw)
+                return true;
+        }
+
+        return false;
+    }
+
     Vector2Int calculateSubwaveBounds(int waveNum)
     {
         return new Vector2Int(waveNum, waveNum * 2);
@@ -206,9 +225,20 @@ public class WaveManager : MonoBehaviour
         return curWave.getNumEnemiesAlive();
     }
 
+    public int getWaveNum()
+    {
+        return waveNum;
+    }
+
     public float getDiff()
     {
+        if (curWave == null)
+            return 0;
+
         List<Enemy> en = curWave.getEnemiesAlive();
+
+        if (en == null)
+            return 0;
 
         float sum = 0;
 
