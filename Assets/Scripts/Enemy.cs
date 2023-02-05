@@ -105,7 +105,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        OnDie(curBaseDamage);
+        //OnDie(curBaseDamage);
 
         Destroy(gameObject);
     }

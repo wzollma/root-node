@@ -8,6 +8,7 @@ public class NavManager : MonoBehaviour
     public static NavManager instance;
 
     [SerializeField] float spawnCooldown;
+    [SerializeField] float angleAmount;
 
     List<NavRing> allNavRings;
     [SerializeField] Enemy enemy;
@@ -48,7 +49,7 @@ public class NavManager : MonoBehaviour
         RaycastHit hit;
         Physics.Raycast(mainCam.ScreenPointToRay(mousePos), out hit);
         //Debug.Log(hit.point);
-        //Debug.Log(getShortestDistanceToPath(hit.point));
+        Debug.Log(isPositionValid(hit.point, .5f, angleAmount));
     }
 
     /// <summary>
@@ -123,11 +124,18 @@ public class NavManager : MonoBehaviour
         return path;
     }
 
-    public float getShortestDistanceToPath(Vector3 position)
+    public bool isPositionValid(Vector3 position, float minDistance, float angleWindow)
     {
         Vector2 flatPos = flattenVector3(position);
 
+        float distFromCenter = Vector2.Distance(flatPos, transform.position);
+
         float curMinDist = float.MaxValue;
+
+        angleWindow = angleWindow * Mathf.Deg2Rad;
+
+        // normalizes angleWindow
+        angleWindow /= distFromCenter;
 
         // checks all rings & their navlines
         foreach (NavRing r in allNavRings)
@@ -152,15 +160,28 @@ public class NavManager : MonoBehaviour
                 Vector2 startPos = flattenVector3(curNavLine.getStartPos());
                 Vector2 endPos = flattenVector3(curNavLine.getEndPos());
 
-                Vector2 projectedPosLine = getProjectedPointOnLine(startPos, endPos, flatPos);
-                float curDistLine = Vector2.Distance(projectedPosLine, position);
+                //Vector2 projectedPosLine = getProjectedPointOnLine(startPos, endPos, flatPos);
+                //float curDistLine = Vector2.Distance(projectedPosLine, flatPos);
 
-                if (curDistLine < curMinDist)
-                    curMinDist = curDistLine;
+                //if (curDistLine < curMinDist)
+                //    curMinDist = curDistLine;                             
+
+                float lineAngle = r.positiveModAngle(curNavLine.getAngle());
+                angle = r.positiveModAngle(angle);
+                lineAngle = r.positiveModAngle(lineAngle);
+
+                bool isOutsideInnerRing = distFromCenter >= Vector2.Distance(endPos, r.transform.position);
+                bool isInsideOuterRing = distFromCenter <= Vector2.Distance(startPos, r.transform.position);
+
+                if (Mathf.Abs(angle - lineAngle) < angleWindow && isOutsideInnerRing && isInsideOuterRing)
+                {
+                    Debug.Log($"angle: {angle}   lineAngle: {lineAngle}   window: {angleWindow}   outside: {isOutsideInnerRing}  inside: {isInsideOuterRing}");
+                    return false;
+                }                    
             }
         }
 
-        return curMinDist;
+        return curMinDist > minDistance;
     }
 
     Vector2 flattenVector3(Vector3 vec)
