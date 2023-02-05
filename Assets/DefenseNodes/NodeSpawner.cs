@@ -45,9 +45,15 @@ namespace DefenseNodes
 			TowerBase tower = SpawnTower(node.transform);
 			node.SetHealth(tower.InitialHealth);
 			node.OnHealthChange += tower.OnNodeTakesDamage;
+			node.thisTree = tower;
 
 			return true;
 		}
+
+		public void addMoney(int value)
+        {
+			money += value;
+        }
 
 		private TowerBase SpawnTower(Transform parent)
 		{

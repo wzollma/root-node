@@ -206,6 +206,25 @@ public class WaveManager : MonoBehaviour
         return curWave.getNumEnemiesAlive();
     }
 
+    public bool hasMachineEnemies()
+    {
+        if (curWave == null)
+            return false;
+
+        List<Enemy> aliveEnemies = curWave.getEnemiesAlive();
+
+        if (aliveEnemies == null)
+            return false;
+
+        foreach (Enemy e in aliveEnemies)
+        {
+            if (e != null && e.isMachine)
+                return true;
+        }
+
+        return false;
+    }
+
     IEnumerator showPaths(Wave waveToShow) {
         List<List<NavElement>> paths = new List<List<NavElement>>();
         List<LineRenderer> lineRends = new List<LineRenderer>();

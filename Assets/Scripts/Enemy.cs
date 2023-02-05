@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] float attackCooldown;
     [SerializeField] float timeToRotate;
     [SerializeField] float yRotToFaceForward;
+    [SerializeField] int moneyToGive;
+    public bool isMachine;
 
     List<NavElement> path;
     int curPathIndex;
@@ -122,12 +124,14 @@ public class Enemy : MonoBehaviour
 
     void AttackBase()
     {
-        Die();
+        Die(false);
     }
 
-    void Die()
+    void Die(bool fromTree)
     {
         //OnDie(curBaseDamage);
+        if (fromTree)
+            NodeSpawner.Singleton.addMoney(moneyToGive);
 
         Destroy(gameObject);
     }
@@ -147,7 +151,7 @@ public class Enemy : MonoBehaviour
         health -= damage;
 
         if (health <= 0)
-            Die();
+            Die(true);
     }
 
     public void setPath(List<int> pathIndeces)

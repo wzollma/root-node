@@ -40,7 +40,7 @@ public class Wave
 
     public void addEnemy(Enemy newEnemy, Vector3 startPos, List<int> pathIndeces)
     {
-        enemiesToSpawn.Add(new WaveEnemy(newEnemy, WaveManager.instance.timeBetweenEnemySpawns, pathIndeces));
+        enemiesToSpawn.Add(new WaveEnemy(newEnemy, WaveManager.instance.timeBetweenEnemySpawns * (newEnemy.isMachine ? 6 : 1), pathIndeces));
     }
 
     public void addSubwavePathIndeces(List<int> subwavePathIndeces) {
@@ -89,6 +89,11 @@ public class Wave
 
     public int getNumEnemiesAlive() {
         return aliveEnemies.Count;
+    }
+
+    public List<Enemy> getEnemiesAlive()
+    {
+        return aliveEnemies;
     }
 
     void removeNullAliveEnemies()
