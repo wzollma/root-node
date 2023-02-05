@@ -70,7 +70,7 @@ MonoBehaviour:
     type: 3}
   attackSoundName: tree_default_attack
   attackSoundFrequencyRange: {x: 0.2, y: 0.6}
-  attackFrequency: 0.2
+  attackFrequency: 0.7
 --- !u!114 &5251319780499393333
 MonoBehaviour:
   m_ObjectHideFlags: 0
