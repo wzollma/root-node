@@ -8,9 +8,12 @@ public class WaveManager : MonoBehaviour
 
     public float timeBetweenEnemySpawns = .25f;
     [SerializeField] Enemy[] allEnemies; // probably should be ordered in ascending difficulty (or order of when we want them introduced)
+    [SerializeField] LineRenderer lineRendPrefab;
 
     /*const*/
     [SerializeField] float TIME_BETWEEN_WAVES = 4;
+    [SerializeField] float TIME_UNTIL_WAVE_ANIM = 0;
+    [SerializeField] float waveAnimSpeed = 32;
     [SerializeField] int wavesUntilBossWave = 10;
     [SerializeField] float difficultyMultiplier = 1.2f;    
 
@@ -19,6 +22,9 @@ public class WaveManager : MonoBehaviour
     float curDifficulty; // just for debugging
     float curWaveSize; // just for debugging;
     float lastTimeEndedWave;
+
+    bool hasShownPaths;
+    Wave nextWave;
 
     void Awake()
     {
@@ -35,9 +41,14 @@ public class WaveManager : MonoBehaviour
     {
         if (curWave != null)
             curWave.tryToSpawn();
+        else if (!hasShownPaths && Time.time - lastTimeEndedWave >= TIME_UNTIL_WAVE_ANIM) {
+            nextWave = createNewWave();
+            StartCoroutine(showPaths(nextWave));
+            hasShownPaths = true;
+        }
         else if (Time.time - lastTimeEndedWave >= TIME_BETWEEN_WAVES)
         {
-            curWave = createNewWave();
+            curWave = nextWave;
 
             int numEnemies = 0;
             foreach (WaveEnemy waveEnemy in curWave.enemiesToSpawn)
@@ -49,6 +60,7 @@ public class WaveManager : MonoBehaviour
             }
             //Debug.Log($"{waveNum} - {numEnemies} enemies");
 
+            hasShownPaths = false;
             waveNum++;
         }
     }
@@ -96,6 +108,8 @@ public class WaveManager : MonoBehaviour
                     subWaveEnemiesLeft = 100; // arbitrarily long number
 
                 subwavePath = NavManager.instance.getPathIndeces();
+
+                newWave.addSubwavePathIndeces(subwavePath);
 
                 //Debug.Log($"subwave len: {subWaveEnemiesLeft}");
             }
@@ -181,5 +195,49 @@ public class WaveManager : MonoBehaviour
     Vector2Int calculateSubwaveBounds(int waveNum)
     {
         return new Vector2Int(waveNum, waveNum * 2);
+    }
+
+    IEnumerator showPaths(Wave waveToShow) {
+        List<List<NavElement>> paths = new List<List<NavElement>>();
+        List<LineRenderer> lineRends = new List<LineRenderer>();
+        List<int> pathCurIndex = new List<int>();
+
+        foreach(List<int> indeces in waveToShow.getAllSubwavePathIndeces()) {
+            paths.Add(NavManager.instance.getPath(null, indeces));
+
+            lineRends.Add(Instantiate(lineRendPrefab, transform.position, Quaternion.identity));
+            pathCurIndex.Add(0);
+        }            
+
+        while (paths.Count > 0) {
+            for (int i = 0; i < paths.Count; i++) {
+                LineRenderer curLineRend = lineRends[i];
+                NavElement curNavElement = paths[i][0];
+                NavInfo info = NavManager.instance.getPathInfo(curLineRend.transform, paths[i], curNavElement, 0, waveAnimSpeed);
+
+                //curLineRend.Positions.Add(curLineRend.transform.position);
+
+                bool traversedCurNavElement = curNavElement.setNextPos(info);
+
+                // sets the line renderer points
+
+        
+                if (traversedCurNavElement)
+                {
+                    pathCurIndex[i]++;
+
+                    if (pathCurIndex[i] >= paths[i].Count)
+                    {
+                        paths.RemoveAt(i);
+                        lineRends.RemoveAt(i);
+                        pathCurIndex.RemoveAt(i);
+                        i--;
+                        continue;
+                    }                
+                }
+            }
+
+            yield return null;
+        }
     }
 }

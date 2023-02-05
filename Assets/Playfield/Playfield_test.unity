@@ -411,7 +411,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d243175c533a249a73b51bd50fe295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 2313503469801368368, guid: 2368350c09ee0b14aa87a644451c8896, type: 3}
 --- !u!4 &204277211
 Transform:
   m_ObjectHideFlags: 0
@@ -963,7 +962,11 @@ MonoBehaviour:
   timeBetweenEnemySpawns: 0.25
   allEnemies:
   - {fileID: 2313503469801368368, guid: 2368350c09ee0b14aa87a644451c8896, type: 3}
+  lineRendPrefab: {fileID: 4284867697786076175, guid: cf9ea8fb120d1df4296fa38e3465a9da,
+    type: 3}
   TIME_BETWEEN_WAVES: 1
+  TIME_UNTIL_WAVE_ANIM: 0
+  waveAnimSpeed: 32
   wavesUntilBossWave: 10
   difficultyMultiplier: 1.2
 --- !u!4 &1707311326
