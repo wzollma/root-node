@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float difficultyScore;
     [SerializeField] float startHealth;
     [SerializeField] float attackCooldown;
+    [SerializeField] float timeToRotate;
 
     List<NavElement> path;
     int curPathIndex;
@@ -26,6 +27,9 @@ public class Enemy : MonoBehaviour
 
     List<Node> nodesInRange;
 
+    Quaternion lastDesiredRot;
+    float timeStartRotLerp;
+
     void Start()
     {
         // sets enemy at beginning of path
@@ -35,12 +39,24 @@ public class Enemy : MonoBehaviour
 
         curSpeed = startSpeed;
         curDamage = startDamage;
-        curBaseDamage = startBaseDamage;
+        curBaseDamage = startBaseDamage;        
     }
     
     void Update()
     {
+        Vector3 prevPos = transform.position;
+
         Move();
+
+        Quaternion newDesiredRot = getDesiredRotation(prevPos);
+
+        if (!newDesiredRot.Equals(lastDesiredRot)) {
+            timeStartRotLerp = Time.time;  
+            
+            lastDesiredRot = newDesiredRot;
+        }
+
+        transform.rotation = newDesiredRot;//Quaternion.Slerp(transform.rotation, lastDesiredRot, Mathf.Clamp01((Time.time - timeStartRotLerp) / timeToRotate));
 
         AttackTreeNode();
 
@@ -186,6 +202,18 @@ public class Enemy : MonoBehaviour
         }
 
         return curClosestTree;
+    }
+
+    Quaternion getDesiredRotation(Vector3 prevPos) {
+        Quaternion prevRot = transform.rotation;
+
+        transform.LookAt(prevPos);
+
+        Quaternion newRot = transform.rotation;
+
+        transform.rotation = prevRot;
+
+        return newRot;
     }
 
     void OnTriggerEnter(Collider other)
