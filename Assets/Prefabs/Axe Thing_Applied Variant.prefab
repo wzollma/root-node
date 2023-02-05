@@ -43,7 +43,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 44
+  m_Radius: 22
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1206987856388849636
 PrefabInstance:
@@ -268,10 +268,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startSpeed: 1.2
-  startDamage: 15
-  startBaseDamage: 15
+  startDamage: 10
+  startBaseDamage: 10
   difficultyScore: 2
-  startHealth: 8.000001
+  startHealth: 8
   attackCooldown: 0.75
   timeToRotate: 0
   yRotToFaceForward: 180
