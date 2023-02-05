@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class NavManager : MonoBehaviour
 {
@@ -37,10 +38,17 @@ public class NavManager : MonoBehaviour
 
     private void Update()
     {
-        Vector3 mouseInput = Input.mousePosition;
-        Vector3 mousePos = mainCam.ViewportToWorldPoint(new Vector3(mouseInput.x, mouseInput.y, 1));
-        //Debug.Log(mousePos);
-        Debug.Log(getShortestDistanceToPath(mousePos));
+        //Vector3 mouseInput = Input.mousePosition;
+        //Vector3 mousePos = mainCam.ScreenToWorldPoint(new Vector3(mouseInput.x, mouseInput.y, 1));
+        //mainCam.GetComponent<PhysicsRaycaster>().Raycast(PointerEventData.
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = mainCam.nearClipPlane;
+        Vector3 Worldpos = mainCam.ScreenToWorldPoint(mousePos);
+
+        RaycastHit hit;
+        Physics.Raycast(mainCam.ScreenPointToRay(mousePos), out hit);
+        //Debug.Log(hit.point);
+        //Debug.Log(getShortestDistanceToPath(hit.point));
     }
 
     /// <summary>
@@ -126,8 +134,9 @@ public class NavManager : MonoBehaviour
         {
             // check this ring
             float angle = r.posToAngle(position);
-            Vector2 projectedPosCircle = flattenVector3(r.angleToPos(angle, r.getRadius()));
-            float curDistCircle = Vector2.Distance(projectedPosCircle, flatPos);
+            Vector3 projectedPosCircle = r.angleToPos(angle, r.getRadius());
+            float curDistCircle = Vector2.Distance(flattenVector3(projectedPosCircle), flatPos);
+            //Debug.Log($"angle: {angle}    projected: {projectedPosCircle}    curDistCircle: {curDistCircle}");
 
             if (curDistCircle < curMinDist)
                 curMinDist = curDistCircle;

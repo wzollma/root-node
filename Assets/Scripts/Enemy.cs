@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
+    public delegate void OnDieDelegate(float damageToBase);
+    public event OnDieDelegate OnDie;
     [SerializeField] float startSpeed;
     [SerializeField] float startDamage;
     [SerializeField] float startBaseDamage;
     [SerializeField] float difficultyScore;
+    [SerializeField] float startHealth;
 
     List<NavElement> path;
     int curPathIndex;
@@ -15,6 +19,7 @@ public class Enemy : MonoBehaviour
     float curSpeed;
     float curDamage;
     float curBaseDamage;
+    float health;
 
     void Start()
     {
@@ -95,12 +100,27 @@ public class Enemy : MonoBehaviour
 
     void AttackBase()
     {
+        Die();
+    }
+
+    void Die()
+    {
+        OnDie(curBaseDamage);
+
         Destroy(gameObject);
     }
 
     public float getDifficulty()
     {
         return difficultyScore;
+    }
+
+    public void takeDamage(float damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+            Die();
     }
 
     public void setPath(List<int> pathIndeces)

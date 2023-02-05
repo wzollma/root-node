@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6ed9c409-ccee-4db1-be5c-727fb6557b4b" name="Changes" comment="add distance limiter" />
+    <list default="true" id="6ed9c409-ccee-4db1-be5c-727fb6557b4b" name="Changes" comment="fix trees blocking new tree placement">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.root-node/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.root-node/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/CameraRef.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefenseNodes/CameraRef.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefenseNodes/Node.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/RandomYRot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/RandomYRot.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Tree.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Tree/TreeBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Tree/TreeBase.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/Center Tree.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/Center Tree.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/Maple Thrower.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/Maple Thrower.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/Pine Bomber.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/Pine Bomber.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/model origin.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/model origin.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/plant.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/artwork/plant.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/tree prefab.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/tree prefab.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Playfield/Playfield_test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Playfield/Playfield_test.unity" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,7 +38,13 @@
     <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/node test.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/node test.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/node test.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/DefenseNodes/CameraRef.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenseNodes/Node.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/DefenseNodes/NodeSpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/DefenseNodes/Towers/Shooter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/jtriveri/repos/root-node/Assets/Scripts/NavRing.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventData/PointerEventData.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/Raycasters/PhysicsRaycaster.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/jtriveri/repos/root-node/ProjectSettings/TagManager.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -100,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675537314139</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix trees blocking new tree placement">
+      <created>1675551139568</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1675551139568</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,6 +161,7 @@
     <MESSAGE value="add tree nodes and tree root nodes" />
     <MESSAGE value="remove connection nodes" />
     <MESSAGE value="add distance limiter" />
-    <option name="LAST_COMMIT_MESSAGE" value="add distance limiter" />
+    <MESSAGE value="fix trees blocking new tree placement" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix trees blocking new tree placement" />
   </component>
 </project>
