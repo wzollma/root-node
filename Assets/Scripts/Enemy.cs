@@ -40,7 +40,8 @@ public class Enemy : MonoBehaviour
 
         curSpeed = startSpeed;
         curDamage = startDamage;
-        curBaseDamage = startBaseDamage;        
+        curBaseDamage = startBaseDamage;
+        health = startHealth;
     }
     
     void Update()
