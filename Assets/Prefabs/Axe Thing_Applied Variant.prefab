@@ -157,6 +157,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Axe Thing_Applied Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ad78b0f598c1c21468ec3d045b17ca6f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ad78b0f598c1c21468ec3d045b17ca6f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6324240423935976452, guid: ad78b0f598c1c21468ec3d045b17ca6f,
         type: 3}
       propertyPath: m_IsActive
@@ -261,7 +271,7 @@ MonoBehaviour:
   startDamage: 15
   startBaseDamage: 15
   difficultyScore: 2
-  startHealth: 25.6
+  startHealth: 8.000001
   attackCooldown: 0.75
   timeToRotate: 0
   yRotToFaceForward: 180

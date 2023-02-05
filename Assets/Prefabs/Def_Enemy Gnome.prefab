@@ -230,7 +230,7 @@ MonoBehaviour:
   startDamage: 1
   startBaseDamage: 1
   difficultyScore: 0.1
-  startHealth: 3.2
+  startHealth: 1.0000001
   attackCooldown: 0.75
   timeToRotate: 0
   yRotToFaceForward: 180
