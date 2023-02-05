@@ -14,6 +14,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] float TIME_BETWEEN_WAVES = 4;
     [SerializeField] float TIME_UNTIL_WAVE_ANIM = 0;
     [SerializeField] float waveAnimSpeed = 32;
+    [SerializeField] float timeAnimOnScreen = 5;
     [SerializeField] float waveAnimCooldown = .1f;
     [SerializeField] int wavesUntilBossWave = 10;
     [SerializeField] float difficultyMultiplier = 1.2f;    
@@ -209,7 +210,7 @@ public class WaveManager : MonoBehaviour
             paths.Add(NavManager.instance.getPath(newRend.transform, indeces));
                         
             newRend.SetPosition(0, newRend.transform.position);
-            newRend.positionCount = 300;
+            newRend.positionCount = 500;
 
             lineRends.Add(newRend);
 
@@ -225,12 +226,10 @@ public class WaveManager : MonoBehaviour
                 NavElement curNavElement = paths[i][curIndex];
                 NavInfo info = NavManager.instance.getPathInfo(curLineRend.transform, paths[i], curNavElement, curIndex, waveAnimSpeed);
 
+                // sets the line renderer points
                 curLineRend.SetPosition(positionNum, curLineRend.transform.position);
 
                 bool traversedCurNavElement = curNavElement.setNextPos(info);
-
-                // sets the line renderer points
-
         
                 if (traversedCurNavElement)
                 {
@@ -261,7 +260,7 @@ public class WaveManager : MonoBehaviour
             lineRend.enabled = true;
         }
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(timeAnimOnScreen);
 
         for (int i = lineRends.Count - 1; i >= 0; i--)
         {
