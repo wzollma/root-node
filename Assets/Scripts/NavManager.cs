@@ -8,10 +8,10 @@ public class NavManager : MonoBehaviour
     public static NavManager instance;
 
     List<NavRing> allNavRings;
-    [SerializeField] Enemy enemy;
+    //[SerializeField] Enemy enemy;
     float lastTimeSpawned;
 
-    Enemy lastEnemy;
+    //Enemy lastEnemy;
     Camera mainCam;
 
     private void Awake()
@@ -110,13 +110,14 @@ public class NavManager : MonoBehaviour
             NavLine p = path[i - 1] as NavLine;
             NavLine n = path[i + 1] as NavLine;
         }
-        lastEnemy = enemyTrans.GetComponent<Enemy>();
+        //lastEnemy = enemyTrans.GetComponent<Enemy>();
 
         // sets enemyTrans at the start of the path
-        enemyTrans.position = (path[0] as NavLine).getStartPos();
+        if (enemyTrans != null)
+            enemyTrans.position = (path[0] as NavLine).getStartPos();
 
-        if (enemy == null)
-            enemy = enemyTrans.GetComponent<Enemy>();
+        /*if (enemy == null)
+            enemy = enemyTrans.GetComponent<Enemy>();*/
 
         return path;
     }
@@ -179,6 +180,36 @@ public class NavManager : MonoBehaviour
         }
 
         return curMinDist > minDistance;
+    }
+
+    public NavInfo getPathInfo(Transform trans, List<NavElement> path, NavElement curNavElement, int curPathIndex, float speed) {
+        NavInfo info;
+        float maxDist = speed * Time.deltaTime;
+        if (curNavElement is NavRing)
+        {
+            //Debug.Log("is ring");
+            NavLine nextNavLine = (path[curPathIndex + 1] as NavLine);
+            float prevAngle = NavRing.posModAngle((path[curPathIndex - 1] as NavLine).getAngle());
+            float nextAngle = NavRing.posModAngle(nextNavLine.getAngle());
+            bool nextGreater = nextAngle > prevAngle;
+            float largerAngle = nextGreater ? nextAngle : prevAngle;
+            float smallerAngle = nextGreater ? prevAngle : nextAngle;
+            bool overHalfApart = Mathf.Abs(nextAngle - prevAngle) > Mathf.PI && Mathf.Abs(smallerAngle + Mathf.PI * 2 - largerAngle) > Mathf.PI;
+
+            float signedAngle = nextAngle - prevAngle;
+            float twoPI = Mathf.PI * 2;            
+            signedAngle = (signedAngle + Mathf.PI) % twoPI;
+            overHalfApart = signedAngle > Mathf.PI;
+
+            info = new NavInfo(trans, maxDist, nextNavLine.getStartPos(), NavRing.shortestDistRadians(prevAngle, nextAngle) < 0);
+        }
+        else
+        {
+            //Debug.Log("is line");
+            info = new NavInfo(trans, maxDist/*, (curNavElement as NavLine).getEndPos()*/);
+        }
+
+        return info;
     }
 
     Vector2 flattenVector3(Vector3 vec)

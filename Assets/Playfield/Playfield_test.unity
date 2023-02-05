@@ -616,7 +616,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d243175c533a249a73b51bd50fe295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 2313503469801368368, guid: 2368350c09ee0b14aa87a644451c8896, type: 3}
 --- !u!4 &204277211
 Transform:
   m_ObjectHideFlags: 0
@@ -2702,9 +2701,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenEnemySpawns: 0.25
   allEnemies:
-  - {fileID: 4558585507297730638, guid: f5f3b2e50b4ab8e4ab51f2d273d913d9, type: 3}
-  - {fileID: 2313503469801368368, guid: 2368350c09ee0b14aa87a644451c8896, type: 3}
+  - {fileID: 5335863245746275230, guid: 8e087c2354f717d47b56b47e6f0c8ea2, type: 3}
+  - {fileID: 2111819751, guid: 6cc12804ce88ce2468e3390f09c9c8ed, type: 3}
+  - {fileID: 2089138053, guid: d7494f6274cefe644ab644c29f4510ef, type: 3}
+  - {fileID: 192559724, guid: 9a39e4957dd7582478051f5ffce76ce5, type: 3}
+  lineRendPrefab: {fileID: 4284867697786076175, guid: cf9ea8fb120d1df4296fa38e3465a9da,
+    type: 3}
   TIME_BETWEEN_WAVES: 1
+  TIME_UNTIL_WAVE_ANIM: 0
+  waveAnimSpeed: 100
+  timeAnimOnScreen: 5
+  waveAnimCooldown: 0.005
   wavesUntilBossWave: 10
   difficultyMultiplier: 1.2
 --- !u!4 &1707311326
@@ -2868,7 +2875,142 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numPathsInward: 4
   pathOffset: 45
-  radius: 30
+  radius: 22
+--- !u!1 &1828074953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1828074955}
+  - component: {fileID: 1828074954}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1828074954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828074953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71101970101df9f40929ea17582f4aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: chainsaw_attackBase
+    clip: {fileID: 8300000, guid: 873bf8e83605fd245b90f7230aa6207f, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: chainsaw
+    clip: {fileID: 8300000, guid: d05e74956b8d7094dacf81dae2654612, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: chop
+    clip: {fileID: 8300000, guid: bbbeba42a21751448ac4be22a551edaa, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: enemy_die
+    clip: {fileID: 8300000, guid: 893c1fdbcf5e73f4cb52a0201ce55284, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: tree_sticky_attack
+    clip: {fileID: 8300000, guid: 82bace054e716ac408bcbf8ca1256385, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: tree_default_attack
+    clip: {fileID: 8300000, guid: 38257a034aa76bc408e35c6cfea2638d, type: 3}
+    volume: 0.9
+    pitch: 1
+    source: {fileID: 0}
+  - name: tree_default_hit
+    clip: {fileID: 8300000, guid: fc95393093e94704d9da1868ad30f5bf, type: 3}
+    volume: 0.8
+    pitch: 1
+    source: {fileID: 0}
+  - name: tree_bomb_attack
+    clip: {fileID: 8300000, guid: 52b5b436c1e46da4ba1aad134569a936, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: tree_bomb_hit
+    clip: {fileID: 8300000, guid: 323153df53bae7647bcd93beda65c964, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: plant_old
+    clip: {fileID: 8300000, guid: d41b9792700f52a4f860c4b2dc828fd5, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: tree_die
+    clip: {fileID: 8300000, guid: 7635643715be5894aa467f5087a7ed75, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: tree_hurt
+    clip: {fileID: 8300000, guid: b8ceb808ebd237247b9bb0de23d379a1, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: plant
+    clip: {fileID: 8300000, guid: 11d0e42fdc712f2438228834be15be53, type: 3}
+    volume: 0.55
+    pitch: 1
+    source: {fileID: 0}
+  themeClips:
+  - name: BASE
+    clip: {fileID: 8300000, guid: 17a71a59fc4689c4891c0f542583c208, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: MANY
+    clip: {fileID: 8300000, guid: 854843656e256604da23204586a60782, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: MACHINE
+    clip: {fileID: 8300000, guid: a0f37fd14cbcacf4e9870696b06ad2a1, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: BETWEEN
+    clip: {fileID: 8300000, guid: 6935d097139f43747858fa527acfc273, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  FADE_TIME: 4
+  mainMenuTrack: {fileID: 0}
+  bigThemeEnemyThreshold: 20
+  musicStartVolume: 0.8
+--- !u!4 &1828074955
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828074953}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2009762222
 GameObject:
   m_ObjectHideFlags: 0

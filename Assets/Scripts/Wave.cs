@@ -7,6 +7,7 @@ public class Wave
     public List<WaveEnemy> enemiesToSpawn;
 
     List<Enemy> aliveEnemies;
+    List<List<int>> allSubwavePathIndeces;
 
     float lastSpawnTime;
     float lastRemovalTime;
@@ -15,6 +16,7 @@ public class Wave
     {
         enemiesToSpawn = new List<WaveEnemy>();
         aliveEnemies = new List<Enemy>();
+        allSubwavePathIndeces = new List<List<int>>();
     }
 
     public void tryToSpawn()
@@ -41,6 +43,14 @@ public class Wave
         enemiesToSpawn.Add(new WaveEnemy(newEnemy, WaveManager.instance.timeBetweenEnemySpawns, pathIndeces));
     }
 
+    public void addSubwavePathIndeces(List<int> subwavePathIndeces) {
+        allSubwavePathIndeces.Add(subwavePathIndeces);
+    }
+
+    public List<List<int>> getAllSubwavePathIndeces() {
+        return allSubwavePathIndeces;
+    }
+
     bool canSpawnEnemy()
     {
         return !isComplete() && !noMoreEnemiesToSpawn() && Time.time - lastSpawnTime >= enemiesToSpawn[0].timeAfterPrev /*&& !Physics.DrawSphere(enemies[0].enemy.transform.position, .25f*/ /* enemy radius *//*, enemyLayer*//*)*/;
@@ -49,6 +59,7 @@ public class Wave
     void spawnNextEnemy()
     {
         Enemy newEnemy = Object.Instantiate(enemiesToSpawn[0].enemy, Vector3.zero, Quaternion.identity);
+        newEnemy.OnDestroyed += playEnemyDeathSound;
 
         List<int> indecesList = new List<int>();
         for (int i = 0; i < enemiesToSpawn[0].pathIndeces.Length; i++)
@@ -62,6 +73,10 @@ public class Wave
         lastSpawnTime = Time.time;
     }
 
+    void playEnemyDeathSound() {
+        AudioManager.PlayNoOverlap("enemy_die");
+    }
+
     bool isComplete()
     {
         return noMoreEnemiesToSpawn() && aliveEnemies.Count <= 0;
@@ -70,6 +85,10 @@ public class Wave
     bool noMoreEnemiesToSpawn()
     {
         return enemiesToSpawn.Count <= 0;
+    }
+
+    public int getNumEnemiesAlive() {
+        return aliveEnemies.Count;
     }
 
     void removeNullAliveEnemies()
