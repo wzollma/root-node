@@ -12,7 +12,7 @@ namespace DefenseNodes
 		IUpdateSelectedHandler
 	{
 		public event Action OnDestroyed = delegate {  };
-		
+
 		public event Action<float> OnHealthChange = delegate {  };
 		
 		public List<Node> Children { get; private set; } = new List<Node>();
@@ -92,6 +92,19 @@ namespace DefenseNodes
 			_placementValid = false;
 		}
 
+		public void OnDrag(PointerEventData eventData)
+		{
+			_dragPosWorld = eventData.pointerCurrentRaycast.worldPosition;
+			_placementValid = CheckIfValidPlacement(eventData);
+		}
+
+		public void OnUpdateSelected(BaseEventData eventData)
+		{
+			Color c = _placementValid ? Color.green : Color.red;
+
+			Debug.DrawLine(_dragPosWorld, transform.position, c);
+		}
+
 		public void OnEndDrag(PointerEventData eventData)
 		{
 			CameraRef.Raycaster.eventMask |= 1 << LayerMask.NameToLayer("tree");
@@ -109,19 +122,18 @@ namespace DefenseNodes
 			}
 			
 			AddChild(newNode);
+			newNode.SpawnRootModel();
 		}
 
-		public void OnDrag(PointerEventData eventData)
+		[SerializeField] private GameObject rootPrefab;
+		private void SpawnRootModel()
 		{
-			_dragPosWorld = eventData.pointerCurrentRaycast.worldPosition;
-			_placementValid = CheckIfValidPlacement(eventData);
-		}
+			Transform rootTransform = Instantiate(rootPrefab, transform).transform;
+			rootTransform.localScale =
+				new Vector3(1, 1, Vector3.Distance(transform.position, Parent.transform.position));
+			rootTransform.rotation =
+				Quaternion.LookRotation(Parent.transform.position - transform.position, Vector3.up);
 
-		public void OnUpdateSelected(BaseEventData eventData)
-		{
-			Color c = _placementValid ? Color.green : Color.red;
-
-			Debug.DrawLine(_dragPosWorld, transform.position, c);
 		}
 
 		private bool CheckIfValidPlacement(PointerEventData eventData)
