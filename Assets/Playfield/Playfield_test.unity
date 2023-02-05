@@ -788,8 +788,9 @@ MonoBehaviour:
     type: 3}
   TIME_BETWEEN_WAVES: 1
   TIME_UNTIL_WAVE_ANIM: 0
-  waveAnimSpeed: 500
-  waveAnimCooldown: 0.01
+  waveAnimSpeed: 100
+  timeAnimOnScreen: 5
+  waveAnimCooldown: 0.005
   wavesUntilBossWave: 10
   difficultyMultiplier: 1.2
 --- !u!4 &1707311326
