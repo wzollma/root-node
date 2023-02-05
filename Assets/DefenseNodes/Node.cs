@@ -55,6 +55,8 @@ namespace DefenseNodes
 		public void Damage(float amount)
 		{
 			SetHealth(health - amount);
+			
+			
 
 			AudioManager.PlayNoOverlap("tree_hurt");
 		}

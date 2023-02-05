@@ -44,7 +44,7 @@ namespace DefenseNodes
 			node = Instantiate(nodePrefab, position, rotation).GetComponent<Node>();
 			TowerBase tower = SpawnTower(node.transform);
 			node.SetHealth(tower.InitialHealth);
-			node.OnHealthChange += tower.SetDamageAppearance;
+			node.OnHealthChange += tower.OnNodeTakesDamage;
 
 			return true;
 		}
