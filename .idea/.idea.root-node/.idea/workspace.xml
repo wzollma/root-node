@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6ed9c409-ccee-4db1-be5c-727fb6557b4b" name="Changes" comment="prevent placing trees on trees">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.root-node/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.root-node/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefenseNodes/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefenseNodes/Node.cs" afterDir="false" />
-    </list>
+    <list default="true" id="6ed9c409-ccee-4db1-be5c-727fb6557b4b" name="Changes" comment="visuals" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,22 +15,22 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/88d854ea2c91426ebc464f01cd71aa85157a00/b1/15d60e6e/YieldInstruction.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/88d854ea2c91426ebc464f01cd71aa85157a00/c4/22b4db60/Coroutine.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/88d854ea2c91426ebc464f01cd71aa85157a00/2d/42a61218/Camera.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8cb8bce468c64351ae8c390df9a4c1175c00/5f/94e7e78b/FreeFunctionAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/Node.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/Tree.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/node test.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/node test.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenceNodes/node test.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DefenseNodes/CameraRef.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DefenseNodes/Cursor/NodeCursor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DefenseNodes/LayerRefs.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/jt/source/root-node/Assets/DefenseNodes/Node.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/jt/source/root-node/Assets/DefenseNodes/Node.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenseNodes/Node.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/jtriveri/repos/root-node/Assets/DefenseNodes/Node.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DefenseNodes/NodeSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DefenseNodes/Towers/Shooter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/jt/source/root-node/Assets/DefenseNodes/root.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/jt/source/root-node/Assets/Playfield/Playfield_test.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/jt/source/root-node/Assets/Prefabs/FastEnemy.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/jt/source/root-node/Assets/Prefabs/FastEnemy.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/jt/source/root-node/Assets/Prefabs/FastEnemy.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/jt/source/root-node/Assets/Scripts/Enemy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/jt/source/root-node/Assets/Scripts/NavRing.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/jtriveri/repos/root-node/Assets/Scripts/Enemy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/jtriveri/repos/root-node/Assets/Scripts/NavRing.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.2/Editor/Collaborate/Components/BetterTextField.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.2/Editor/Collaborate/Presenters/ChangesPresenter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.2/Editor/PlasticSCM/Configuration/CloudEdition/Welcome/CloudEditionWelcomeWindow.cs" root0="SKIP_HIGHLIGHTING" />
@@ -46,9 +43,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@12.1.7/Editor/Drawing/Controllers/BlackboardController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventData/PointerEventData.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/Raycasters/PhysicsRaycaster.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/jt/source/root-node/ProjectSettings/DynamicsManager.asset" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/jt/source/root-node/ProjectSettings/DynamicsManager.asset" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/jt/source/root-node/ProjectSettings/GraphicsSettings.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/jtriveri/repos/root-node/ProjectSettings/TagManager.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -202,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675591613334</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="visuals">
+      <created>1675627249054</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1675627249054</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,6 +241,7 @@
     <MESSAGE value="visual tree place cursor" />
     <MESSAGE value="temp brighter roots" />
     <MESSAGE value="prevent placing trees on trees" />
-    <option name="LAST_COMMIT_MESSAGE" value="prevent placing trees on trees" />
+    <MESSAGE value="visuals" />
+    <option name="LAST_COMMIT_MESSAGE" value="visuals" />
   </component>
 </project>
