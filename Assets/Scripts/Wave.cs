@@ -7,6 +7,7 @@ public class Wave
     public List<WaveEnemy> enemiesToSpawn;
 
     List<Enemy> aliveEnemies;
+    List<List<int>> allSubwavePathIndeces;
 
     float lastSpawnTime;
     float lastRemovalTime;
@@ -15,6 +16,7 @@ public class Wave
     {
         enemiesToSpawn = new List<WaveEnemy>();
         aliveEnemies = new List<Enemy>();
+        allSubwavePathIndeces = new List<List<int>>();
     }
 
     public void tryToSpawn()
@@ -39,6 +41,14 @@ public class Wave
     public void addEnemy(Enemy newEnemy, Vector3 startPos, List<int> pathIndeces)
     {
         enemiesToSpawn.Add(new WaveEnemy(newEnemy, WaveManager.instance.timeBetweenEnemySpawns, pathIndeces));
+    }
+
+    public void addSubwavePathIndeces(List<int> subwavePathIndeces) {
+        allSubwavePathIndeces.Add(subwavePathIndeces);
+    }
+
+    public List<List<int>> getAllSubwavePathIndeces() {
+        return allSubwavePathIndeces;
     }
 
     bool canSpawnEnemy()
