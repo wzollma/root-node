@@ -411,7 +411,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d243175c533a249a73b51bd50fe295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnCooldown: 4
   enemy: {fileID: 2313503469801368368, guid: 2368350c09ee0b14aa87a644451c8896, type: 3}
 --- !u!4 &204277211
 Transform:
@@ -461,10 +460,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d285d4d4a5e1864faef0d00868bc359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: 5
   nodePrefab: {fileID: 1226555515633158782, guid: 1d75be51dbaae944f95ac6232c6bf163,
     type: 3}
-  treePrefabs:
-  - {fileID: 585821014428609517, guid: 6afd680643865fb4a8ddd02f3be2c375, type: 3}
+  towerPrefabs:
+  - {fileID: 8723785760555835864, guid: 77dfa29328e24e4428573025c2ad5e44, type: 3}
+  - {fileID: 5636467641001727636, guid: 6afd680643865fb4a8ddd02f3be2c375, type: 3}
 --- !u!4 &327598516
 Transform:
   m_ObjectHideFlags: 0
@@ -1039,6 +1040,7 @@ GameObject:
   - component: {fileID: 9032173084173337739}
   - component: {fileID: 8305935960970848968}
   - component: {fileID: 9032173084173337740}
+  - component: {fileID: 9032173084173337741}
   m_Layer: 0
   m_Name: Center Tree
   m_TagString: Tree
@@ -1153,4 +1155,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc35895e25b26e4419f4aa2676e425f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReachDistance: 15
+  ReachDistance: 10
+--- !u!114 &9032173084173337741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767851508571700898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57efe047963e558469f2f5b241d7590d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHealth: 20

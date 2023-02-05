@@ -16,7 +16,6 @@ namespace DefenseNodes
 		public List<Node> Children { get; private set; } = new List<Node>();
 		public bool HasParent { get; private set; } = false;
 		public Node Parent { get; private set; }
-		public Towers.TowerBase TowerBase { get; private set; }
 
 		public void AddChild(Node node)
 		{
@@ -66,16 +65,6 @@ namespace DefenseNodes
 			Destroy(gameObject);
 		}
 
-		public void SetTree(int treeIndex)
-		{
-			if (TowerBase != null)
-			{
-				Destroy(TowerBase.gameObject);
-			}
-
-			NodeSpawner.Singleton.SpawnTower(transform.GetChild(0), treeIndex);
-		}
-
 		// Interaction
 
 		private Vector3 _dragPosWorld = Vector3.zero;
@@ -102,12 +91,13 @@ namespace DefenseNodes
 			if (!_placementValid)
 				return;
 
-			Node newNode =
-				NodeSpawner.Singleton.SpawnNode(eventData.pointerCurrentRaycast.worldPosition,
-					quaternion.identity);
+
+			if (!NodeSpawner.Singleton.TrySpawnNode(eventData.pointerCurrentRaycast.worldPosition,
+				    quaternion.identity, out Node newNode))
+			{
+				return;
+			}
 			
-			// TODO: tree selection
-			newNode.SetTree(0);
 			AddChild(newNode);
 		}
 
@@ -126,14 +116,20 @@ namespace DefenseNodes
 
 		private bool CheckIfValidPlacement(PointerEventData eventData)
 		{
+			Vector3 pointerWorld = eventData.pointerCurrentRaycast.worldPosition;
+			pointerWorld.y = 0;
+
+			if (!NodeSpawner.Singleton.CheckIfEnoughMoneyForSelected())
+				return false;
+			
 			if (eventData.hovered.Count < 1 || !eventData.hovered[0].CompareTag("Ground"))
 				return false;
 
-			Vector2 transformXZ = new Vector2(transform.position.x, transform.position.z);
-			Vector3 wp = eventData.pointerCurrentRaycast.worldPosition;
-			Vector2 pointXZ = new Vector2(wp.x, wp.z);
+			if (Vector3.Distance(transform.position, pointerWorld) > ReachDistance)
+				return false;
 
-			return Vector2.Distance(transformXZ, pointXZ) < ReachDistance;
+
+			return NavManager.instance.isPositionValid(pointerWorld, .5f, 100);
 		}
 
 		public void OnPointerClick(PointerEventData eventData)
@@ -142,6 +138,11 @@ namespace DefenseNodes
 			{
 				Kill();
 			}
+		}
+		
+		public Transform GetTowerContainer()
+		{
+			return transform.GetChild(0);
 		}
 		
 		// debug

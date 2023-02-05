@@ -72,13 +72,18 @@ public class NavRing : MonoBehaviour, NavElement
         return (angle + Mathf.PI * 2) % (Mathf.PI * 2);
     }
 
+    public float positiveModAngle(float angle)
+    {
+        return NavRing.posModAngle(angle);
+    }
+
     public static float shortestDistRadians(float start, float stop)
     {
         float twoPI = Mathf.PI * 2;
         float modDiff = (stop - start) % twoPI;
         float shortestDistance = Mathf.PI - Mathf.Abs(Mathf.Abs(modDiff) - Mathf.PI);
         return (modDiff + twoPI) % twoPI < Mathf.PI ? shortestDistance *= 1 : shortestDistance *= -1;
-    }
+    }    
 
     public float getPathLength()
     {
