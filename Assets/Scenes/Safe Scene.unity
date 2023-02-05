@@ -3227,6 +3227,7 @@ GameObject:
   - component: {fileID: 9032173084173337740}
   - component: {fileID: 9032173084173337741}
   - component: {fileID: 9032173084173337742}
+  - component: {fileID: 9032173084173337743}
   m_Layer: 0
   m_Name: Center Tree
   m_TagString: Untagged
@@ -3409,3 +3410,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 5
+--- !u!114 &9032173084173337743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767851508571700898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 176ffaf82dcac5c43bb42eec0f9ed46f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MeshRenderer: {fileID: 1711813856141479322}
+  normal: {fileID: 2100000, guid: 5d082961416d61743944d9052fddb442, type: 2}
+  highlight: {fileID: 2100000, guid: 406bf5b12618a83478ba388a929ca927, type: 2}
