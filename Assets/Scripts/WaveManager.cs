@@ -14,6 +14,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] float TIME_BETWEEN_WAVES = 4;
     [SerializeField] float TIME_UNTIL_WAVE_ANIM = 0;
     [SerializeField] float waveAnimSpeed = 32;
+    [SerializeField] float waveAnimCooldown = .1f;
     [SerializeField] int wavesUntilBossWave = 10;
     [SerializeField] float difficultyMultiplier = 1.2f;    
 
@@ -203,19 +204,28 @@ public class WaveManager : MonoBehaviour
         List<int> pathCurIndex = new List<int>();
 
         foreach(List<int> indeces in waveToShow.getAllSubwavePathIndeces()) {
-            paths.Add(NavManager.instance.getPath(null, indeces));
+            LineRenderer newRend = Instantiate(lineRendPrefab, transform.position, Quaternion.identity);
 
-            lineRends.Add(Instantiate(lineRendPrefab, transform.position, Quaternion.identity));
+            paths.Add(NavManager.instance.getPath(newRend.transform, indeces));
+                        
+            newRend.SetPosition(0, newRend.transform.position);
+            newRend.positionCount = 300;
+
+            lineRends.Add(newRend);
+
             pathCurIndex.Add(0);
-        }            
+        }
+
+        int positionNum = 1;
 
         while (paths.Count > 0) {
             for (int i = 0; i < paths.Count; i++) {
                 LineRenderer curLineRend = lineRends[i];
-                NavElement curNavElement = paths[i][0];
-                NavInfo info = NavManager.instance.getPathInfo(curLineRend.transform, paths[i], curNavElement, 0, waveAnimSpeed);
+                int curIndex = pathCurIndex[i];
+                NavElement curNavElement = paths[i][curIndex];
+                NavInfo info = NavManager.instance.getPathInfo(curLineRend.transform, paths[i], curNavElement, curIndex, waveAnimSpeed);
 
-                //curLineRend.Positions.Add(curLineRend.transform.position);
+                curLineRend.SetPosition(positionNum, curLineRend.transform.position);
 
                 bool traversedCurNavElement = curNavElement.setNextPos(info);
 
@@ -228,16 +238,37 @@ public class WaveManager : MonoBehaviour
 
                     if (pathCurIndex[i] >= paths[i].Count)
                     {
-                        paths.RemoveAt(i);
-                        lineRends.RemoveAt(i);
+                        paths.RemoveAt(i);                        
                         pathCurIndex.RemoveAt(i);
+                        lineRends.RemoveAt(i);
+                        lineRends.Add(curLineRend);
                         i--;
                         continue;
                     }                
                 }
             }
 
-            yield return null;
+            positionNum++;
+
+            yield return new WaitForSeconds(waveAnimCooldown);
         }
+
+        for (int i = lineRends.Count - 1; i >= 0; i--)
+        {
+            LineRenderer lineRend = lineRends[i];
+
+            lineRend.positionCount = positionNum;
+            lineRend.enabled = true;
+        }
+
+        yield return new WaitForSeconds(1);
+
+        for (int i = lineRends.Count - 1; i >= 0; i--)
+        {
+            LineRenderer lineRend = lineRends[i];
+
+            lineRends.RemoveAt(i);
+            Destroy(lineRend.gameObject);
+        }            
     }
 }
