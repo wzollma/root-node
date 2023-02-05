@@ -7,9 +7,6 @@ public class NavManager : MonoBehaviour
 {
     public static NavManager instance;
 
-    [SerializeField] float spawnCooldown;
-    [SerializeField] float angleAmount;
-
     List<NavRing> allNavRings;
     [SerializeField] Enemy enemy;
     float lastTimeSpawned;
@@ -42,14 +39,14 @@ public class NavManager : MonoBehaviour
         //Vector3 mouseInput = Input.mousePosition;
         //Vector3 mousePos = mainCam.ScreenToWorldPoint(new Vector3(mouseInput.x, mouseInput.y, 1));
         //mainCam.GetComponent<PhysicsRaycaster>().Raycast(PointerEventData.
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = mainCam.nearClipPlane;
-        Vector3 Worldpos = mainCam.ScreenToWorldPoint(mousePos);
+        //Vector3 mousePos = Input.mousePosition;
+        //mousePos.z = mainCam.nearClipPlane;
+        //Vector3 Worldpos = mainCam.ScreenToWorldPoint(mousePos);
 
-        RaycastHit hit;
-        Physics.Raycast(mainCam.ScreenPointToRay(mousePos), out hit);
-        //Debug.Log(hit.point);
-        Debug.Log(isPositionValid(hit.point, .5f, angleAmount));
+        //RaycastHit hit;
+        //Physics.Raycast(mainCam.ScreenPointToRay(mousePos), out hit);
+        ////Debug.Log(hit.point);
+        //Debug.Log(isPositionValid(hit.point, .5f, angleAmount));
     }
 
     /// <summary>
