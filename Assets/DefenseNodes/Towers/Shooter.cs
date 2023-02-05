@@ -10,10 +10,6 @@ namespace DefenseNodes.Towers
 
 		private Coroutine _attackCoroutine;
 
-		Vector2 attackSoundFrequencyRange = new Vector2(.6f, 2.5f);
-		float attackCooldown; // random value within above range (provides auditory variation)
-		float lastTimeAttackSound = -100; // arbitrarily low number so sound could play on start
-
 		private void Start()
 		{
 			attackCooldown = UnityEngine.Random.Range(attackSoundFrequencyRange.x, attackSoundFrequencyRange.y);
@@ -24,17 +20,18 @@ namespace DefenseNodes.Towers
 		private IEnumerator Attack()
 		{
 			while (true)
-			{
-				if (Time.time - lastTimeAttackSound > attackCooldown) {
-					AudioManager.PlayNoOverlap(attackSoundName);
-					lastTimeAttackSound = Time.time;
-				}					
-
+			{			
 				if (EnemiesInRange.Count > 0)
 				{
+					if (attackSoundName != null && attackSoundName.Length > 0 && Time.time - lastTimeAttackSound > attackCooldown)
+					{
+						AudioManager.PlayNoOverlap(attackSoundName);
+						lastTimeAttackSound = Time.time;
+					}
+
 					EnemiesInRange[0].takeDamage(0.5f);
 
-					if (hitSoundName.Length > 0)
+					if (hitSoundName != null && hitSoundName.Length > 0)
 						AudioManager.PlayNoOverlap(hitSoundName);
 				}
 

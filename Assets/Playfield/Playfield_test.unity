@@ -947,7 +947,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: plant
     clip: {fileID: 8300000, guid: 11d0e42fdc712f2438228834be15be53, type: 3}
-    volume: 0.9
+    volume: 0.55
     pitch: 1
     source: {fileID: 0}
   themeClips:

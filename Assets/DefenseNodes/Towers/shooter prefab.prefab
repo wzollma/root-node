@@ -69,7 +69,7 @@ MonoBehaviour:
   damagedMesh: {fileID: 2505003766958393919, guid: b29df2e30c6d16749a918de333b8b748,
     type: 3}
   attackSoundName: tree_default_attack
-  hitSoundName: tree_default_hit
+  attackSoundFrequencyRange: {x: 0.2, y: 0.6}
   attackFrequency: 0.2
 --- !u!114 &5251319780499393333
 MonoBehaviour:
