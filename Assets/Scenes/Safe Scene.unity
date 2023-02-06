@@ -320,6 +320,11 @@ MonoBehaviour:
     volume: 0.55
     pitch: 1
     source: {fileID: 0}
+  - name: not_enough_money
+    clip: {fileID: 8300000, guid: cbf3f3df236580244af6adf84fd8de89, type: 3}
+    volume: 0.7
+    pitch: 1
+    source: {fileID: 0}
   themeClips:
   - name: BASE
     clip: {fileID: 8300000, guid: 17a71a59fc4689c4891c0f542583c208, type: 3}
