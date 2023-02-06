@@ -64,13 +64,15 @@ namespace DefenseNodes
 
 		private void OnGUI()
 		{
-			GUI.Box(new Rect(0, 0, 100, Screen.height), "");
-			GUILayout.BeginArea(new Rect (0, 0, 100, Screen.height));
+			Rect r = new Rect(50, 50, 150, Screen.height - 100);
+			GUI.Box(r, "");
+			GUILayout.BeginArea(r);
 			GUILayout.Label("Seeds: " + money);
-			for(int i = 0; i < towerPrefabs.Length; i++)
+			GUILayout.Label("Tree health: " + TreeBase.instance.health);
+			for (int i = 0; i < towerPrefabs.Length; i++)
 			{
 				TowerBase tower = towerPrefabs[i];
-				if (GUILayout.Button(tower.TowerName + "\n" + tower.Cost))
+				if (GUILayout.Button(tower.TowerName + "\nCost: " + tower.Cost + "\nStrength: " + tower.InitialHealth))
 				{
 					SetSelectedTowerIndex(i);
 				}

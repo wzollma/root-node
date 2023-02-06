@@ -228,13 +228,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startSpeed: 3
   startDamage: 0.5
-  startBaseDamage: 0.5
+  startBaseDamage: 1
   difficultyScore: 0.1
-  startHealth: 0.7
+  startHealth: 1
   attackCooldown: 0.75
   timeToRotate: 0
   yRotToFaceForward: 180
   moneyToGive: 1
+  isChainsaw: 0
   isMachine: 0
 --- !u!4 &3741132248226964947 stripped
 Transform:

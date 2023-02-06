@@ -71,8 +71,8 @@ MonoBehaviour:
   meshPivot: {fileID: 3715066896635491648}
   attackSoundName: tree_default_hit
   attackSoundFrequencyRange: {x: 0.2, y: 0.6}
-  attackFrequency: 0.7
-  attackDamage: 0.5
+  attackFrequency: 0.5
+  attackDamage: 0.25
 --- !u!120 &873827734687144750
 LineRenderer:
   m_ObjectHideFlags: 0

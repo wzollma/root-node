@@ -9,7 +9,7 @@ public class TreeBase : MonoBehaviour
 
     [SerializeField] float startHealth;
 
-    float health;
+    public float health { get; private set; }
 
     private void Awake()
     {

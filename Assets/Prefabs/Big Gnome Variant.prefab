@@ -233,12 +233,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startSpeed: 1.8
-  startDamage: 5
+  startDamage: 2.5
   startBaseDamage: 5
   difficultyScore: 0.6
   startHealth: 2.1
   attackCooldown: 0.75
   timeToRotate: 0
   yRotToFaceForward: 180
-  moneyToGive: 5
+  moneyToGive: 10
+  isChainsaw: 0
   isMachine: 0

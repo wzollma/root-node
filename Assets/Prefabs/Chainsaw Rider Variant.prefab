@@ -234,9 +234,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startSpeed: 3.9
   startDamage: 0.5
-  startBaseDamage: 0.5
+  startBaseDamage: 1
   difficultyScore: 0.3
-  startHealth: 0.35000008
+  startHealth: 0.5
   attackCooldown: 0.75
   timeToRotate: 0
   yRotToFaceForward: 180
