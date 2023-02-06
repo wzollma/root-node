@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36f7b8f65fa4a341a0ae45cac8bbda7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 30
+  cost: 15
   towerName: Maple Gooper
   initialHealth: 30
   meshFilter: {fileID: 6718247671802669564}

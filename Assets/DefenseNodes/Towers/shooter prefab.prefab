@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbd60dc133832ee469e535039ab29f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 10
+  cost: 5
   towerName: Thorn Shooter
   initialHealth: 10
   meshFilter: {fileID: 6718247671802669564}

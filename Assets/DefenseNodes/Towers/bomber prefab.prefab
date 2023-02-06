@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68178ad73275dc1488e5cbadf881aa76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 60
+  cost: 10
   towerName: Pine Bomber
   initialHealth: 20
   meshFilter: {fileID: 6718247671802669564}
@@ -72,7 +72,7 @@ MonoBehaviour:
   attackSoundName: tree_bomb_hit
   attackSoundFrequencyRange: {x: 0.6, y: 2.5}
   attackFrequency: 1
-  attackDamage: 1
+  attackDamage: 2
   _particles1: {fileID: 1535458118309962866}
   _particles2: {fileID: 1528779496730380820}
 --- !u!1 &1554403458890730738

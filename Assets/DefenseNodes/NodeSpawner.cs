@@ -72,7 +72,7 @@ namespace DefenseNodes
 			for (int i = 0; i < towerPrefabs.Length; i++)
 			{
 				TowerBase tower = towerPrefabs[i];
-				if (GUILayout.Button(tower.TowerName + "\nCost: " + tower.Cost + "\nStrength: " + tower.InitialHealth))
+				if (GUILayout.Button(tower.TowerName + "\nCost: " + tower.Cost + "\nHealth: " + tower.InitialHealth))
 				{
 					SetSelectedTowerIndex(i);
 				}
