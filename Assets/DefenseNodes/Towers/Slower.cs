@@ -12,12 +12,9 @@ namespace DefenseNodes.Towers
 			base.Update();
 			
 			if (EnemiesInRange.Count > 0)
-			{
 				AudioManager.PlayNoOverlap(attackSoundName);
-				lastTimeAttackSound = Time.time;
-			}
 
-			Debug.Log(EnemiesInRange.Count);
+			//Debug.Log(EnemiesInRange.Count);
 			for (int i = 0; i < EnemiesInRange.Count; i++)
 			{
 				Enemy enemy = EnemiesInRange[i];

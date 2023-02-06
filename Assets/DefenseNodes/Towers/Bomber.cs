@@ -8,8 +8,7 @@ namespace DefenseNodes.Towers
 		public float attackFrequency = 0.1f;
 		public float attackDamage = 0.5f;
 
-		[SerializeField] private ParticleSystem _particles1;
-		[SerializeField] private ParticleSystem _particles2;
+		[SerializeField] private ParticleSystem _particles;
 
 		private Coroutine _attackCoroutine;
 
@@ -24,16 +23,16 @@ namespace DefenseNodes.Towers
 			{			
 				if (EnemiesInRange.Count > 0)
 				{
-					_particles1.enableEmission = true;
-					_particles2.enableEmission = true;
+					// this is necessary so the tower doesn't shoot an extra round of particles
+					_particles.gameObject.SetActive(true);
+
+					// plays parent and all child particles
+					_particles.Play(true);
 
 					if (attackSoundName != null && attackSoundName.Length > 0)
-					{
 						AudioManager.PlayNoOverlap(attackSoundName);
-						lastTimeAttackSound = Time.time;
-					}
 
-					for (int i = EnemiesInRange.Count - 1; i > 0; i--)
+					for (int i = EnemiesInRange.Count - 1; i >= 0; i--)
 					{
 						EnemiesInRange[i].takeDamage(attackDamage);
 
@@ -43,8 +42,11 @@ namespace DefenseNodes.Towers
 						AudioManager.PlayNoOverlap(hitSoundName);
 				} else
                 {
-					_particles1.enableEmission = false;
-					_particles2.enableEmission = false;
+					// this is necessary so the tower doesn't shoot an extra round of particles
+					_particles.gameObject.SetActive(false);
+
+					// stops parent and all child particles from emitting
+					_particles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 				}
 
 				yield return new WaitForSeconds(attackFrequency);

@@ -113,7 +113,7 @@ public class Enemy : MonoBehaviour
 
                 lastAttackTime = Time.time;
 
-                Debug.Log($"enemy ({name}) attacked tree ({nodeToAttack.name})");
+                //Debug.Log($"enemy ({name}) attacked tree ({nodeToAttack.name})");
             }            
         }        
     }

@@ -37,7 +37,10 @@ namespace DefenseNodes
 		{
 			node = null;
 			if (!CheckIfEnoughMoneyForSelected())
+            {
+				AudioManager.instance.Play("not_enough_money");
 				return false;
+			}				
 
 			money -= towerPrefabs[SelectedTowerIndex].Cost;
 			

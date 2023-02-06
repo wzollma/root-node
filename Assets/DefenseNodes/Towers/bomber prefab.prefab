@@ -70,7 +70,6 @@ MonoBehaviour:
     type: 3}
   meshPivot: {fileID: 3715066896635491648}
   attackSoundName: tree_bomb_hit
-  attackSoundFrequencyRange: {x: 0.6, y: 2.5}
   attackFrequency: 1
   attackDamage: 2
   _particles1: {fileID: 1535458118309962866}
@@ -248,7 +247,7 @@ PrefabInstance:
     - target: {fileID: 6060061511593823681, guid: 8407364337f4b5944b6e6c924606cbc3,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].time
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6060061511593823681, guid: 8407364337f4b5944b6e6c924606cbc3,
         type: 3}
@@ -288,7 +287,7 @@ PrefabInstance:
     - target: {fileID: 6080407094883263399, guid: 8407364337f4b5944b6e6c924606cbc3,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].time
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6080407094883263399, guid: 8407364337f4b5944b6e6c924606cbc3,
         type: 3}

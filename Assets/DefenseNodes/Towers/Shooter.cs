@@ -34,10 +34,7 @@ namespace DefenseNodes.Towers
 				if (EnemiesInRange.Count > 0)
 				{
 					if (attackSoundName != null && attackSoundName.Length > 0)
-					{
 						AudioManager.PlayNoOverlap(attackSoundName);
-						lastTimeAttackSound = Time.time;
-					}
 
 					EnemiesInRange[0].takeDamage(attackDamage);
 					

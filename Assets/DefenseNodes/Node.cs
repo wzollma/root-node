@@ -183,8 +183,9 @@ namespace DefenseNodes
 			Vector3 pointerWorld = eventData.pointerCurrentRaycast.worldPosition;
 			pointerWorld.y = 0;
 
-			if (!NodeSpawner.Singleton.CheckIfEnoughMoneyForSelected())
-				return false;
+			// this is checked for later, right before placement
+			//if (!NodeSpawner.Singleton.CheckIfEnoughMoneyForSelected())
+			//	return false;
 			
 			if (Vector3.Distance(transform.position, pointerWorld) > ReachDistance)
 				return false;
