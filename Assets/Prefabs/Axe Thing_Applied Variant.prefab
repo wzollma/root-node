@@ -292,6 +292,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2957348018971853795, guid: 1d394246e63aa0042b9637c4fccee4ad,
         type: 3}
+      propertyPath: lengthInSec
+      value: 0.6925
+      objectReference: {fileID: 0}
+    - target: {fileID: 2957348018971853795, guid: 1d394246e63aa0042b9637c4fccee4ad,
+        type: 3}
       propertyPath: startDelay.scalar
       value: 0.15
       objectReference: {fileID: 0}

@@ -35,7 +35,7 @@ public class WaveManager : MonoBehaviour
 
     void Start()
     {
-        waveNum = 17;//1;
+        waveNum = 1;
         lastTimeEndedWave = TIME_BETWEEN_WAVES / 2;
     }
 
