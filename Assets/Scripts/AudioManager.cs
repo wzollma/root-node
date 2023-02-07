@@ -90,7 +90,10 @@ public class AudioManager : MonoBehaviour
         float diff = WaveManager.instance.getDiff();
         Tracks trackToUse;
         if (WaveManager.instance.getWaveNum() <= 2/*numEnemies < bigThemeEnemyThreshold / 8*/)
+        {
+            int a = 0; // useless line to prevent glitch
             trackToUse = Tracks.BETWEEN;
+        }            
         else if (WaveManager.instance.getNumEnemies() < bigThemeEnemyThreshold/*diff < .5f * (WaveManager.instance.waveDiff())*/)
             trackToUse = Tracks.BASE;
         else

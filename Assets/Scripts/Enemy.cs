@@ -133,7 +133,7 @@ public class Enemy : MonoBehaviour
     void Die(bool fromTree)
     {
         //OnDie(curBaseDamage);
-        if (fromTree)
+        //if (fromTree)
             NodeSpawner.Singleton.addMoney(moneyToGive);
 
         Destroy(gameObject);

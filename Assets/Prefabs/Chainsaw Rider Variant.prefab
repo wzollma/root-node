@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c46226e9b39a34438e60a38f5167437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 3.9
+  startSpeed: 8
   startDamage: 0.5
   startBaseDamage: 1
   difficultyScore: 0.3

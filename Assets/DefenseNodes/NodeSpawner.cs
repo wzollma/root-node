@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using DefenseNodes.Towers;
 using UnityEngine;
 
@@ -8,6 +9,9 @@ namespace DefenseNodes
 	public class NodeSpawner : MonoBehaviour
 	{
 		public int money = 10;
+
+		[Tooltip("The rate at which you passively gain a seed (in seconds).  Disable by setting <= 0")]
+		[SerializeField] float passiveGainSeedCooldown = 2;
 		
 		public int SelectedTowerIndex { get; private set; }
 
@@ -28,7 +32,12 @@ namespace DefenseNodes
 			Singleton = this;
 		}
 
-		public bool CheckIfEnoughMoneyForSelected()
+        private void Start()
+        {
+			StartCoroutine(PassivelyGainMoney());
+        }
+
+        public bool CheckIfEnoughMoneyForSelected()
 		{
 			return towerPrefabs[SelectedTowerIndex].Cost <= money;
 		}
@@ -82,5 +91,17 @@ namespace DefenseNodes
 			}
 			GUILayout.EndArea();
 		}
+
+		IEnumerator PassivelyGainMoney()
+        {
+			// disables if set to <= 0
+			while (passiveGainSeedCooldown > 0)
+            {
+				yield return new WaitForSeconds(passiveGainSeedCooldown);
+
+				money++;
+				passiveGainSeedCooldown += .01f * passiveGainSeedCooldown; // makes you get money slower over time (1 second longer for every 60 seconds of playtime)
+			}			
+        }
 	}
 }

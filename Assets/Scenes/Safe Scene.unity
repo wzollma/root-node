@@ -320,6 +320,11 @@ MonoBehaviour:
     volume: 0.55
     pitch: 1
     source: {fileID: 0}
+  - name: not_enough_money
+    clip: {fileID: 8300000, guid: cbf3f3df236580244af6adf84fd8de89, type: 3}
+    volume: 0.7
+    pitch: 1
+    source: {fileID: 0}
   themeClips:
   - name: BASE
     clip: {fileID: 8300000, guid: 17a71a59fc4689c4891c0f542583c208, type: 3}
@@ -834,7 +839,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d285d4d4a5e1864faef0d00868bc359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 70
+  money: 35
+  passiveGainSeedCooldown: 1
   nodePrefab: {fileID: 1226555515633158782, guid: 1d75be51dbaae944f95ac6232c6bf163,
     type: 3}
   towerPrefabs:
@@ -2951,7 +2957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6536b40e435c4364bad87b06005fb66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenEnemySpawns: 1
+  timeBetweenEnemySpawns: 0.8
   allEnemies:
   - {fileID: 5335863245746275230, guid: 8e087c2354f717d47b56b47e6f0c8ea2, type: 3}
   - {fileID: 2111819751, guid: 6cc12804ce88ce2468e3390f09c9c8ed, type: 3}
@@ -2959,13 +2965,13 @@ MonoBehaviour:
   - {fileID: 192559724, guid: 9a39e4957dd7582478051f5ffce76ce5, type: 3}
   lineRendPrefab: {fileID: 4284867697786076175, guid: cf9ea8fb120d1df4296fa38e3465a9da,
     type: 3}
-  TIME_BETWEEN_WAVES: 1
+  TIME_BETWEEN_WAVES: 6
   TIME_UNTIL_WAVE_ANIM: 0
   waveAnimSpeed: 100
-  timeAnimOnScreen: 5
+  timeAnimOnScreen: 15
   waveAnimCooldown: 0.005
   wavesUntilBossWave: 10
-  difficultyMultiplier: 1.5
+  difficultyMultiplier: 1.35
 --- !u!4 &1761756309
 Transform:
   m_ObjectHideFlags: 0
@@ -3479,7 +3485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57efe047963e558469f2f5b241d7590d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 100
+  startHealth: 50
 --- !u!114 &9032173084173337743
 MonoBehaviour:
   m_ObjectHideFlags: 0

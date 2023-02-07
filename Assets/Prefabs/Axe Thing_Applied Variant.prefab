@@ -43,7 +43,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 22
+  m_Radius: 26
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1206987856388849636
 PrefabInstance:
@@ -275,7 +275,7 @@ MonoBehaviour:
   attackCooldown: 0.75
   timeToRotate: 0
   yRotToFaceForward: 180
-  moneyToGive: 30
+  moneyToGive: 15
   isChainsaw: 0
   isMachine: 1
 --- !u!1001 &3550001066461294383
@@ -287,8 +287,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2957348018971853795, guid: 1d394246e63aa0042b9637c4fccee4ad,
         type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2957348018971853795, guid: 1d394246e63aa0042b9637c4fccee4ad,
+        type: 3}
       propertyPath: startDelay.scalar
       value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2957348018971853795, guid: 1d394246e63aa0042b9637c4fccee4ad,
+        type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2957348018971853795, guid: 1d394246e63aa0042b9637c4fccee4ad,
         type: 3}
@@ -299,6 +309,16 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
       value: 0.68657047
+      objectReference: {fileID: 0}
+    - target: {fileID: 2957348018971853795, guid: 1d394246e63aa0042b9637c4fccee4ad,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].cycleCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2957348018971853795, guid: 1d394246e63aa0042b9637c4fccee4ad,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].repeatInterval
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2957348018971853797, guid: 1d394246e63aa0042b9637c4fccee4ad,
         type: 3}
