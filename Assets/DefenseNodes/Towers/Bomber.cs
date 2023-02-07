@@ -23,9 +23,6 @@ namespace DefenseNodes.Towers
 			{			
 				if (EnemiesInRange.Count > 0)
 				{
-					// this is necessary so the tower doesn't shoot an extra round of particles
-					_particles.gameObject.SetActive(true);
-
 					// plays parent and all child particles
 					_particles.Play(true);
 
@@ -40,14 +37,14 @@ namespace DefenseNodes.Towers
 
 					if (hitSoundName != null && hitSoundName.Length > 0)
 						AudioManager.PlayNoOverlap(hitSoundName);
-				} else
-                {
-					// this is necessary so the tower doesn't shoot an extra round of particles
-					_particles.gameObject.SetActive(false);
 
-					// stops parent and all child particles from emitting
-					_particles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+					// waits a frame so the particle system effectively starts the particle emission
+					// before I disable further emission
+					yield return null;
 				}
+
+				// stops parent and all child particles from emitting
+				_particles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 
 				yield return new WaitForSeconds(attackFrequency);
 			}
