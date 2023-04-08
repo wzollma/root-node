@@ -17,11 +17,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] float timeToRotate;
     [SerializeField] float yRotToFaceForward;
     [SerializeField] int moneyToGive;
+    [SerializeField] AnimationClip attackBaseAnimation;
+    [SerializeField] GameObject attackBaseDieParticles;
     public bool isChainsaw;
     public bool isMachine;
+    [SerializeField] bool isGiantGnome;
 
     List<NavElement> path;
     int curPathIndex;
+    Animator animator;
 
     float curSpeed;
     float curDamage;
@@ -34,6 +38,8 @@ public class Enemy : MonoBehaviour
     Quaternion lastDesiredRot;
     float timeStartRotLerp;
 
+    bool doneMoving;
+
     void Start()
     {
         // sets enemy at beginning of path
@@ -45,10 +51,15 @@ public class Enemy : MonoBehaviour
         curDamage = startDamage;
         curBaseDamage = startBaseDamage;
         health = startHealth;
+
+        animator = GetComponent<Animator>();
     }
     
     void Update()
     {
+        if (doneMoving)
+            return;
+
         Vector3 prevPos = transform.position;
 
         Move();
@@ -95,6 +106,7 @@ public class Enemy : MonoBehaviour
 
             if (curPathIndex >= path.Count)
             {
+                doneMoving = true;
                 AttackBase();
                 return;
             }                
@@ -125,17 +137,12 @@ public class Enemy : MonoBehaviour
 
     void AttackBase()
     {
-        TreeBase.instance.TakeDamage(curBaseDamage);
-
-        Die(false);
+        StartCoroutine(attackTreeAnimation());
     }
 
     void Die(bool fromTree)
     {
-        //OnDie(curBaseDamage);
-        //if (fromTree)
-            NodeSpawner.Singleton.addMoney(moneyToGive);
-
+        NodeSpawner.Singleton.addMoney(moneyToGive);
         Destroy(gameObject);
     }
 
@@ -205,6 +212,28 @@ public class Enemy : MonoBehaviour
 
     bool isRotateOnCooldown() {
         return Time.time - timeStartRotLerp < timeToRotate;
+    }
+
+    IEnumerator attackTreeAnimation()
+    {
+        if (attackBaseAnimation != null && animator != null)
+        {            
+            animator.Play(attackBaseAnimation.name, 0);
+            float dieTime = attackBaseAnimation.length - .05f - (isGiantGnome ? 25f / 60 : 0);
+            float timeUntilHurtTree = dieTime * (isGiantGnome ? .5f : .75f);
+            yield return new WaitForSeconds(timeUntilHurtTree);
+
+            TreeBase.instance.TakeDamage(curBaseDamage);            
+
+            yield return new WaitForSeconds(dieTime - timeUntilHurtTree);
+
+            if (attackBaseDieParticles != null)
+                Instantiate(attackBaseDieParticles, transform.position, Quaternion.identity);
+        }
+        else
+            TreeBase.instance.TakeDamage(curBaseDamage);
+
+        Die(false);
     }
 
     void OnTriggerEnter(Collider other)

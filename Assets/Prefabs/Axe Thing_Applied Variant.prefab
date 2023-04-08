@@ -276,8 +276,11 @@ MonoBehaviour:
   timeToRotate: 0
   yRotToFaceForward: 180
   moneyToGive: 15
+  attackBaseAnimation: {fileID: 0}
+  attackBaseDieParticles: {fileID: 0}
   isChainsaw: 0
   isMachine: 1
+  isGiantGnome: 0
 --- !u!1001 &3550001066461294383
 PrefabInstance:
   m_ObjectHideFlags: 0

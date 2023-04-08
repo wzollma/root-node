@@ -839,8 +839,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d285d4d4a5e1864faef0d00868bc359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 35
-  passiveGainSeedCooldown: 1
+  money: 50
+  passiveGainSeedCooldown: 0.75
   nodePrefab: {fileID: 1226555515633158782, guid: 1d75be51dbaae944f95ac6232c6bf163,
     type: 3}
   towerPrefabs:
@@ -2968,7 +2968,7 @@ MonoBehaviour:
   TIME_BETWEEN_WAVES: 6
   TIME_UNTIL_WAVE_ANIM: 0
   waveAnimSpeed: 100
-  timeAnimOnScreen: 15
+  timeAnimOnScreen: 12
   waveAnimCooldown: 0.005
   wavesUntilBossWave: 10
   difficultyMultiplier: 1.35
