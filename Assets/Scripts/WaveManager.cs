@@ -36,7 +36,7 @@ public class WaveManager : MonoBehaviour
     void Start()
     {
         waveNum = 1;
-        lastTimeEndedWave = -TIME_BETWEEN_WAVES;
+        lastTimeEndedWave = TIME_BETWEEN_WAVES / 2;
     }
 
     void Update()
@@ -181,6 +181,9 @@ public class WaveManager : MonoBehaviour
 
     float calculateNewDifficultyScore(int waveNum)
     {
+        if (waveNum <= 3)
+            return Mathf.Pow(difficultyMultiplier, waveNum - 2) * difficultyMultiplier - .5f;
+
         float extraMultiplier;
         int wavesFromBossWave = (waveNum) % wavesUntilBossWave;
 
@@ -191,7 +194,7 @@ public class WaveManager : MonoBehaviour
         else
             extraMultiplier = 0;
 
-        return (Mathf.Pow(difficultyMultiplier, waveNum - 2) * (difficultyMultiplier + extraMultiplier));        
+        return Mathf.Pow(difficultyMultiplier, waveNum - 2) * (difficultyMultiplier + extraMultiplier);
     }
 
     public bool hasChainsaw()

@@ -46,7 +46,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4
+  m_Radius: 4.6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &720259318378834513
 MonoBehaviour:
@@ -60,9 +60,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68178ad73275dc1488e5cbadf881aa76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 10
+  cost: 40
   towerName: Pine Bomber
-  initialHealth: 20
+  initialHealth: 30
   meshFilter: {fileID: 6718247671802669564}
   healthyMesh: {fileID: -672524771554707766, guid: 6b48dcb5be406394981406436044c409,
     type: 3}
@@ -71,7 +71,7 @@ MonoBehaviour:
   meshPivot: {fileID: 3715066896635491648}
   attackSoundName: tree_bomb_hit
   attackFrequency: 1
-  attackDamage: 2
+  attackDamage: 1
   _particles: {fileID: 1535458118309962866}
 --- !u!1 &1554403458890730738
 GameObject:

@@ -240,6 +240,10 @@ MonoBehaviour:
   attackCooldown: 0.75
   timeToRotate: 0
   yRotToFaceForward: 180
-  moneyToGive: 10
+  moneyToGive: 7
+  attackBaseAnimation: {fileID: 3754247316484749384, guid: 25d8b840f825d364892d6e09cdd7ec2b,
+    type: 3}
+  attackBaseDieParticles: {fileID: 0}
   isChainsaw: 0
   isMachine: 0
+  isGiantGnome: 1

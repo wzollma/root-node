@@ -60,9 +60,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbd60dc133832ee469e535039ab29f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 5
+  cost: 12
   towerName: Thorn Shooter
-  initialHealth: 10
+  initialHealth: 7
   meshFilter: {fileID: 6718247671802669564}
   healthyMesh: {fileID: 7712646750770534020, guid: b29df2e30c6d16749a918de333b8b748,
     type: 3}
@@ -70,7 +70,6 @@ MonoBehaviour:
     type: 3}
   meshPivot: {fileID: 3715066896635491648}
   attackSoundName: tree_default_hit
-  attackSoundFrequencyRange: {x: 0.2, y: 0.6}
   attackFrequency: 0.5
   attackDamage: 0.25
 --- !u!120 &873827734687144750

@@ -61,9 +61,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36f7b8f65fa4a341a0ae45cac8bbda7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 15
+  cost: 25
   towerName: Maple Gooper
-  initialHealth: 30
+  initialHealth: 40
   meshFilter: {fileID: 6718247671802669564}
   healthyMesh: {fileID: 5375746789883880038, guid: fc60011836243bb4aae869ed6d0c0f8e,
     type: 3}
@@ -71,7 +71,6 @@ MonoBehaviour:
     type: 3}
   meshPivot: {fileID: 1599328829457527488}
   attackSoundName: tree_sticky_attack
-  attackSoundFrequencyRange: {x: 0.5, y: 1.25}
 --- !u!114 &5338039733542369744
 MonoBehaviour:
   m_ObjectHideFlags: 0
